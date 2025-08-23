@@ -51,7 +51,9 @@ const ContactPage: React.FC = () => {
             <h3 className="text-2xl font-serif font-bold mb-6 text-navy-800">Get in Touch</h3>
             <p className="text-slate-700 mb-8 leading-relaxed">
               For academic inquiries, speaking engagements, or collaboration opportunities, 
-              please use the contact form or reach out directly using the information below.
+              please use the contact form or reach out directly using the information below. 
+              Prof. Ali is currently preparing for a temporary relocation to Boston and is available 
+              for consultancy and advisory roles.
             </p>
             
             <div className="space-y-6">
@@ -61,7 +63,8 @@ const ContactPage: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-navy-800 mb-1">Email</h4>
-                  <p className="text-slate-600">dr.nazimali@example.edu</p>
+                  <p className="text-slate-600">snail@hbku.edu.qa</p>
+                  <p className="text-slate-600">ifpnazimali@gmail.com</p>
                 </div>
               </div>
               
@@ -70,8 +73,8 @@ const ContactPage: React.FC = () => {
                   <Phone className="text-navy-700" size={20} />
                 </div>
                 <div>
-                  <h4 className="font-medium text-navy-800 mb-1">Office Phone</h4>
-                  <p className="text-slate-600">+974 4444 7777 (Assistant: Sarah Johnson)</p>
+                  <h4 className="font-medium text-navy-800 mb-1">Mobile</h4>
+                  <p className="text-slate-600">+974 3384 3016</p>
                 </div>
               </div>
               

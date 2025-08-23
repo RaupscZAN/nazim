@@ -12,14 +12,14 @@ const HomePage: React.FC = () => {
         <div className="container-narrow grid md:grid-cols-2 gap-10 items-center">
           <div className="order-2 md:order-1">
             <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-white">
-              Dr. Syed Nazim Ali
+              Prof. Syed Nazim Ali
             </h1>
             <p className="text-xl md:text-2xl text-gold-200 font-serif mb-6">
-              Islamic Finance & Information Science Scholar
+              Islamic Finance Scholar & Research Leader
             </p>
             <p className="text-slate-200 mb-8 leading-relaxed text-lg">
-              Professor at Hamad Bin Khalifa University and Harvard University affiliate, 
-              pioneering research in Islamic finance, ethical banking, and information systems.
+              Research Professor and Director of Research Division at the College of Islamic Studies, 
+              Hamad Bin Khalifa University, with over three decades of leadership in Islamic finance education and research.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/biography" className="btn-primary bg-gold-500 hover:bg-gold-600 text-navy-900 flex items-center">
@@ -49,12 +49,14 @@ const HomePage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div>
               <p className="mb-4 text-lg text-slate-700 leading-relaxed">
-                Dr. Syed Nazim Ali is a distinguished scholar in Islamic finance and information science, 
-                with over two decades of experience in academia and advisory roles at prestigious institutions.
+                Prof. Syed Nazim Ali brings over three decades of global leadership in Islamic finance, having spent 
+                twenty years at Harvard University where he directed the Islamic Finance Program and served as Acting 
+                Executive Director of the Islamic Legal Studies Program at Harvard Law School.
               </p>
               <p className="mb-6 text-lg text-slate-700 leading-relaxed">
-                He holds a Ph.D. from the University of Strathclyde and has been at the forefront of developing 
-                ethical financial frameworks that bridge traditional Islamic principles with modern economic systems.
+                He holds a Ph.D. from the University of Strathclyde and has been instrumental in establishing enduring 
+                knowledge platforms including the Harvard University Forum on Islamic Finance (now in its 27th year) and 
+                collaborative workshops with LSE and SOAS University of London.
               </p>
               <Link to="/biography" className="inline-flex items-center text-navy-700 hover:text-navy-900 font-medium">
                 Read Full Biography <ArrowRight size={18} className="ml-2" />
@@ -66,22 +68,22 @@ const HomePage: React.FC = () => {
                 <li className="flex items-start">
                   <div className="bg-navy-700 h-5 w-5 rounded-full flex-shrink-0 mt-1 mr-3"></div>
                   <div>
-                    <span className="font-medium text-navy-900">Professor of Islamic Finance</span>
-                    <p className="text-slate-600">Hamad Bin Khalifa University, Qatar</p>
+                    <span className="font-medium text-navy-900">Research Professor & Director of Research Division</span>
+                    <p className="text-slate-600">College of Islamic Studies, HBKU, Qatar</p>
                   </div>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-navy-700 h-5 w-5 rounded-full flex-shrink-0 mt-1 mr-3"></div>
                   <div>
-                    <span className="font-medium text-navy-900">Research Affiliate</span>
-                    <p className="text-slate-600">Harvard University, USA</p>
+                    <span className="font-medium text-navy-900">Academic Advisor</span>
+                    <p className="text-slate-600">Harvard Muslim Alumni Association</p>
                   </div>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-navy-700 h-5 w-5 rounded-full flex-shrink-0 mt-1 mr-3"></div>
                   <div>
-                    <span className="font-medium text-navy-900">Senior Advisor</span>
-                    <p className="text-slate-600">Islamic Research and Training Institute</p>
+                    <span className="font-medium text-navy-900">Co-Chair, Steering Committee</span>
+                    <p className="text-slate-600">SOAS University of London Annual Islamic Finance Events</p>
                   </div>
                 </li>
               </ul>
@@ -96,25 +98,28 @@ const HomePage: React.FC = () => {
           <SectionHeading title="Featured Publications" />
           <div className="space-y-6">
             <PublicationItem 
-              title="Islamic Finance: Principles and Practice"
+              title="Fourteenth Harvard University Forum on Islamic Finance"
               type="Book"
-              year="2023"
-              publisher="Oxford University Press"
-              description="A comprehensive examination of Islamic financial systems and their application in modern economies."
-            />
-            <PublicationItem 
-              title="Ethical Banking Models: Islamic Perspectives"
-              type="Journal Article"
               year="2022"
-              publisher="Journal of Business Ethics"
-              description="Analysis of ethical frameworks in Islamic banking with comparative case studies from global institutions."
+              publisher="Harvard University"
+              description="Recent forum publication addressing contemporary challenges in Islamic finance."
+              link="/research-books/14th Forum Book/14th Harvard Forum Publication 2022.pdf"
             />
             <PublicationItem 
-              title="Information Systems in Islamic Financial Institutions"
-              type="Book Chapter"
+              title="Fintech and Islamic Finance: Digitalization, Development and Disruption"
+              type="Book"
               year="2021"
-              publisher="Handbook of Islamic Banking"
-              description="Explores the intersection of information science and Islamic finance in developing robust financial systems."
+              publisher="Palgrave Macmillan"
+              description="Comprehensive analysis of fintech innovations in Islamic finance and their transformative impact on the industry."
+              link="/research-books/Book _ Fintech Islamic Finance.pdf"
+            />
+            <PublicationItem 
+              title="Thirteenth Harvard University Forum on Islamic Finance: Principles of Engagement"
+              type="Book"
+              year="2018"
+              publisher="Harvard University"
+              description="Latest developments in Islamic finance principles and their global implementation."
+              link="/research-books/13th Forum/13th Harvard Islamic Forum POE 2018.pdf"
             />
           </div>
           <div className="mt-8 text-center">

@@ -124,8 +124,8 @@ const MediaPage: React.FC = () => {
           
           <div className="space-y-6">
             <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
-              <h4 className="text-xl font-medium text-navy-800 mb-2">Islamic Finance: The Regulatory Challenge</h4>
-              <p className="text-sm text-slate-600 mb-3">Editor • John Wiley & Sons, 2007</p>
+              <h4 className="text-xl font-medium text-navy-800 mb-2">Islamic Finance: Current Legal and Regulatory Issues</h4>
+              <p className="text-sm text-slate-600 mb-3">Editor • Harvard Law School, Islamic Finance Project, 2005</p>
               <p className="text-slate-700 mb-4">
                 This seminal work brings together leading scholars and practitioners to address the complex regulatory frameworks governing Islamic finance. Dr. Ali's editorial leadership resulted in a comprehensive resource that has become essential reading for regulators and policymakers worldwide.
               </p>
@@ -140,18 +140,18 @@ const MediaPage: React.FC = () => {
             </div>
 
             <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
-              <h4 className="text-xl font-medium text-navy-800 mb-2">Building Bridges Across Financial Communities</h4>
-              <p className="text-sm text-slate-600 mb-3">Lead Author • Harvard Law School Publication, 2010</p>
+              <h4 className="text-xl font-medium text-navy-800 mb-2">Building Bridges Across Financial Communities: The Global Financial Crisis, Social Responsibility, and Faith-Based Finance</h4>
+              <p className="text-sm text-slate-600 mb-3">Editor • Harvard Law School, Islamic Finance Project, 2012</p>
               <p className="text-slate-700">
-                A comprehensive analysis of how Islamic finance principles can complement and enhance the global financial system. This work examines successful integration models and proposes frameworks for increased cooperation between conventional and Islamic financial institutions.
+                A comprehensive analysis of how Islamic finance principles can complement and enhance the global financial system. This work examines successful integration models and proposes frameworks for increased cooperation between conventional and Islamic financial institutions, particularly in the context of the global financial crisis.
               </p>
             </div>
 
             <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
               <h4 className="text-xl font-medium text-navy-800 mb-2">Harvard Islamic Finance Information Program (HIFIP) DataBank</h4>
-              <p className="text-sm text-slate-600 mb-3">Founder & Director • 1995-2014</p>
+              <p className="text-sm text-slate-600 mb-3">Founder & Director • 1995-2013</p>
               <p className="text-slate-700">
-                Created and maintained the world's first comprehensive digital repository of Islamic finance resources, including research papers, legal documents, and industry reports. The HIFIP DataBank served thousands of researchers, students, and practitioners globally.
+                Created and maintained one of the world's earliest structured digital repositories in Islamic finance, including research papers, legal documents, and industry reports. The HIFIP DataBank served thousands of researchers, students, and practitioners globally and was a pioneering effort in digital knowledge management for Islamic finance.
               </p>
             </div>
           </div>

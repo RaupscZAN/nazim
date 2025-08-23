@@ -21,22 +21,40 @@ const SpeakingPage: React.FC = () => {
   
   const events: EventProps[] = [
     {
-      title: "International Conference on Islamic Economics",
-      date: "June 15-16, 2025",
+      title: "27th Harvard University Forum on Islamic Finance",
+      date: "April 2025",
       location: "Harvard University, Cambridge, MA",
-      description: "Keynote address on 'The Future of Islamic Finance in a Digital Economy'",
+      description: "Founder and Director of this flagship forum, now in its 27th year, bringing together global leaders in Islamic finance",
       type: "Conferences",
       period: "Upcoming",
       institution: "Harvard University"
     },
     {
-      title: "Global Islamic Finance Forum",
-      date: "September 8, 2025",
-      location: "London School of Economics, UK",
-      description: "Panel discussion on 'Ethical Investment Strategies in Post-Pandemic Markets'",
+      title: "8th International Conference on Islamic Finance (ICIF)",
+      date: "March 2025",
+      location: "Hamad Bin Khalifa University, Doha, Qatar",
+      description: "Founder and Director of HBKU's flagship conference on Islamic finance and economics",
+      type: "Conferences",
+      period: "Upcoming",
+      institution: "HBKU College of Islamic Studies"
+    },
+    {
+      title: "20th SOAS-LSE Annual Islamic Finance Workshop",
+      date: "September 2025",
+      location: "SOAS University of London, UK",
+      description: "Co-Chair of the Steering Committee for this collaborative workshop series, now in its 20th year",
+      type: "Workshops",
+      period: "Upcoming",
+      institution: "SOAS University of London"
+    },
+    {
+      title: "10th CEOs and Islamic Finance Roundtable",
+      date: "October 2025",
+      location: "Doha, Qatar",
+      description: "Founder and Director of this executive-level roundtable bringing together industry leaders",
       type: "Panels",
       period: "Upcoming",
-      institution: "London School of Economics"
+      institution: "HBKU College of Islamic Studies"
     },
     {
       title: "Islamic Banking Workshop",
@@ -137,9 +155,10 @@ const SpeakingPage: React.FC = () => {
         
         <div className="mb-10">
           <p className="text-lg text-slate-700 mb-8 leading-relaxed">
-            Dr. Ali regularly shares his expertise at prestigious academic institutions and 
-            international forums. His talks focus on Islamic finance, ethical banking, and the 
-            integration of modern information systems with traditional Islamic financial principles.
+            Prof. Ali is a globally recognized thought leader who has founded and continues to direct major 
+            international conferences including the Harvard University Forum on Islamic Finance (27+ years), 
+            the HBKU International Conference on Islamic Finance, and collaborative workshops with LSE and SOAS. 
+            He averages around ten conferences, seminars, and workshops per year across the globe.
           </p>
           
           <div className="bg-navy-50 rounded-lg p-6 border border-navy-100">
