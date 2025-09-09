@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react';
 import SectionHeading from '../components/SectionHeading';
 import PublicationItem from '../components/PublicationItem';
 
-type PublicationType = 'All' | 'Research Books' | 'SOAS' | 'Conference' | 'Conference Papers' | 'Publication';
+type PublicationType = 'All' | 'Books' | 'Harvard' | 'SOAS' | 'LSE' | 'Articles';
 
 const ResearchPage: React.FC = () => {
   const [activeType, setActiveType] = useState<PublicationType>('All');
@@ -973,22 +973,30 @@ const ResearchPage: React.FC = () => {
   const filteredPublications = activeType === 'All' 
     ? allPublications 
     : allPublications.filter(pub => {
-        // Handle SOAS filter specially
+        // Books - authored or co-authored books
+        if (activeType === 'Books') {
+          return pub.type === 'Publication' && (pub.id >= 90 && pub.id <= 99 || pub.id === 112 || pub.id === 113 || pub.id === 116);
+        }
+        // Harvard - all Harvard Forum related materials
+        if (activeType === 'Harvard') {
+          return pub.publisher && pub.publisher.includes('Harvard');
+        }
+        // SOAS - SOAS workshop reports
         if (activeType === 'SOAS') {
-          return pub.publisher && (pub.publisher.includes('SOAS') || pub.publisher.includes('LSE'));
+          return pub.publisher && pub.publisher.includes('SOAS');
         }
-        // Handle Research Books filter
-        if (activeType === 'Research Books') {
-          return pub.type === 'Conference';
+        // LSE - LSE specific content
+        if (activeType === 'LSE') {
+          return pub.publisher && (pub.publisher.includes('London School of Economics') || pub.publisher === 'LSE');
         }
-        // Handle Conference filter
-        if (activeType === 'Conference') {
-          return pub.type === 'Conference Papers';
+        // Articles - research papers and journal articles
+        if (activeType === 'Articles') {
+          return (pub.id >= 200 && pub.id <= 210) || (pub.id >= 1 && pub.id <= 10);
         }
-        return pub.type === activeType;
+        return false;
       });
   
-  const publicationTypes: PublicationType[] = ['All', 'Research Books', 'SOAS', 'Conference', 'Publication'];
+  const publicationTypes: PublicationType[] = ['All', 'Books', 'Harvard', 'SOAS', 'LSE', 'Articles'];
   
   return (
     <div className="py-12 bg-white min-h-screen">
@@ -1075,17 +1083,19 @@ const ResearchPage: React.FC = () => {
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 mb-8">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">
               {activeType === 'All' ? 'All Publications' : 
-               activeType === 'Research Books' ? 'Harvard University Forum on Islamic Finance Series' :
-               activeType === 'SOAS' ? 'SOAS-LSE Islamic Finance Workshop Series' :
-               activeType === 'Conference' ? 'Harvard Forum Conference Archives' :
-               'Research Publications'}
+               activeType === 'Books' ? 'Authored and Co-Authored Books' :
+               activeType === 'Harvard' ? 'Harvard University Forum on Islamic Finance Series' :
+               activeType === 'SOAS' ? 'SOAS Islamic Finance Workshop Series' :
+               activeType === 'LSE' ? 'LSE Workshop Series' :
+               'Research Papers and Journal Articles'}
             </h2>
             <p className="text-gray-600 leading-relaxed">
               {activeType === 'All' ? 'Comprehensive collection of research papers, conference proceedings, and publications spanning Islamic finance, ethics, and information systems.' :
-               activeType === 'Research Books' ? 'Dr. Ali has been instrumental in organizing and contributing to the prestigious Harvard University Forums on Islamic Finance. These publications represent over two decades of groundbreaking research and discussions that have shaped the field of Islamic finance globally.' :
-               activeType === 'SOAS' ? 'Key contributions to the SOAS-LSE Islamic Finance Workshop Series, advancing Islamic finance research and education through collaborative efforts with leading institutions.' :
-               activeType === 'Conference' ? 'Complete archive of Harvard Forum conference materials including programs, reports, proceedings, and special presentations from the 1st through 11th Forums (1997-2014).' :
-               'Academic publications, research papers, and scholarly works in Islamic finance and related fields.'}
+               activeType === 'Books' ? 'Dr. Ali has authored and co-authored numerous influential books on Islamic finance, fintech, sustainability, and Shariah governance with leading academic publishers including Edward Elgar, Palgrave Macmillan, Springer-Nature, Edinburgh University Press, and Routledge.' :
+               activeType === 'Harvard' ? 'Dr. Ali has been instrumental in organizing and contributing to the prestigious Harvard University Forums on Islamic Finance. These publications represent over two decades of groundbreaking research and discussions that have shaped the field of Islamic finance globally.' :
+               activeType === 'SOAS' ? 'Key contributions to the SOAS Islamic Finance Workshop Series, advancing Islamic finance research and education through collaborative efforts with SOAS University of London.' :
+               activeType === 'LSE' ? 'Comprehensive workshop reports from the LSE-Harvard collaborative series covering critical topics including Tawarruq, Sukuk, Risk Management, Ethics and Governance, and Insolvency in Islamic Finance.' :
+               'Academic publications, research papers, and scholarly articles in peer-reviewed journals covering Islamic finance, fintech, sustainability, and information systems.'}
             </p>
           </div>
 

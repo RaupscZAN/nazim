@@ -88,9 +88,11 @@ const BiographyPage: React.FC = () => {
             
             <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800 mt-8">Education and Visiting Positions</h3>
             <p className="mb-4 text-slate-700 leading-relaxed">
-              He received his Doctor of Philosophy (Ph.D.) from the University of Strathclyde in the United Kingdom. In addition to his time at 
-              Harvard University, he has held visiting scholar positions at several leading universities, including the University of Wisconsin–Madison, 
-              the University of Pittsburgh, SOAS University of London, and Dauphine University in Paris.
+              He received his Doctor of Philosophy (Ph.D.) in Information Sciences from the University of Strathclyde in Glasgow (1983), 
+              a Master of Library Science (MLS) from Emporia State University in Kansas (1975), and a Bachelor of Science (BSc) in Biology 
+              and Chemistry from Osmania University in Hyderabad, India (1970). In addition to his time at Harvard University, he has held 
+              visiting scholar positions at several leading universities, including the University of Wisconsin–Madison, the University of 
+              Pittsburgh, SOAS University of London, and Dauphine University in Paris.
             </p>
             
             <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800 mt-8">Future Plans</h3>
@@ -104,9 +106,9 @@ const BiographyPage: React.FC = () => {
             <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800 mt-8">Professional Trajectory</h3>
             <div className="space-y-6">
               <div className="border-l-4 border-navy-700 pl-4">
-                <h4 className="text-xl font-medium text-navy-800">Present</h4>
-                <p className="text-lg font-medium text-slate-800">Research Professor & Director of Research Division</p>
-                <p className="text-slate-600">College of Islamic Studies, Hamad Bin Khalifa University, Qatar</p>
+                <h4 className="text-xl font-medium text-navy-800">2017 - Present</h4>
+                <p className="text-lg font-medium text-slate-800">Director of the Research Division</p>
+                <p className="text-slate-600">CIS, HBKU</p>
                 <p className="text-slate-700 mt-2">
                   Leading strategic research initiatives, supervising Master's and Ph.D. theses, chairing the Research and Strategy Committee, 
                   University Library Committee, and College Shura Council. Designed and leads the International Conference on Islamic Finance 
@@ -115,40 +117,41 @@ const BiographyPage: React.FC = () => {
               </div>
               
               <div className="border-l-4 border-navy-700 pl-4">
-                <h4 className="text-xl font-medium text-navy-800">2010 - 2013</h4>
-                <p className="text-lg font-medium text-slate-800">Acting Executive Director, Islamic Legal Studies Program</p>
-                <p className="text-slate-600">Harvard Law School, USA</p>
+                <h4 className="text-xl font-medium text-navy-800">2014 - Present</h4>
+                <p className="text-lg font-medium text-slate-800">Director</p>
+                <p className="text-slate-600">Center for Islamic Economics and Finance (CIEF), CIS, HBKU</p>
                 <p className="text-slate-700 mt-2">
-                  Oversaw the Islamic Legal Studies Program, managing academic initiatives and fostering 
-                  collaboration between scholars, policymakers, and practitioners.
+                  Directing the Center for Islamic Economics and Finance, advancing research and academic programs in Islamic finance, 
+                  fostering collaboration between scholars, industry leaders, and policymakers.
                 </p>
               </div>
               
               <div className="border-l-4 border-navy-700 pl-4">
-                <h4 className="text-xl font-medium text-navy-800">1995 - 2013</h4>
-                <p className="text-lg font-medium text-slate-800">Director, Islamic Finance Program/Project</p>
-                <p className="text-slate-600">Harvard University (Center for Middle Eastern Studies & Harvard Law School)</p>
+                <h4 className="text-xl font-medium text-navy-800">1995 - 2014</h4>
+                <p className="text-lg font-medium text-slate-800">Director of Islamic Finance Program</p>
+                <p className="text-slate-600">Harvard University</p>
                 <p className="text-slate-700 mt-2">
                   Spearheaded the Harvard University Forum on Islamic Finance (now in its 27th year), created the Islamic Finance 
                   Databank, and established collaborative workshops with LSE and SOAS University of London. Engaged with U.S. Treasury, 
-                  Federal Reserve Bank of New York, and various central banks.
+                  Federal Reserve Bank of New York, and various central banks. Also served as Acting Executive Director of the Islamic 
+                  Legal Studies Program at Harvard Law School (2010-2013).
                 </p>
               </div>
               
               <div className="border-l-4 border-navy-700 pl-4">
                 <h4 className="text-xl font-medium text-navy-800">1984 - 1994</h4>
-                <p className="text-lg font-medium text-slate-800">Director of Library and Information Systems</p>
+                <p className="text-lg font-medium text-slate-800">Head of Research and Information Services</p>
                 <p className="text-slate-600">University of Bahrain</p>
                 <p className="text-slate-700 mt-2">
                   Developed and modernized university library systems and information infrastructure, 
-                  establishing foundations for academic information management.
+                  establishing foundations for academic information management and research services.
                 </p>
               </div>
               
               <div className="border-l-4 border-navy-700 pl-4">
                 <h4 className="text-xl font-medium text-navy-800">1976 - 1983</h4>
-                <p className="text-lg font-medium text-slate-800">Library and Information Systems Developer</p>
-                <p className="text-slate-600">King Faisal University, Saudi Arabia</p>
+                <p className="text-lg font-medium text-slate-800">Director of Library</p>
+                <p className="text-slate-600">King Faisal University, Al Hasa, Saudi Arabia</p>
                 <p className="text-slate-700 mt-2">
                   Pioneered the development of university libraries and information systems, 
                   laying groundwork for modern academic information infrastructure.
@@ -163,9 +166,19 @@ const BiographyPage: React.FC = () => {
                 <h3 className="text-xl font-serif font-bold mb-4 text-navy-800">Education</h3>
                 <ul className="space-y-4">
                   <li>
-                    <p className="font-medium text-navy-800">Doctor of Philosophy (Ph.D.)</p>
-                    <p className="text-slate-600">University of Strathclyde, United Kingdom</p>
-                    <p className="text-slate-500 text-sm">Information Science</p>
+                    <p className="font-medium text-navy-800">PhD in Information Sciences</p>
+                    <p className="text-slate-600">University of Strathclyde, Glasgow</p>
+                    <p className="text-slate-500 text-sm">1983</p>
+                  </li>
+                  <li>
+                    <p className="font-medium text-navy-800">MLS in Library Sciences</p>
+                    <p className="text-slate-600">Emporia State University, Kansas</p>
+                    <p className="text-slate-500 text-sm">1975</p>
+                  </li>
+                  <li>
+                    <p className="font-medium text-navy-800">BSc in Biology and Chemistry</p>
+                    <p className="text-slate-600">Osmania University, Hyderabad, India</p>
+                    <p className="text-slate-500 text-sm">1970</p>
                   </li>
                 </ul>
               </div>
@@ -209,21 +222,21 @@ const BiographyPage: React.FC = () => {
             <div className="card">
               <h3 className="text-xl font-serif font-bold mb-4 text-navy-800">Policy Advisory</h3>
               <p className="text-slate-700 mb-4">
-                Dr. Ali has served as a consultant to numerous international organizations and government 
-                bodies, including:
+                Dr. Ali has engaged directly with numerous international organizations and government 
+                bodies. His engagements include:
               </p>
               <ul className="space-y-2 text-slate-700">
                 <li className="flex items-start">
                   <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
-                  <span>United States Department of the Treasury</span>
+                  <span>The United States Department of the Treasury</span>
                 </li>
                 <li className="flex items-start">
                   <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
-                  <span>Federal Reserve Bank of New York</span>
+                  <span>The Federal Reserve Bank of New York</span>
                 </li>
                 <li className="flex items-start">
                   <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
-                  <span>Various Central Banks and Regulatory Authorities</span>
+                  <span>Various central banks and other regulatory authorities</span>
                 </li>
                 <li className="flex items-start">
                   <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
@@ -248,6 +261,10 @@ const BiographyPage: React.FC = () => {
                 </li>
                 <li className="flex items-start">
                   <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
+                  <span>Founder, International Conference on Islamic Finance (ICIF) - now in its 8th year</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
                   <span>Co-Chair, SOAS University of London Annual Islamic Finance Events</span>
                 </li>
                 <li className="flex items-start">
@@ -268,7 +285,11 @@ const BiographyPage: React.FC = () => {
                 </li>
                 <li className="flex items-start">
                   <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
-                  <span>Visiting Scholar: University of Wisconsin–Madison, University of Pittsburgh, SOAS, Dauphine University Paris</span>
+                  <span>Visiting Scholar positions at University of Wisconsin–Madison, University of Pittsburgh, SOAS University of London, and Dauphine University Paris</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
+                  <span>External Examiner for doctoral dissertations and faculty promotions across universities in US, UK, Qatar, Bahrain, Malaysia, and Saudi Arabia</span>
                 </li>
               </ul>
             </div>
