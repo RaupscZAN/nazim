@@ -50,7 +50,7 @@ const ContactPage: React.FC = () => {
           <div>
             <h3 className="text-2xl font-serif font-bold mb-6 text-navy-800">Get in Touch</h3>
             <p className="text-slate-700 mb-8 leading-relaxed">
-              For academic inquiries, speaking engagements, or collaboration opportunities, 
+              For academic inquiries, activity requests, or collaboration opportunities, 
               please use the contact form or reach out directly using the information below. 
               Prof. Ali is currently preparing for a temporary relocation to Boston and is available 
               for consultancy and advisory roles.
@@ -162,7 +162,7 @@ const ContactPage: React.FC = () => {
                 >
                   <option value="">Please select...</option>
                   <option value="Academic Inquiry">Academic Inquiry</option>
-                  <option value="Speaking Request">Speaking Request</option>
+                  <option value="Activity Request">Activity Request</option>
                   <option value="Research Collaboration">Research Collaboration</option>
                   <option value="Media Interview">Media Interview</option>
                   <option value="Other">Other</option>

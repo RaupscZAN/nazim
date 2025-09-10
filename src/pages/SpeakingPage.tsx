@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import SectionHeading from '../components/SectionHeading';
-import { Calendar } from 'lucide-react';
+import { Calendar, BookOpen, Mail } from 'lucide-react';
 
-type EventPeriod = 'Upcoming' | 'Past';
+type EventPeriod = 'Past';
 type EventType = 'All' | 'Conferences' | 'Lectures' | 'Workshops' | 'Panels';
 
 interface EventProps {
@@ -11,69 +11,26 @@ interface EventProps {
   location: string;
   description: string;
   type: EventType;
-  period: EventPeriod;
+  period: 'Past';
   institution?: string;
 }
 
 const SpeakingPage: React.FC = () => {
-  const [activePeriod, setActivePeriod] = useState<EventPeriod>('Upcoming');
+  const activePeriod: EventPeriod = 'Past';
   const [activeType, setActiveType] = useState<EventType>('All');
+  const [email, setEmail] = useState('');
+  const [isSubscribed, setIsSubscribed] = useState(false);
   
+  const handlePreRegistration = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email.trim()) {
+      // In a real app, this would send data to a backend
+      setIsSubscribed(true);
+      setEmail('');
+    }
+  };
+
   const events: EventProps[] = [
-    {
-      title: "27th Harvard University Forum on Islamic Finance",
-      date: "April 2025",
-      location: "Harvard University, Cambridge, MA",
-      description: "Founder and Director of this flagship forum, now in its 27th year, bringing together global leaders in Islamic finance",
-      type: "Conferences",
-      period: "Upcoming",
-      institution: "Harvard University"
-    },
-    {
-      title: "8th International Conference on Islamic Finance (ICIF)",
-      date: "March 2025",
-      location: "Hamad Bin Khalifa University, Doha, Qatar",
-      description: "Founder and Director of HBKU's flagship conference on Islamic finance and economics",
-      type: "Conferences",
-      period: "Upcoming",
-      institution: "HBKU College of Islamic Studies"
-    },
-    {
-      title: "20th SOAS-LSE Annual Islamic Finance Workshop",
-      date: "September 2025",
-      location: "SOAS University of London, UK",
-      description: "Co-Chair of the Steering Committee for this collaborative workshop series, now in its 20th year",
-      type: "Workshops",
-      period: "Upcoming",
-      institution: "SOAS University of London"
-    },
-    {
-      title: "10th CEOs and Islamic Finance Roundtable",
-      date: "October 2025",
-      location: "Doha, Qatar",
-      description: "Founder and Director of this executive-level roundtable bringing together industry leaders",
-      type: "Panels",
-      period: "Upcoming",
-      institution: "HBKU College of Islamic Studies"
-    },
-    {
-      title: "Islamic Banking Workshop",
-      date: "October 12-14, 2025",
-      location: "Islamic Development Bank, Jeddah",
-      description: "Three-day workshop on 'Digital Transformation in Islamic Banking'",
-      type: "Workshops",
-      period: "Upcoming",
-      institution: "Islamic Development Bank"
-    },
-    {
-      title: "Distinguished Lecture Series",
-      date: "November 5, 2025",
-      location: "Georgetown University, Washington DC",
-      description: "Lecture on 'Ethics and Governance in Islamic Financial Institutions'",
-      type: "Lectures",
-      period: "Upcoming",
-      institution: "Georgetown University"
-    },
     {
       title: "World Islamic Banking Conference",
       date: "March 10-12, 2024",
@@ -122,7 +79,6 @@ const SpeakingPage: React.FC = () => {
   ];
   
   const filteredEvents = events
-    .filter(event => event.period === activePeriod)
     .filter(event => activeType === 'All' || event.type === activeType);
   
   const eventTypes: EventType[] = ['All', 'Conferences', 'Lectures', 'Workshops', 'Panels'];
@@ -151,7 +107,7 @@ const SpeakingPage: React.FC = () => {
   return (
     <div className="py-16">
       <div className="container-narrow">
-        <SectionHeading title="Speaking Engagements" />
+        <SectionHeading title="Activities" />
         
         <div className="mb-10">
           <p className="text-lg text-slate-700 mb-8 leading-relaxed">
@@ -164,40 +120,85 @@ const SpeakingPage: React.FC = () => {
           <div className="bg-navy-50 rounded-lg p-6 border border-navy-100">
             <h3 className="text-xl font-serif font-bold mb-4 text-navy-800">Invitation Requests</h3>
             <p className="text-slate-700 mb-4">
-              Dr. Ali is available for select speaking engagements on topics related to Islamic 
+              Dr. Ali is available for select activities and engagements on topics related to Islamic 
               finance, ethical banking, and information systems in financial institutions.
             </p>
             <a 
               href="/contact" 
               className="btn-primary inline-block"
             >
-              Submit Speaking Request
+              Submit Activity Request
             </a>
           </div>
         </div>
         
+        {/* Upcoming Books Section */}
+        <section className="mb-16">
+          <div className="bg-gradient-to-r from-navy-50 to-gold-50 rounded-xl p-8 border border-navy-100">
+            <div className="flex items-center justify-center mb-6">
+              <BookOpen className="text-navy-700 mr-3" size={32} />
+              <h2 className="text-3xl font-serif font-bold text-navy-800">Upcoming Books</h2>
+            </div>
+            
+            <div className="max-w-2xl mx-auto text-center">
+              <h3 className="text-2xl font-medium text-navy-700 mb-4">
+                "A Journey Through Islamic Finance: My Autobiography"
+              </h3>
+              <p className="text-slate-700 mb-6 leading-relaxed">
+                Dr. Syed Nazim Ali is currently writing his autobiography, chronicling his pioneering journey 
+                in Islamic finance, from founding the Harvard Islamic Finance Information Program to establishing 
+                major international conferences and advising governments worldwide. This memoir will offer unique 
+                insights into the development of the global Islamic finance industry over the past three decades.
+              </p>
+              
+              {!isSubscribed ? (
+                <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-200">
+                  <h4 className="text-xl font-medium text-navy-700 mb-4">
+                    Be the first to know when it's available
+                  </h4>
+                  <form onSubmit={handlePreRegistration} className="flex flex-col sm:flex-row gap-3">
+                    <div className="flex-1">
+                      <input
+                        type="email"
+                        placeholder="Enter your email address"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-navy-500 focus:border-transparent"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      className="btn-primary px-6 py-3 whitespace-nowrap"
+                    >
+                      <Mail className="mr-2" size={18} />
+                      Pre-Register
+                    </button>
+                  </form>
+                  <p className="text-sm text-slate-600 mt-3">
+                    You'll receive updates on the book's progress and be notified as soon as it's available.
+                  </p>
+                </div>
+              ) : (
+                <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+                  <div className="text-green-800 text-lg font-medium mb-2">
+                    Thank you for your interest!
+                  </div>
+                  <p className="text-green-700">
+                    We'll keep you updated on the book's progress and notify you when it's available.
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+        
+        {/* Past Events Section */}
+        <section className="mb-8">
+          <h2 className="text-2xl font-serif font-bold mb-6 text-navy-800">Past Activities</h2>
+        
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
-          <div className="flex gap-2">
-            <button
-              onClick={() => setActivePeriod('Upcoming')}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                activePeriod === 'Upcoming'
-                  ? 'bg-navy-700 text-white'
-                  : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
-              }`}
-            >
-              Upcoming
-            </button>
-            <button
-              onClick={() => setActivePeriod('Past')}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                activePeriod === 'Past'
-                  ? 'bg-navy-700 text-white'
-                  : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
-              }`}
-            >
-              Past
-            </button>
+          <div className="hidden">
           </div>
           
           <div className="flex flex-wrap gap-2">
@@ -226,10 +227,11 @@ const SpeakingPage: React.FC = () => {
         ) : (
           <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-8 text-center">
             <p className="text-slate-600">
-              No {activePeriod.toLowerCase()} events found in this category.
+              No past events found in this category.
             </p>
           </div>
         )}
+        </section>
       </div>
     </div>
   );
