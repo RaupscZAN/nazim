@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Syed Nazim Ali Website - Wireframe Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.4;
+        }
+
+        .wireframe-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e5e5e5;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: #64748b;
+        }
+
+        .wireframe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .page-wireframe {
+            border: 2px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 20px;
+            background: #fafafa;
+            position: relative;
+        }
+
+        .page-wireframe h3 {
+            font-size: 18px;
+            color: #1e293b;
+            margin-bottom: 15px;
+            text-align: center;
+            background: white;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #e5e5e5;
+        }
+
+        .wireframe-section {
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            padding: 12px;
+            margin-bottom: 12px;
+            min-height: 40px;
+        }
+
+        .wireframe-section.header-section {
+            background: #1e293b;
+            color: white;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+        }
+
+        .wireframe-section.hero {
+            background: linear-gradient(135deg, #1e293b, #475569);
+            color: white;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .wireframe-section.content {
+            min-height: 60px;
+            border-left: 4px solid #eab308;
+        }
+
+        .wireframe-section.sidebar {
+            background: #f8fafc;
+            border-left: 4px solid #64748b;
+        }
+
+        .wireframe-section.footer {
+            background: #1e293b;
+            color: white;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: bold;
+            color: #374151;
+            margin-bottom: 5px;
+        }
+
+        .content-list {
+            font-size: 11px;
+            color: #6b7280;
+            line-height: 1.3;
+        }
+
+        .nav-indicator {
+            background: #eab308;
+            height: 3px;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .image-placeholder {
+            background: #e5e7eb;
+            border: 2px dashed #9ca3af;
+            border-radius: 4px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #6b7280;
+            margin: 5px 0;
+        }
+
+        .form-placeholder {
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            height: 30px;
+            margin: 3px 0;
+        }
+
+        .navigation-flow {
+            margin-top: 40px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+        }
+
+        .navigation-flow h3 {
+            font-size: 20px;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+
+        .nav-flow-item {
+            display: inline-block;
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 20px;
+            padding: 8px 16px;
+            margin: 5px;
+            font-size: 12px;
+            position: relative;
+        }
+
+        .nav-flow-item:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -15px;
+            color: #6b7280;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-box {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 6px;
+            padding: 15px;
+        }
+
+        .feature-box h4 {
+            font-size: 14px;
+            color: #1e293b;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .feature-box ul {
+            font-size: 11px;
+            color: #6b7280;
+            list-style: none;
+        }
+
+        .feature-box li {
+            padding: 2px 0;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .feature-box li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #eab308;
+        }
+    </style>
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="header">
+            <h1>Dr. Syed Nazim Ali Academic Website</h1>
+            <p>Complete Wireframe Documentation with Actual Content</p>
+        </div>
+
+        <div class="wireframe-grid">
+            <!-- HOME PAGE -->
+            <div class="page-wireframe">
+                <h3>🏠 HOME PAGE (/)</h3>
+
+                <div class="wireframe-section header-section">
+                    <span>Dr. Syed Nazim Ali</span>
+                    <span>☰ MENU</span>
+                </div>
+
+                <div class="wireframe-section hero">
+                    <div style="flex: 1;">
+                        <div class="section-label">HERO SECTION</div>
+                        <div class="content-list">
+                            • Title: "Prof. Syed Nazim Ali"<br>
+                            • Subtitle: "Islamic Finance Scholar & Research Leader"<br>
+                            • Description: Research Professor at HBKU, 3+ decades experience<br>
+                            • CTA: "Learn More" + "Contact" buttons
+                        </div>
+                    </div>
+                    <div class="image-placeholder" style="width: 80px; height: 80px; border-radius: 50%;">
+                        PROFILE IMAGE<br>264x264px
+                    </div>
+                </div>
+
+                <div class="wireframe-section content">
+                    <div class="section-label">ABOUT SECTION</div>
+                    <div class="content-list">
+                        • Biography preview (Harvard + HBKU experience)<br>
+                        • Current positions list<br>
+                        • Research Professor & Director (HBKU)<br>
+                        • Academic Advisor (Harvard Muslim Alumni)<br>
+                        • Co-Chair (SOAS Steering Committee)
+                    </div>
+                </div>
+
+                <div class="wireframe-section content">
+                    <div class="section-label">FEATURED PUBLICATIONS</div>
+                    <div class="content-list">
+                        • 14th Harvard University Forum (2022)<br>
+                        • Fintech and Islamic Finance (2021)<br>
+                        • 13th Harvard Forum (2018)<br>
+                        • "View All Publications" CTA
+                    </div>
+                </div>
+
+                <div class="wireframe-section content">
+                    <div class="section-label">UPCOMING ENGAGEMENTS</div>
+                    <div class="content-list">
+                        • June 2025: International Conference (Harvard)<br>
+                        • Sept 2025: Global Islamic Finance Forum (LSE)<br>
+                        • "View All Engagements" CTA
+                    </div>
+                </div>
+
+                <div class="wireframe-section footer">
+                    FOOTER: Contact Info + Social Links
+                </div>
+            </div>
+
+            <!-- BIOGRAPHY PAGE -->
+            <div class="page-wireframe">
+                <h3>👤 BIOGRAPHY PAGE (/biography)</h3>
+
+                <div class="wireframe-section header-section">
+                    <span>Navigation</span>
+                    <span>Biography Active</span>
+                </div>
+
+                <div class="wireframe-section content">
+                    <div class="section-label">MAIN CONTENT (2/3 WIDTH)</div>
+                    <div class="content-list">
+                        • Academic Biography (detailed career history)<br>
+                        • Harvard Legacy (20-year tenure details)<br>
+                        • Leadership at HBKU (strategic roles)<br>
+                        • Academic Excellence (supervision & mentorship)<br>
+                        • Global Affiliations (international partnerships)<br>
+                        • Professional Trajectory (timeline with dates)
+                    </div>
+                </div>
+
+                <div class="wireframe-section sidebar">
+                    <div class="section-label">SIDEBAR (1/3 WIDTH)</div>
+                    <div class="content-list">
+                        • Education Details:<br>
+                        - PhD: University of Strathclyde (1983)<br>
+                        - MLS: Emporia State University (1975)<br>
+                        - BSc: Osmania University (1970)<br><br>
+                        • Areas of Expertise (6 specializations)<br>
+                        • Sticky positioning on scroll
+                    </div>
+                </div>
+
+                <div class="wireframe-section content">
+                    <div class="section-label">INTERNATIONAL IMPACT</div>
+                    <div class="content-list">
+                        • Policy Advisory (US Treasury, Federal Reserve)<br>
+                        • Academic Leadership (Harvard Forum, ICIF)<br>
+                        • 2-column grid layout
+                    </div>
+                </div>
+
+                <div class="wireframe-section footer">
+                    FOOTER
+                </div>
+            </div>
+
+            <!-- RESEARCH PAGE -->
+            <div class="page-wireframe">
+                <h3>📚 RESEARCH PAGE (/research)</h3>
+
+                <div class="wireframe-section header-section">
+                    <span>Navigation</span>
+                    <span>Research Active</span>
+                </div>
+
+                <div class="wireframe-section content">
+                    <div class="section-label">RESEARCH FOCUS</div>
+                    <div class="content-list">
+                        • Primary Research Areas (4 points)<br>
+                        • Current Projects (4 points)<br>
+                        • 2-column grid layout
+                    </div>
+                </div>
+
+                <div class="wireframe-section content">
+                    <div class="section-label">FILTER SYSTEM</div>
+                    <div class="content-list">
+                        • 6 category tabs: All | Books | Harvard | SOAS | LSE | Articles<br>
+                        • Active state highlighting<br>
+                        • Dynamic content filtering
+                    </div>
+                    <div class="nav-indicator"></div>
+                </div>
+
+                <div class="wireframe-section content" style="min-height: 100px;">
+                    <div class="section-label">PUBLICATIONS DISPLAY (600px height, scrollable)</div>
+                    <div class="content-list">
+                        • Books: 10 authored/co-authored (Edward Elgar, Palgrave)<br>
+                        • Harvard: 14 forum publications (1997-2022)<br>
+                        • SOAS: Workshop reports and proceedings<br>
+                        • LSE: Specialized workshop series<br>
+                        • Articles: Research papers and journal articles<br>
+                        • PDF download links + hover effects
+                    </div>
+                </div>
+
+                <div class="wireframe-section footer">
+                    FOOTER
+                </div>
+            </div>
+
+            <!-- ACTIVITIES PAGE -->
+            <div class="page-wireframe">
+                <h3>🎤 ACTIVITIES PAGE (/speaking)</h3>
+
+                <div class="wireframe-section header-section">
+                    <span>Navigation</span>
+                    <span>Activities Active</span>
+                </div>
+
+                <div class="wireframe-section content">
+                    <div class="section-label">INTRODUCTION</div>
+                    <div class="content-list">
+                        • Background on leadership (Harvard Forum 27+ years)<br>
+                        • Invitation request box + CTA
+                    </div>
+                </div>
+
+                <div class="wireframe-section content">
+                    <div class="section-label">UPCOMING BOOKS</div>
+                    <div class="content-list">
+                        • Featured: "A Journey Through Islamic Finance: My Autobiography"<br>
+                        • Email pre-registration form<br>
+                        • Success state handling
+                    </div>
+                    <div class="form-placeholder"></div>
+                    <div class="form-placeholder"></div>
+                </div>
+
+                <div class="wireframe-section content">
+                    <div class="section-label">PAST ACTIVITIES</div>
+                    <div class="content-list">
+                        • Filter: All | Conferences | Lectures | Workshops | Panels<br>
+                        • Event cards with dates, locations, descriptions<br>
+                        • World Islamic Banking Conference (Bahrain, 2024)<br>
+                        • Harvard Business School Seminar (2024)<br>
+                        • Oxford Islamic Finance Program (2023)
+                    </div>
+                </div>
+
+                <div class="wireframe-section footer">
+                    FOOTER
+                </div>
+            </div>
+
+            <!-- MEDIA PAGE -->
+            <div class="page-wireframe">
+                <h3>🎬 MEDIA PAGE (/media)</h3>
+
+                <div class="wireframe-section header-section">
+                    <span>Navigation</span>
+                    <span>Media Active</span>
+                </div>
+
+                <div class="wireframe-section content">
+                    <div class="section-label">SEARCH BAR</div>
+                    <div class="form-placeholder" style="height: 40px;"></div>
+                </div>
+
+                <div class="wireframe-section content">
+                    <div class="section-label">AWARDS & HONORS (4-card grid)</div>
+                    <div class="content-list">
+                        • 2022: Harvard Muslim Alumni Foundation Award<br>
+                        • 2019: Islamic Finance Leadership Award<br>
+                        • 2017: Royal Award for Islamic Finance<br>
+                        • 2014: Euromoney Outstanding Contribution
+                    </div>
+                </div>
+
+                <div class="wireframe-section content">
+                    <div class="section-label">VIDEO PRESENTATIONS</div>
+                    <div class="content-list">
+                        • 4 embedded YouTube videos<br>
+                        • Lariba, Pasadena | Nur Sultan (2) | Singapore<br>
+                        • Responsive video containers
+                    </div>
+                    <div class="image-placeholder">VIDEO 1</div>
+                    <div class="image-placeholder">VIDEO 2</div>
+                </div>
+
+                <div class="wireframe-section content">
+                    <div class="section-label">EVENT GALLERIES</div>
+                    <div class="content-list">
+                        • Harvard University Events<br>
+                        • Government Relations & Policy Work<br>
+                        • International Engagements<br>
+                        • Academic Forums & Conferences
+                    </div>
+                </div>
+
+                <div class="wireframe-section footer">
+                    FOOTER
+                </div>
+            </div>
+
+            <!-- CONTACT PAGE -->
+            <div class="page-wireframe">
+                <h3>📧 CONTACT PAGE (/contact)</h3>
+
+                <div class="wireframe-section header-section">
+                    <span>Navigation</span>
+                    <span>Contact Active</span>
+                </div>
+
+                <div class="wireframe-section content">
+                    <div class="section-label">CONTACT INFO (Left Column)</div>
+                    <div class="content-list">
+                        • Email: snail@hbku.edu.qa, ifpnazimali@gmail.com<br>
+                        • Mobile: +974 3384 3016<br>
+                        • Office: HBKU, Education City, Doha, Qatar<br>
+                        • Office Hours: Mon 2-4PM, Wed 10AM-12PM
+                    </div>
+                </div>
+
+                <div class="wireframe-section content">
+                    <div class="section-label">CONTACT FORM (Right Column)</div>
+                    <div class="content-list">
+                        • Name* and Email* (required)<br>
+                        • Organization (optional)<br>
+                        • Subject* dropdown (5 options)<br>
+                        • Message* textarea<br>
+                        • Form states: idle, submitting, success, error
+                    </div>
+                    <div class="form-placeholder"></div>
+                    <div class="form-placeholder"></div>
+                    <div class="form-placeholder"></div>
+                    <div class="form-placeholder"></div>
+                    <div class="form-placeholder" style="height: 60px;"></div>
+                </div>
+
+                <div class="wireframe-section footer">
+                    FOOTER
+                </div>
+            </div>
+        </div>
+
+        <!-- NAVIGATION FLOW -->
+        <div class="navigation-flow">
+            <h3>🧭 Navigation Structure & User Flow</h3>
+            <div style="margin-bottom: 20px;">
+                <div class="nav-flow-item">Home</div>
+                <div class="nav-flow-item">Biography</div>
+                <div class="nav-flow-item">Research</div>
+                <div class="nav-flow-item">Activities</div>
+                <div class="nav-flow-item">Media</div>
+                <div class="nav-flow-item">Contact</div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-box">
+                    <h4>🔧 Technical Features</h4>
+                    <ul>
+                        <li>React + TypeScript + Vite</li>
+                        <li>React Router (6 routes)</li>
+                        <li>Tailwind CSS + Custom Styles</li>
+                        <li>Framer Motion Animations</li>
+                        <li>Responsive Design (Mobile-first)</li>
+                        <li>Lucide React Icons</li>
+                    </ul>
+                </div>
+
+                <div class="feature-box">
+                    <h4>🎨 UI Components</h4>
+                    <ul>
+                        <li>Fixed Header with Scroll Effects</li>
+                        <li>Mobile Hamburger Menu</li>
+                        <li>Publication Filter System</li>
+                        <li>Video Embedding (YouTube)</li>
+                        <li>Contact Form with Validation</li>
+                        <li>Image Galleries & Slideshows</li>
+                    </ul>
+                </div>
+
+                <div class="feature-box">
+                    <h4>📊 Content Structure</h4>
+                    <ul>
+                        <li>100+ Publications (categorized)</li>
+                        <li>Harvard Forum Series (27+ years)</li>
+                        <li>SOAS/LSE Workshop Reports</li>
+                        <li>Awards & Recognition Section</li>
+                        <li>Video Presentations (4 embedded)</li>
+                        <li>Speaking Engagements History</li>
+                    </ul>
+                </div>
+
+                <div class="feature-box">
+                    <h4>🎯 Key Interactions</h4>
+                    <ul>
+                        <li>Search & Filter Publications</li>
+                        <li>Download PDF Resources</li>
+                        <li>Email Pre-registration Form</li>
+                        <li>Contact Form Submission</li>
+                        <li>Responsive Video Playback</li>
+                        <li>Smooth Page Transitions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLOR SCHEME -->
+        <div style="margin-top: 30px; padding: 20px; background: white; border-radius: 8px; border: 1px solid #e5e5e5;">
+            <h3 style="margin-bottom: 15px; color: #1e293b;">🎨 Design System</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                <div>
+                    <h4 style="font-size: 14px; margin-bottom: 8px;">Color Palette</h4>
+                    <div style="display: flex; gap: 10px; margin-bottom: 5px;">
+                        <div style="width: 30px; height: 30px; background: #1e293b; border-radius: 4px;"></div>
+                        <span style="font-size: 12px;">Navy (Primary)</span>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-bottom: 5px;">
+                        <div style="width: 30px; height: 30px; background: #eab308; border-radius: 4px;"></div>
+                        <span style="font-size: 12px;">Gold (Accent)</span>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <div style="width: 30px; height: 30px; background: #64748b; border-radius: 4px;"></div>
+                        <span style="font-size: 12px;">Slate (Text)</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="font-size: 14px; margin-bottom: 8px;">Typography</h4>
+                    <div style="font-size: 12px; color: #6b7280;">
+                        • Headings: Playfair Display (serif)<br>
+                        • Body: Source Sans 3 (sans-serif)<br>
+                        • Weights: 300, 400, 500, 700
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
