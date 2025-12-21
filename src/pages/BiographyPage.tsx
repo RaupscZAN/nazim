@@ -5,161 +5,244 @@ const BiographyPage: React.FC = () => {
   return (
     <div className="py-16">
       <div className="container-narrow">
-        <SectionHeading title="Academic Biography" />
+        <SectionHeading title="Academic Biography and Professional Contributions of Prof. Syed Nazim Ali" />
         
         <div className="grid md:grid-cols-3 gap-10">
           <div className="md:col-span-2 order-2 md:order-1">
             <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800">Biography</h3>
             <p className="mb-4 text-slate-700 leading-relaxed">
-              Prof Syed Nazim Ali is a Research Professor and Director of the Research Division at the College of Islamic Studies (CIS), 
-              Hamad Bin Khalifa University (HBKU), Qatar Foundation. Prior to his tenure at HBKU, he spent twenty years at Harvard University 
-              in various academic and administrative capacities. From 2010 to 2013, he served as the Acting Executive Director of the Islamic 
-              Legal Studies Program at Harvard Law School, and from 1995 to 2013, he was the Director of the Islamic Finance Program/Project, 
-              affiliated with the Center for Middle Eastern Studies and Harvard Law School. Earlier in his career, he spent over fifteen years 
-              developing university libraries and information systems at King Faisal University in Saudi Arabia (1976–1983) and at the University 
+              Dr Syed Nazim Ali is a Research Professor and Director of the Research Division at the College of Islamic Studies (CIS),
+              Hamad Bin Khalifa University (HBKU), Qatar Foundation. Prior to joining HBKU, he spent twenty years at Harvard University
+              in various academic and administrative roles. From 2010 to 2013, he served as Acting Executive Director of the Islamic
+              Legal Studies Program at Harvard Law School, and from 1995 to 2013, he directed the Harvard Islamic Finance Program/Project,
+              affiliated with the Center for Middle Eastern Studies and Harvard Law School. Earlier in his career, he spent over fifteen years
+              developing university libraries and information systems at King Faisal University in Saudi Arabia (1976–1983) and the University
               of Bahrain (1984–1994).
             </p>
-            
+
             <p className="mb-4 text-slate-700 leading-relaxed">
-              For more than three decades, Dr. Ali has led impactful and interdisciplinary initiatives in Islamic finance, strategic research 
-              development, and global scholarly engagement, consistently bringing together academia, policymakers, and industry leaders from 
-              across the world.
+              For more than three decades, Dr. Ali has led impactful and interdisciplinary initiatives in Islamic finance, research development,
+              and global scholarly engagement—bringing together academia, policymakers, regulators, and industry leaders from around the world.
             </p>
             
             <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800 mt-8">Harvard Legacy</h3>
             <p className="mb-4 text-slate-700 leading-relaxed">
-              During his twenty-year tenure at Harvard University, Dr. Ali spearheaded several groundbreaking initiatives that continue to 
-              shape the field of Islamic finance. These include the Harvard University Forum on Islamic Finance, now in its twenty-seventh 
-              year under his leadership; the Islamic Finance Databank, one of the earliest structured digital repositories in the field; and 
-              long-standing collaborative workshops with the London School of Economics (LSE) and SOAS University of London, which continue 
-              under his direction from HBKU and have now completed their twentieth year. In both academic and advisory capacities, Dr. Ali 
-              engaged directly with global institutions such as the United States Department of the Treasury, the Federal Reserve Bank of 
-              New York, various central banks, and other regulatory authorities. These engagements, especially in the aftermath of September 11, 
-              were instrumental in advancing policy-level understanding of Islamic finance.
+              During his two decades at Harvard, Dr. Ali launched several initiatives that continue to shape the global discourse on Islamic finance. These include:
+            </p>
+            <ul className="space-y-2 mb-4 text-slate-700 ml-6">
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>Harvard University Forum on Islamic Finance, now in its twenty-seventh year.</span>
+              </li>
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>Islamic Finance Databank, one of the earliest structured digital repositories in the discipline.</span>
+              </li>
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>Collaborative workshops with LSE and SOAS, which have completed their twentieth year and continue under his leadership.</span>
+              </li>
+            </ul>
+            <p className="mb-4 text-slate-700 leading-relaxed">
+              Dr. Ali also engaged with key institutions such as the United States Department of the Treasury, the Federal Reserve Bank of
+              New York, and several central banks. His contributions—especially in the post-9/11 environment—played a crucial role in enhancing
+              policy-level understanding of Islamic finance within major regulatory bodies.
             </p>
             
             <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800 mt-8">Leadership at HBKU</h3>
             <p className="mb-4 text-slate-700 leading-relaxed">
-              After returning to the Arabian Gulf region, Dr. Ali has assumed strategic leadership roles within Hamad Bin Khalifa University. 
-              He has chaired and actively contributed to key institutional bodies, including the Research and Strategy Committee, the University 
-              Library Committee, and the College Shura Council. These roles have deepened his insights into academic policy formulation, 
-              research strategy, and institutional governance, positioning him exceptionally well for university-level advisory and consultancy roles.
+              Upon returning to the Arabian Gulf, Dr. Ali took on strategic leadership roles at HBKU. He has chaired and contributed to major
+              institutional committees, including:
             </p>
-            
+            <ul className="space-y-2 mb-4 text-slate-700 ml-6">
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>Research and Strategy Committee</span>
+              </li>
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>University Library Committee</span>
+              </li>
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>College Shura Council</span>
+              </li>
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>Provided interim academic leadership as Acting Dean of the College of Islamic Studies during the Dean's official leave periods (2017–2022).</span>
+              </li>
+            </ul>
             <p className="mb-4 text-slate-700 leading-relaxed">
-              Dr. Ali has played a central role in advancing scholarly visibility and research impact at HBKU. He has designed and led numerous 
-              academic initiatives, including the flagship International Conference on Islamic Finance (ICIF) and the CEOs and Islamic Finance 
-              Roundtable, which are now in their eighth and tenth years respectively. These platforms have significantly strengthened HBKU's 
-              international academic relationships, expanded collaborative networks, and positioned the College of Islamic Studies as a recognized 
-              intellectual center for Islamic economics and finance in the Muslim world.
+              These experiences have strengthened his expertise in academic governance, research strategy, and institutional advisories.
+            </p>
+
+            <p className="mb-4 text-slate-700 leading-relaxed">
+              Dr. Ali also established and leads several of HBKU's flagship initiatives, including:
+            </p>
+            <ul className="space-y-2 mb-4 text-slate-700 ml-6">
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>International Conference on Islamic Finance (ICIF) – now in its eighth year</span>
+              </li>
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>CEOs and Islamic Finance Roundtable – now in its tenth year</span>
+              </li>
+            </ul>
+            <p className="mb-4 text-slate-700 leading-relaxed">
+              These platforms have expanded HBKU's international reputation and positioned the College of Islamic Studies as a prominent hub
+              for Islamic economics and finance.
             </p>
             
             <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800 mt-8">Academic Excellence</h3>
             <p className="mb-4 text-slate-700 leading-relaxed">
-              In his academic capacity at HBKU, Dr. Ali supervises Master's and Ph.D. theses, and serves as an external examiner for doctoral 
-              dissertations and faculty promotion reviewer across universities in the United States, the United Kingdom, Qatar, Bahrain, Malaysia, 
-              and Saudi Arabia. His vision and mentorship have been pivotal in guiding and developing the careers of emerging academics and 
-              policy professionals in the field.
+              Dr. Ali supervises Master's and Ph.D. theses, and serves as an external examiner for doctoral dissertations and faculty
+              promotions at universities across the United States, the United Kingdom, Qatar, Bahrain, Malaysia, and Saudi Arabia.
+              His mentorship has supported the academic and professional growth of many emerging scholars and practitioners.
             </p>
-            
+
             <p className="mb-4 text-slate-700 leading-relaxed">
-              As a globally recognized thought leader, Dr. Ali has published extensively in Scopus-indexed journals and with renowned international 
-              academic publishers. His scholarly output includes edited volumes and research monographs with Edinburgh University Press, Edward Elgar, 
-              Palgrave Macmillan, Springer-Nature, and Taylor & Francis. His research focuses on areas such as Islamic economics and finance, 
-              financial technology (Fintech), sustainability, social and impact finance, and Islamic information systems.
+              As a globally recognized thought leader, he has published extensively in Scopus-indexed journals and with leading international
+              publishers, including:
+            </p>
+            <ul className="space-y-2 mb-4 text-slate-700 ml-6">
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>Edinburgh University Press</span>
+              </li>
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>Edward Elgar</span>
+              </li>
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>Palgrave Macmillan</span>
+              </li>
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>Springer-Nature</span>
+              </li>
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>Taylor & Francis</span>
+              </li>
+            </ul>
+            <p className="mb-4 text-slate-700 leading-relaxed">
+              His research spans Islamic economics and finance, financial technology (FinTech), sustainability, social and impact finance,
+              and Islamic information systems.
             </p>
             
             <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800 mt-8">Global Affiliations</h3>
             <p className="mb-4 text-slate-700 leading-relaxed">
-              Dr. Ali is a founding affiliate of the Centre for Islamic Finance at the University of Bolton in the United Kingdom. He also serves 
-              as an Academic Advisor to the Harvard Muslim Alumni Association, contributing to the biennial Harvard Islamic Finance Conference. 
-              Additionally, he co-chairs the Steering Committee for the SOAS University of London Annual Islamic Finance Events, which include 
-              a public lecture and an academic workshop. He currently holds memberships on the Saleh Kamel Islamic Economic Award Committee in 
-              Jeddah, and the Accounting and Auditing Organization for Islamic Financial Institutions (AAOIFI) in Manama, Bahrain.
+              Dr. Ali maintains active roles across global academic and professional networks. He is:
             </p>
+            <ul className="space-y-2 mb-4 text-slate-700 ml-6">
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>A founding affiliate of the Centre for Islamic Finance, University of Bolton (UK)</span>
+              </li>
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>An Academic Advisor to the Harvard Muslim Alumni Association, contributing to the biennial Harvard Islamic Finance Conference</span>
+              </li>
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>Co-Chair of the SOAS Annual Islamic Finance Events Steering Committee</span>
+              </li>
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>A member of the Saleh Kamel Islamic Economic Award Committee (Jeddah)</span>
+              </li>
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>A member of AAOIFI Education Board (Manama, Bahrain)</span>
+              </li>
+            </ul>
             
             <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800 mt-8">Mentorship and Philosophy</h3>
             <p className="mb-4 text-slate-700 leading-relaxed">
-              Dr. Ali is widely respected not only for his leadership and academic contributions, but also for his role as a mentor and facilitator. 
-              His commitment to guiding younger generations and building bridges across institutional and cultural boundaries has had a lasting impact. 
-              He adheres to a personal philosophy of building through complementarity rather than competition, which has underpinned his efforts to 
-              develop enduring knowledge platforms and collaborative frameworks.
+              Dr. Ali is widely respected for his leadership, humility, and dedication to mentoring younger scholars. His cross-cultural and
+              cross-institutional approach emphasizes complementarity rather than competition, a philosophy that has guided his efforts to build
+              long-lasting academic platforms and collaborative networks.
             </p>
             
             <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800 mt-8">Education and Visiting Positions</h3>
             <p className="mb-4 text-slate-700 leading-relaxed">
-              He received his Doctor of Philosophy (Ph.D.) in Information Sciences from the University of Strathclyde in Glasgow (1983), 
-              a Master of Library Science (MLS) from Emporia State University in Kansas (1975), and a Bachelor of Science (BSc) in Biology 
-              and Chemistry from Osmania University in Hyderabad, India (1970). In addition to his time at Harvard University, he has held 
-              visiting scholar positions at several leading universities, including the University of Wisconsin–Madison, the University of 
-              Pittsburgh, SOAS University of London, and Dauphine University in Paris.
+              Ph.D., Information Sciences – University of Strathclyde, Glasgow (1983)
+              <br />
+              MLS, Library Science – Emporia State University, Kansas (1975)
+              <br />
+              BSc, Biology and Chemistry – Osmania University, Hyderabad (1970)
             </p>
-            
-            <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800 mt-8">Future Plans</h3>
+
             <p className="mb-6 text-slate-700 leading-relaxed">
-              Dr. Ali is currently concluding his tenure at Hamad Bin Khalifa University and preparing for a temporary relocation to his home in Boston. 
-              While he will continue his service as a consultant, academic leader, and advisor from there, his longer-term transition may be to Al Madinah. 
-              In line with the spirit of this curriculum vitae, Dr. Ali expresses his interest and availability to join the Islamic University of Madinah 
-              as an advisor or consultant, contributing to its academic vision and institutional development.
+              Visiting scholar appointments at:
             </p>
+            <ul className="space-y-2 mb-6 text-slate-700 ml-6">
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>University of Wisconsin–Madison</span>
+              </li>
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>University of Pittsburgh</span>
+              </li>
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>SOAS University of London</span>
+              </li>
+              <li className="flex items-start">
+                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                <span>Dauphine University, Paris</span>
+              </li>
+            </ul>
             
             <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800 mt-8">Professional Trajectory</h3>
             <div className="space-y-6">
               <div className="border-l-4 border-navy-700 pl-4">
-                <h4 className="text-xl font-medium text-navy-800">2017 - Present</h4>
-                <p className="text-lg font-medium text-slate-800">Director of the Research Division</p>
-                <p className="text-slate-600">CIS, HBKU</p>
+                <h4 className="text-xl font-medium text-navy-800">2017 – 2025</h4>
+                <p className="text-lg font-medium text-slate-800">Director, Research Division, CIS, HBKU</p>
                 <p className="text-slate-700 mt-2">
-                  Leading strategic research initiatives, supervising Master's and Ph.D. theses, chairing the Research and Strategy Committee, 
-                  University Library Committee, and College Shura Council. Designed and leads the International Conference on Islamic Finance 
-                  (ICIF) and the CEOs and Islamic Finance Roundtable.
+                  Leads strategic research initiatives; supervises Master's and Ph.D. students; chairs university-wide committees;
+                  and directs ICIF and the CEOs Roundtable.
+                </p>
+              </div>
+
+              <div className="border-l-4 border-navy-700 pl-4">
+                <h4 className="text-xl font-medium text-navy-800">2014 – 2025</h4>
+                <p className="text-lg font-medium text-slate-800">Director, Center for Islamic Economics and Finance (CIEF), CIS, HBKU</p>
+                <p className="text-slate-700 mt-2">
+                  Strengthens academic programs in Islamic finance and fosters international collaborations.
+                </p>
+              </div>
+
+              <div className="border-l-4 border-navy-700 pl-4">
+                <h4 className="text-xl font-medium text-navy-800">1995 – 2014</h4>
+                <p className="text-lg font-medium text-slate-800">Director, Islamic Finance Program, Harvard University</p>
+                <p className="text-slate-700 mt-2">
+                  Established foundational initiatives including the Harvard Forum, Islamic Finance Databank, and cross-institutional
+                  workshops. Engaged with major regulatory institutions in the U.S. and abroad.
                 </p>
               </div>
               
               <div className="border-l-4 border-navy-700 pl-4">
-                <h4 className="text-xl font-medium text-navy-800">2014 - Present</h4>
-                <p className="text-lg font-medium text-slate-800">Director</p>
-                <p className="text-slate-600">Center for Islamic Economics and Finance (CIEF), CIS, HBKU</p>
+                <h4 className="text-xl font-medium text-navy-800">1984 – 1994</h4>
+                <p className="text-lg font-medium text-slate-800">Head of Research and Information Services, University of Bahrain</p>
                 <p className="text-slate-700 mt-2">
-                  Directing the Center for Islamic Economics and Finance, advancing research and academic programs in Islamic finance, 
-                  fostering collaboration between scholars, industry leaders, and policymakers.
+                  Modernized academic information systems and research infrastructure.
                 </p>
               </div>
-              
+
               <div className="border-l-4 border-navy-700 pl-4">
-                <h4 className="text-xl font-medium text-navy-800">1995 - 2014</h4>
-                <p className="text-lg font-medium text-slate-800">Director of Islamic Finance Program</p>
-                <p className="text-slate-600">Harvard University</p>
+                <h4 className="text-xl font-medium text-navy-800">1976 – 1983</h4>
+                <p className="text-lg font-medium text-slate-800">Director of Library, King Faisal University, Saudi Arabia</p>
                 <p className="text-slate-700 mt-2">
-                  Spearheaded the Harvard University Forum on Islamic Finance (now in its 27th year), created the Islamic Finance 
-                  Databank, and established collaborative workshops with LSE and SOAS University of London. Engaged with U.S. Treasury, 
-                  Federal Reserve Bank of New York, and various central banks. Also served as Acting Executive Director of the Islamic 
-                  Legal Studies Program at Harvard Law School (2010-2013).
-                </p>
-              </div>
-              
-              <div className="border-l-4 border-navy-700 pl-4">
-                <h4 className="text-xl font-medium text-navy-800">1984 - 1994</h4>
-                <p className="text-lg font-medium text-slate-800">Head of Research and Information Services</p>
-                <p className="text-slate-600">University of Bahrain</p>
-                <p className="text-slate-700 mt-2">
-                  Developed and modernized university library systems and information infrastructure, 
-                  establishing foundations for academic information management and research services.
-                </p>
-              </div>
-              
-              <div className="border-l-4 border-navy-700 pl-4">
-                <h4 className="text-xl font-medium text-navy-800">1976 - 1983</h4>
-                <p className="text-lg font-medium text-slate-800">Director of Library</p>
-                <p className="text-slate-600">King Faisal University, Al Hasa, Saudi Arabia</p>
-                <p className="text-slate-700 mt-2">
-                  Pioneered the development of university libraries and information systems, 
-                  laying groundwork for modern academic information infrastructure.
+                  Pioneered the development of modern university libraries and information systems.
                 </p>
               </div>
             </div>
           </div>
-          
+
           <div className="md:col-span-1 order-1 md:order-2">
             <div className="sticky top-28">
               <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6 mb-6">
@@ -215,40 +298,10 @@ const BiographyPage: React.FC = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="mt-16">
           <SectionHeading title="International Impact" />
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="card">
-              <h3 className="text-xl font-serif font-bold mb-4 text-navy-800">Policy Advisory</h3>
-              <p className="text-slate-700 mb-4">
-                Dr. Ali has engaged directly with numerous international organizations and government 
-                bodies. His engagements include:
-              </p>
-              <ul className="space-y-2 text-slate-700">
-                <li className="flex items-start">
-                  <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
-                  <span>The United States Department of the Treasury</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
-                  <span>The Federal Reserve Bank of New York</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
-                  <span>Various central banks and other regulatory authorities</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
-                  <span>Post-9/11 Policy Engagement on Islamic Finance</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
-                  <span>External Examiner for Universities in US, UK, Qatar, Bahrain, Malaysia, Saudi Arabia</span>
-                </li>
-              </ul>
-            </div>
-            
+          <div className="grid md:grid-cols-1 gap-8">
             <div className="card">
               <h3 className="text-xl font-serif font-bold mb-4 text-navy-800">Academic Leadership</h3>
               <p className="text-slate-700 mb-4">
@@ -281,7 +334,7 @@ const BiographyPage: React.FC = () => {
                 </li>
                 <li className="flex items-start">
                   <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
-                  <span>Member, AAOIFI (Accounting and Auditing Organization for Islamic Financial Institutions)</span>
+                  <span>Member, AAOIFI Education Board (Accounting and Auditing Organization for Islamic Financial Institutions)</span>
                 </li>
                 <li className="flex items-start">
                   <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
@@ -289,7 +342,7 @@ const BiographyPage: React.FC = () => {
                 </li>
                 <li className="flex items-start">
                   <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
-                  <span>External Examiner for doctoral dissertations and faculty promotions across universities in US, UK, Qatar, Bahrain, Malaysia, and Saudi Arabia</span>
+                  <span>External Examiner for doctoral dissertations and faculty promotions across universities in US, UK, Qatar, Bahrain, Malaysia, Pakistan, and Saudi Arabia</span>
                 </li>
               </ul>
             </div>

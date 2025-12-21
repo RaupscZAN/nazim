@@ -12,14 +12,20 @@ const HomePage: React.FC = () => {
         <div className="container-narrow grid md:grid-cols-2 gap-10 items-center">
           <div className="order-2 md:order-1">
             <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-white">
-              Prof. Syed Nazim Ali
+              Dr. Syed Nazim Ali
             </h1>
             <p className="text-xl md:text-2xl text-gold-200 font-serif mb-6">
-              Islamic Finance Scholar & Research Leader
+              Professorial Research Associate
+            </p>
+            <p className="text-lg text-gold-100 mb-6">
+              SOAS – University of London, London, United Kingdom
             </p>
             <p className="text-slate-200 mb-8 leading-relaxed text-lg">
-              Research Professor and Director of Research Division at the College of Islamic Studies, 
-              Hamad Bin Khalifa University, with over three decades of leadership in Islamic finance education and research.
+              Dr. Ali is a globally recognized scholar and institution-builder in Islamic economics and finance.
+              He previously served as Research Professor and Director of the Research Division at the College of
+              Islamic Studies, Hamad Bin Khalifa University (HBKU), Qatar Foundation, from 2014 to August 2025,
+              following two decades at Harvard University where he founded the Harvard Islamic Finance Program,
+              established the Harvard Islamic Finance Databank, and launched the Harvard University Forum on Islamic Finance.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/biography" className="btn-primary bg-gold-500 hover:bg-gold-600 text-navy-900 flex items-center">
@@ -49,27 +55,30 @@ const HomePage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div>
               <p className="mb-4 text-lg text-slate-700 leading-relaxed">
-                Prof. Syed Nazim Ali brings over three decades of global leadership in Islamic finance, having spent 
-                twenty years at Harvard University where he directed the Islamic Finance Program and served as Acting 
-                Executive Director of the Islamic Legal Studies Program at Harvard Law School.
+                Dr. Ali is a globally recognized scholar and institution-builder in Islamic economics and finance.
+                He previously served as Research Professor and Director of the Research Division at the College of
+                Islamic Studies, Hamad Bin Khalifa University (HBKU), Qatar Foundation, from 2014 to August 2025,
+                following two decades at Harvard University where he founded the Harvard Islamic Finance Program,
+                established the Harvard Islamic Finance Databank, and launched the Harvard University Forum on Islamic Finance.
               </p>
               <p className="mb-6 text-lg text-slate-700 leading-relaxed">
-                He holds a Ph.D. from the University of Strathclyde and has been instrumental in establishing enduring 
-                knowledge platforms including the Harvard University Forum on Islamic Finance (now in its 27th year) and 
-                collaborative workshops with LSE and SOAS University of London.
+                With more than forty years of academic, strategic, and policy-level contributions, Prof. Ali has led
+                major international platforms, advised global regulatory bodies, and published extensively with leading
+                academic publishers. He serves on several high-level advisory boards and continues to mentor emerging
+                scholars while contributing to global discourse on Islamic finance, FinTech, sustainability, and institutional development.
               </p>
               <Link to="/biography" className="inline-flex items-center text-navy-700 hover:text-navy-900 font-medium">
                 Read Full Biography <ArrowRight size={18} className="ml-2" />
               </Link>
             </div>
             <div className="bg-slate-100 p-6 rounded-lg">
-              <h3 className="font-serif text-xl font-bold mb-4 text-navy-800">Current Positions</h3>
+              <h3 className="font-serif text-xl font-bold mb-4 text-navy-800">Current Affiliations</h3>
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <div className="bg-navy-700 h-5 w-5 rounded-full flex-shrink-0 mt-1 mr-3"></div>
                   <div>
-                    <span className="font-medium text-navy-900">Research Professor & Director of Research Division</span>
-                    <p className="text-slate-600">College of Islamic Studies, HBKU, Qatar</p>
+                    <span className="font-medium text-navy-900">Professorial Research Associate</span>
+                    <p className="text-slate-600">SOAS – University of London, London, United Kingdom</p>
                   </div>
                 </li>
                 <li className="flex items-start">
@@ -82,8 +91,8 @@ const HomePage: React.FC = () => {
                 <li className="flex items-start">
                   <div className="bg-navy-700 h-5 w-5 rounded-full flex-shrink-0 mt-1 mr-3"></div>
                   <div>
-                    <span className="font-medium text-navy-900">Co-Chair, Steering Committee</span>
-                    <p className="text-slate-600">SOAS University of London Annual Islamic Finance Events</p>
+                    <span className="font-medium text-navy-900">AAOIFI Education Board Member</span>
+                    <p className="text-slate-600">Accounting & Auditing Organization for Islamic Finance Institutions</p>
                   </div>
                 </li>
               </ul>
@@ -97,29 +106,37 @@ const HomePage: React.FC = () => {
         <div className="container-narrow">
           <SectionHeading title="Featured Publications" />
           <div className="space-y-6">
-            <PublicationItem 
-              title="Fourteenth Harvard University Forum on Islamic Finance"
+            <PublicationItem
+              title="Islamic Finance in the Digital Age"
               type="Book"
-              year="2022"
-              publisher="Harvard University"
-              description="Recent forum publication addressing contemporary challenges in Islamic finance."
-              link="/research-books/14th Forum Book/14th Harvard Forum Publication 2022.pdf"
+              year="2024"
+              publisher="Edward Elgar Publishing"
+              description="Co-edited with Zul Hakim Jumat. Examines the transformation of Islamic finance through digital technologies and innovation."
+              link="https://www.e-elgar.com/shop/usd/islamic-finance-in-the-digital-age-9781035322947.html?srsltid=AfmBOor7JeADJSMY9OFLqXg6IkJEwFP1akHXKBCJ9aY2PLmZ1BXYOXSi"
             />
-            <PublicationItem 
-              title="Fintech and Islamic Finance: Digitalization, Development and Disruption"
+            <PublicationItem
+              title="The Edinburgh Companion to Shari'ah Governance in Islamic Finance"
               type="Book"
-              year="2021"
-              publisher="Palgrave Macmillan"
-              description="Comprehensive analysis of fintech innovations in Islamic finance and their transformative impact on the industry."
-              link="/research-books/Book _ Fintech Islamic Finance.pdf"
+              year="2020"
+              publisher="Edinburgh University Press"
+              description="Co-edited with Wijdan Tariq and B.A. Al Quradaghi. Essential reference work on Shariah governance frameworks in Islamic financial institutions."
+              link="https://edinburghuniversitypress.com/book-the-edinburgh-companion-to-shari-ah-governance-in-islamic-finance.html"
             />
-            <PublicationItem 
-              title="Thirteenth Harvard University Forum on Islamic Finance: Principles of Engagement"
+            <PublicationItem
+              title="Fintech in Islamic Finance: Theory and Practice"
               type="Book"
-              year="2018"
-              publisher="Harvard University"
-              description="Latest developments in Islamic finance principles and their global implementation."
-              link="/research-books/13th Forum/13th Harvard Islamic Forum POE 2018.pdf"
+              year="2019"
+              publisher="Taylor & Francis"
+              description="Co-edited with Umar A. Oseni. Pioneering work on the application of financial technology in Islamic finance."
+              link="https://www.amazon.com/Fintech-Islamic-Finance-Nazim-Ali/dp/1138494801"
+            />
+            <PublicationItem
+              title="Shari'a-Compliant Microfinance"
+              type="Book"
+              year="2011"
+              publisher="Routledge"
+              description="Edited volume exploring Islamic microfinance models for poverty alleviation and financial inclusion."
+              link="https://www.amazon.com/Compliant-Microfinance-Routledge-Islamic-Studies/dp/041578266X"
             />
           </div>
           <div className="mt-8 text-center">
@@ -134,23 +151,36 @@ const HomePage: React.FC = () => {
       <section className="py-16 bg-white">
         <div className="container-narrow">
           <SectionHeading title="Upcoming Engagements" />
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-3">
             <div className="card">
-              <div className="mb-3 text-gold-600 font-medium">June 15-16, 2025</div>
-              <h3 className="text-xl font-serif font-bold mb-2">International Conference on Islamic Economics</h3>
-              <p className="text-slate-600 mb-3">Harvard University, Cambridge, MA</p>
-              <p className="text-slate-700">Keynote address on "The Future of Islamic Finance in a Digital Economy"</p>
+              <div className="mb-3 text-gold-600 font-medium">June 2026</div>
+              <h3 className="text-xl font-serif font-bold mb-2">SOAS-QFC Public Lecture on Islamic Finance</h3>
+              <p className="text-slate-600 mb-3">SOAS University of London</p>
+              <p className="text-slate-700 mb-2">SOAS-QFC Workshop on Islamic Finance</p>
+              <div className="mt-3 pt-3 border-t border-slate-200">
+                <span className="text-sm font-medium text-navy-700">Chief Organizer</span>
+              </div>
             </div>
             <div className="card">
-              <div className="mb-3 text-gold-600 font-medium">September 8, 2025</div>
-              <h3 className="text-xl font-serif font-bold mb-2">Global Islamic Finance Forum</h3>
-              <p className="text-slate-600 mb-3">London School of Economics, UK</p>
-              <p className="text-slate-700">Panel discussion on "Ethical Investment Strategies in Post-Pandemic Markets"</p>
+              <div className="mb-3 text-gold-600 font-medium">October 2026</div>
+              <h3 className="text-xl font-serif font-bold mb-2">Harvard Islamic Finance Conference</h3>
+              <p className="text-slate-600 mb-3">Harvard University, Cambridge, MA</p>
+              <div className="mt-3 pt-3 border-t border-slate-200">
+                <span className="text-sm font-medium text-navy-700">Chief Organizer</span>
+              </div>
+            </div>
+            <div className="card">
+              <div className="mb-3 text-gold-600 font-medium">2026</div>
+              <h3 className="text-xl font-serif font-bold mb-2">ICIF International Conference on Islamic Finance</h3>
+              <p className="text-slate-600 mb-3">Hamad Bin Khalifa University, Doha, Qatar</p>
+              <div className="mt-3 pt-3 border-t border-slate-200">
+                <span className="text-sm font-medium text-navy-700">Conference Co-chair</span>
+              </div>
             </div>
           </div>
           <div className="mt-8 text-center">
-            <Link to="/speaking" className="btn-primary inline-flex items-center">
-              View All Engagements <ArrowRight size={18} className="ml-2" />
+            <Link to="/activities" className="btn-primary inline-flex items-center">
+              View All Activities <ArrowRight size={18} className="ml-2" />
             </Link>
           </div>
         </div>

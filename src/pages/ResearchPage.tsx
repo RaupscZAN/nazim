@@ -1,31 +1,14 @@
-import React, { useState, useMemo } from 'react';
-import { FaFilePdf, FaExternalLinkAlt, FaBook, FaUniversity, FaNewspaper, FaSearch } from 'react-icons/fa';
+import React, { useState, Fragment } from 'react';
 import SectionHeading from '../components/SectionHeading';
+import PublicationItem from '../components/PublicationItem';
 
-interface Publication {
-  id: number;
-  title: string;
-  type: string;
-  year: string;
-  publisher?: string;
-  category: string;
-  description: string;
-  link?: string;
-  journal?: string;
-  volume?: string;
-  pages?: string;
-}
-
-type YearGroup = {
-  year: string;
-  publications: Publication[];
-};
+type PublicationType = 'All' | 'Books' | 'Harvard' | 'SOAS' | 'LSE' | 'Articles';
 
 const ResearchPage: React.FC = () => {
+  const [activeType, setActiveType] = useState<PublicationType>('All');
   const [activeYear, setActiveYear] = useState<string>('All');
-  const [searchQuery, setSearchQuery] = useState<string>('');
-  
-  const researchBooks: Publication[] = [
+
+  const researchBooks = [
     // Recent Books from CV
     {
       id: 90,
@@ -45,7 +28,7 @@ const ResearchPage: React.FC = () => {
       publisher: "Edward Elgar Publishing",
       category: "Publication",
       description: "Co-edited with Zul Hakim Jumat. Examines the transformation of Islamic finance through digital technologies and innovation.",
-      link: "#"
+      link: "https://www.e-elgar.com/shop/usd/islamic-finance-in-the-digital-age-9781035322947.html?srsltid=AfmBOor7JeADJSMY9OFLqXg6IkJEwFP1akHXKBCJ9aY2PLmZ1BXYOXSi"
     },
     {
       id: 92,
@@ -85,7 +68,7 @@ const ResearchPage: React.FC = () => {
       publisher: "Edinburgh University Press",
       category: "Publication",
       description: "Co-edited with Wijdan Tariq and B.A. Al Quradaghi. Essential reference work on Shariah governance frameworks in Islamic financial institutions.",
-      link: "#"
+      link: "https://edinburghuniversitypress.com/book-the-edinburgh-companion-to-shari-ah-governance-in-islamic-finance.html"
     },
     {
       id: 96,
@@ -95,7 +78,7 @@ const ResearchPage: React.FC = () => {
       publisher: "Taylor & Francis",
       category: "Publication",
       description: "Co-edited with Umar A. Oseni. Pioneering work on the application of financial technology in Islamic finance.",
-      link: "#"
+      link: "https://www.amazon.com/Fintech-Islamic-Finance-Nazim-Ali/dp/1138494801"
     },
     {
       id: 97,
@@ -115,7 +98,7 @@ const ResearchPage: React.FC = () => {
       publisher: "Routledge",
       category: "Publication",
       description: "Edited volume exploring Islamic microfinance models for poverty alleviation and financial inclusion.",
-      link: "#"
+      link: "https://www.amazon.com/Compliant-Microfinance-Routledge-Islamic-Studies/dp/041578266X"
     },
     {
       id: 99,
@@ -998,282 +981,252 @@ const ResearchPage: React.FC = () => {
   // Combine all publication sources
   const allPublications = [...researchBooks, ...researchPapers, ...soasPublications, ...conferencePublications, ...publications];
 
-  // Get all unique years
-  const allYears = useMemo(() => {
-    const years = new Set(allPublications.map(pub => pub.year));
-    return Array.from(years).sort((a, b) => b.localeCompare(a));
-  }, []);
-
-  // Filter and group publications by year
-  const groupedPublications = useMemo(() => {
-    let filtered = allPublications;
-
-    // Filter by search query
-    if (searchQuery) {
-      const query = searchQuery.toLowerCase();
-      filtered = filtered.filter(pub =>
-        pub.title.toLowerCase().includes(query) ||
-        pub.description.toLowerCase().includes(query) ||
-        (pub.publisher && pub.publisher.toLowerCase().includes(query))
-      );
-    }
-
-    // Filter by year if specific year is selected
-    if (activeYear !== 'All') {
-      filtered = filtered.filter(pub => pub.year === activeYear);
-    }
-
-    // Group by year
-    const grouped: YearGroup[] = [];
-    const yearMap = new Map<string, Publication[]>();
-
-    filtered.forEach(pub => {
-      if (!yearMap.has(pub.year)) {
-        yearMap.set(pub.year, []);
-      }
-      yearMap.get(pub.year)!.push(pub);
-    });
-
-    // Convert to array and sort by year (descending)
-    Array.from(yearMap.entries())
-      .sort(([yearA], [yearB]) => yearB.localeCompare(yearA))
-      .forEach(([year, pubs]) => {
-        grouped.push({ year, publications: pubs });
+  // First filter by type
+  const typeFilteredPublications = activeType === 'All'
+    ? allPublications
+    : allPublications.filter(pub => {
+        // Books - authored or co-authored books
+        if (activeType === 'Books') {
+          return pub.type === 'Publication' && (pub.id >= 90 && pub.id <= 99 || pub.id === 112 || pub.id === 113 || pub.id === 116);
+        }
+        // Harvard - all Harvard Forum related materials
+        if (activeType === 'Harvard') {
+          return pub.publisher && pub.publisher.includes('Harvard');
+        }
+        // SOAS - SOAS workshop reports
+        if (activeType === 'SOAS') {
+          return pub.publisher && pub.publisher.includes('SOAS');
+        }
+        // LSE - LSE specific content
+        if (activeType === 'LSE') {
+          return pub.publisher && (pub.publisher.includes('London School of Economics') || pub.publisher === 'LSE');
+        }
+        // Articles - research papers and journal articles
+        if (activeType === 'Articles') {
+          return (pub.id >= 200 && pub.id <= 210) || (pub.id >= 1 && pub.id <= 10);
+        }
+        return false;
       });
 
-    return grouped;
-  }, [activeYear, searchQuery]);
+  // Then filter by year
+  const filteredPublications = (activeYear === 'All'
+    ? typeFilteredPublications
+    : typeFilteredPublications.filter(pub => pub.year === activeYear)
+  ).sort((a, b) => {
+    // Sort by year in descending order (latest first)
+    return b.year.localeCompare(a.year);
+  });
 
-  // Calculate statistics
-  const stats = useMemo(() => {
-    const booksCount = allPublications.filter(pub =>
-      pub.type === 'Publication' && ((pub.id >= 90 && pub.id <= 99) || pub.id === 112 || pub.id === 113 || pub.id === 116)
-    ).length;
-
-    const conferencesCount = allPublications.filter(pub =>
-      pub.type === 'Conference' || pub.type === 'Conference Proceedings' || pub.type === 'Conference Papers'
-    ).length;
-
-    return {
-      total: allPublications.length,
-      books: booksCount,
-      conferences: conferencesCount,
-      years: allYears.length
-    };
-  }, []);
+  const publicationTypes: PublicationType[] = ['All', 'Books', 'Harvard', 'SOAS', 'LSE', 'Articles'];
   
   return (
-    <div className="min-h-screen bg-white">
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Page Title */}
-        <h1 className="text-4xl md:text-5xl font-serif font-bold text-navy-900 mb-12">Research & Publications</h1>
+    <div className="py-12 bg-white min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeading title="Research & Publications" />
 
         {/* Research Focus Section */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-serif font-bold text-navy-900 mb-4">Research Focus</h2>
-          <p className="text-slate-700 text-lg leading-relaxed mb-8">
-            Dr. Ali's research spans the intersection of Islamic finance, ethics, and information systems. His work has been instrumental in developing frameworks for Shariah-compliant financial products, analyzing the ethical dimensions of Islamic banking, and exploring the application of information science to Islamic financial institutions.
+        <div className="mb-10">
+          <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800">Research Focus</h3>
+          <p className="text-slate-700 mb-6 leading-relaxed">
+            Dr. Ali's research spans the intersection of Islamic finance, Islamic social finance including
+            microfinance, ethics, and information systems. His work has been instrumental in developing
+            frameworks for Shariah compliant financial products, analyzing the ethical dimensions of Islamic
+            banking, advancing models of Islamic social and microfinance, and exploring the application of
+            information science to Islamic financial institutions.
           </p>
-
-          {/* Two Column Layout */}
           <div className="grid md:grid-cols-2 gap-6">
-            {/* Primary Research Areas */}
-            <div className="bg-slate-100 rounded-lg p-8">
-              <h3 className="text-2xl font-serif font-bold text-navy-900 mb-6">Primary Research Areas</h3>
-              <ul className="space-y-4">
+            <div className="bg-navy-50 rounded-lg p-6 border border-navy-100">
+              <h4 className="text-xl font-serif font-bold mb-3 text-navy-800">Primary Research Areas</h4>
+              <ul className="space-y-2">
                 <li className="flex items-start">
-                  <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-slate-700">Islamic financial system design and implementation</span>
+                  <div className="h-4 w-4 bg-navy-700 rounded-full mt-1 mr-2 flex-shrink-0"></div>
+                  <span className="text-slate-700">Islamic financial education, research, and dissemination</span>
                 </li>
                 <li className="flex items-start">
-                  <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div className="h-4 w-4 bg-navy-700 rounded-full mt-1 mr-2 flex-shrink-0"></div>
                   <span className="text-slate-700">Ethical dimensions of Islamic banking practices</span>
                 </li>
                 <li className="flex items-start">
-                  <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div className="h-4 w-4 bg-navy-700 rounded-full mt-1 mr-2 flex-shrink-0"></div>
+                  <span className="text-slate-700">Islamic social finance</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="h-4 w-4 bg-navy-700 rounded-full mt-1 mr-2 flex-shrink-0"></div>
                   <span className="text-slate-700">Information systems for Shariah compliance</span>
                 </li>
                 <li className="flex items-start">
-                  <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div className="h-4 w-4 bg-navy-700 rounded-full mt-1 mr-2 flex-shrink-0"></div>
                   <span className="text-slate-700">Sustainable and responsible Islamic investment</span>
                 </li>
               </ul>
             </div>
-
-            {/* Current Projects */}
-            <div className="bg-gold-50 rounded-lg p-8">
-              <h3 className="text-2xl font-serif font-bold text-navy-900 mb-6">Current Projects</h3>
-              <ul className="space-y-4">
+            <div className="bg-gold-50 rounded-lg p-6 border border-gold-100">
+              <h4 className="text-xl font-serif font-bold mb-3 text-navy-800">Current Projects</h4>
+              <ul className="space-y-2">
                 <li className="flex items-start">
-                  <div className="h-2 w-2 bg-gold-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
+                  <span className="text-slate-700">Artificial Intelligence in Scholarly Writings</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
                   <span className="text-slate-700">Digital transformation of Islamic financial services</span>
                 </li>
                 <li className="flex items-start">
-                  <div className="h-2 w-2 bg-gold-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
                   <span className="text-slate-700">ESG integration in Islamic investment portfolios</span>
                 </li>
                 <li className="flex items-start">
-                  <div className="h-2 w-2 bg-gold-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
                   <span className="text-slate-700">Fintech solutions for Islamic microfinance</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-2 w-2 bg-gold-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-slate-700">Comparative analysis of global Islamic banking regulations</span>
                 </li>
               </ul>
             </div>
           </div>
         </div>
 
-        {/* Search Bar */}
-        <div className="mb-8">
-          <div className="relative max-w-xl">
-            <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" />
-            <input
-              type="text"
-              placeholder="Search publications..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-navy-700 focus:border-navy-700 transition-all"
-            />
-          </div>
-        </div>
-
-        {/* Year Tabs */}
-        <style>{`
-          .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-          }
-          .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-          }
-        `}</style>
-        <div className="border-b border-slate-200 mb-8">
-          <div className="flex -mb-px overflow-x-auto hide-scrollbar items-center">
-            <button
-              onClick={() => setActiveYear('All')}
-              className={`px-6 py-4 font-semibold text-sm uppercase tracking-wide whitespace-nowrap transition-all ${
-                activeYear === 'All'
-                  ? 'text-navy-900 border-b-2 border-navy-900'
-                  : 'text-slate-500 hover:text-slate-700 border-b-2 border-transparent hover:border-slate-300'
-              }`}
-            >
-              All
-            </button>
-            <div className="h-6 w-px bg-navy-900 mx-2"></div>
-            {allYears.map((year, index) => (
-              <React.Fragment key={year}>
-                <button
-                  onClick={() => setActiveYear(year)}
-                  className={`px-6 py-4 font-semibold text-sm uppercase tracking-wide whitespace-nowrap transition-all ${
-                    activeYear === year
-                      ? 'text-navy-900 border-b-2 border-navy-900'
-                      : 'text-slate-500 hover:text-slate-700 border-b-2 border-transparent hover:border-slate-300'
-                  }`}
-                >
-                  {year}
-                </button>
-                {index < allYears.length - 1 && (
-                  <div className="h-6 w-px bg-navy-900 mx-2"></div>
-                )}
-              </React.Fragment>
+        {/* Filter Tabs */}
+        <div className="mb-6">
+          <div className="flex items-center justify-center gap-16 border-b border-gray-200 pb-4">
+            {publicationTypes.map((type) => (
+              <button
+                key={type}
+                onClick={() => setActiveType(type)}
+                className={`text-sm uppercase tracking-wider transition-all duration-200 ${
+                  activeType === type
+                    ? 'text-gray-900 font-medium border-b-2 border-gray-900 pb-4 -mb-[18px]'
+                    : 'text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                {type}
+              </button>
             ))}
           </div>
         </div>
 
-        {/* Publications Section */}
-        <div className="bg-slate-50 rounded-lg p-8 mb-8">
-          <h2 className="text-3xl font-serif font-bold text-navy-900 mb-4">
-            {activeYear === 'All' ? 'All Publications' : `${activeYear} Publications`}
-          </h2>
-          <p className="text-slate-700 leading-relaxed">
-            {activeYear === 'All'
-              ? 'Comprehensive collection of research papers, conference proceedings, and publications spanning Islamic finance, ethics, and information systems.'
-              : `Publications from ${activeYear} covering Islamic finance research, conference proceedings, and scholarly works.`
-            }
-          </p>
-        </div>
-
-        {/* Publications Organized by Year */}
-        {groupedPublications.length > 0 ? (
-          <div className="space-y-12">
-            {groupedPublications.map(({ year, publications }) => (
-              <div key={year}>
-                {/* Year Header - Only show when "All" is selected */}
-                {activeYear === 'All' && (
-                  <div className="flex items-center mb-6">
-                    <div className="bg-navy-900 px-6 py-3 rounded-lg">
-                      <h2 className="text-2xl font-serif font-bold text-white">{year}</h2>
-                    </div>
-                    <div className="flex-1 ml-4 h-px bg-slate-300"></div>
-                    <span className="ml-4 text-slate-600 font-medium">
-                      {publications.length} {publications.length === 1 ? 'publication' : 'publications'}
-                    </span>
-                  </div>
-                )}
-
-                {/* Publications List */}
-                <div className="space-y-4">
-                  {publications.map(pub => (
-                    <div
-                      key={pub.id}
-                      className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-md transition-all duration-200"
-                    >
-                      {/* Title and Publisher */}
-                      <div className="mb-3">
-                        <h3 className="text-lg font-semibold text-navy-900 mb-1">
-                          {pub.title}
-                        </h3>
-                        {pub.publisher && (
-                          <p className="text-sm text-slate-600">
-                            {pub.publisher}
-                          </p>
-                        )}
-                      </div>
-
-                      {/* Description */}
-                      <p className="text-slate-700 mb-4 leading-relaxed">
-                        {pub.description}
-                      </p>
-
-                      {/* Footer with Link and Type */}
-                      <div className="flex items-center justify-between pt-3 border-t border-slate-200">
-                        {pub.link && pub.link !== '#' ? (
-                          <a
-                            href={pub.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center text-navy-700 hover:text-navy-900 font-medium text-sm transition-colors"
-                          >
-                            <FaFilePdf className="mr-2 text-red-500" />
-                            View PDF
-                          </a>
-                        ) : (
-                          <div></div>
-                        )}
-                        <span className="text-xs font-medium text-slate-500 uppercase tracking-wide">
-                          {pub.type}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+        {/* Year Filter */}
+        <div className="mb-12">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 border-b border-gray-200 pb-4">
+            {['All', ...Array.from(new Set(allPublications.map(pub => pub.year))).sort((a, b) => b.localeCompare(a))].map((year) => (
+              <button
+                key={year}
+                onClick={() => setActiveYear(year)}
+                className={`text-sm tracking-wider transition-all duration-200 px-2 py-1 ${
+                  activeYear === year
+                    ? 'text-navy-900 font-bold border-b-2 border-navy-800'
+                    : 'text-gray-400 hover:text-gray-600'
+                }`}
+              >
+                {year === 'All' ? 'ALL' : year}
+              </button>
             ))}
           </div>
-        ) : (
-          <div className="bg-white border border-slate-200 rounded-lg p-16 text-center">
-            <div className="text-slate-300 mb-4">
-              <FaSearch className="text-6xl mx-auto" />
-            </div>
-            <h3 className="text-xl font-semibold text-slate-700 mb-2">No Publications Found</h3>
-            <p className="text-slate-600">
-              Try adjusting your search or select a different year.
+        </div>
+
+        {/* Publications List Display */}
+        <div className="max-w-5xl mx-auto">
+          {/* Section Header Box */}
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 mb-8">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+              {activeType === 'All' ? 'All Publications' :
+               activeType === 'Books' ? 'Authored and Co-Authored Books' :
+               activeType === 'Harvard' ? 'Harvard University Forum on Islamic Finance Series' :
+               activeType === 'SOAS' ? 'SOAS Islamic Finance Workshop Series' :
+               activeType === 'LSE' ? 'LSE Workshop Series' :
+               'Research Papers and Journal Articles'}
+            </h2>
+            <p className="text-gray-600 leading-relaxed">
+              {activeType === 'All' ? 'Comprehensive collection of research papers, conference proceedings, and publications spanning Islamic finance, ethics, and information systems.' :
+               activeType === 'Books' ? 'Dr. Ali has authored and co-authored numerous influential books on Islamic finance, fintech, sustainability, and Shariah governance with leading academic publishers including Edward Elgar, Palgrave Macmillan, Springer-Nature, Edinburgh University Press, and Routledge.' :
+               activeType === 'Harvard' ? 'Dr. Ali has been instrumental in organizing and contributing to the prestigious Harvard University Forums on Islamic Finance. These publications represent over two decades of groundbreaking research and discussions that have shaped the field of Islamic finance globally.' :
+               activeType === 'SOAS' ? 'Key contributions to the SOAS Islamic Finance Workshop Series, advancing Islamic finance research and education through collaborative efforts with SOAS University of London.' :
+               activeType === 'LSE' ? 'Comprehensive workshop reports from the LSE-Harvard collaborative series covering critical topics including Tawarruq, Sukuk, Risk Management, Ethics and Governance, and Insolvency in Islamic Finance.' :
+               'Academic publications, research papers, and scholarly articles in peer-reviewed journals covering Islamic finance, fintech, sustainability, and information systems.'}
             </p>
           </div>
-        )}
+
+          {/* Publications List with Scroll - Grouped by Year */}
+          <div className="border border-gray-200 rounded-lg bg-white" style={{ height: '600px' }}>
+            <div className="overflow-y-auto h-full custom-scrollbar">
+              <div className="p-6">
+            {filteredPublications.length > 0 ? (
+              // Group publications by year
+              Object.entries(
+                filteredPublications.reduce((acc, pub) => {
+                  const year = pub.year;
+                  if (!acc[year]) acc[year] = [];
+                  acc[year].push(pub);
+                  return acc;
+                }, {} as Record<string, typeof filteredPublications>)
+              )
+              .sort(([yearA], [yearB]) => yearB.localeCompare(yearA))
+              .map(([year, pubs]) => (
+                <div key={year} className="mb-10">
+                  {/* Year Header - Bold Dark Navy Blue */}
+                  <h3 className="text-2xl font-bold text-navy-800 mb-6">{year}</h3>
+
+                  {/* Publications for this year */}
+                  <div className="space-y-6">
+                    {pubs.map(pub => (
+                      <div key={pub.id} className="bg-navy-50 border border-navy-100 rounded-lg p-6 hover:shadow-md transition-shadow">
+                        {/* Type Badge */}
+                        <span className="inline-block px-3 py-1 text-xs font-medium text-white bg-navy-700 rounded-full mb-3">
+                          {pub.type === 'Conference' ? 'Conference' : 'Book'}
+                        </span>
+
+                        <h4 className="text-lg font-bold text-navy-900 mb-2">
+                          {pub.title}
+                        </h4>
+
+                        {pub.publisher && (
+                          <p className="text-navy-500 text-sm mb-3">{pub.publisher}</p>
+                        )}
+
+                        <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                          {pub.description}
+                        </p>
+
+                        {/* Action Links */}
+                        <div className="flex items-center gap-6 pt-3 border-t border-navy-100">
+                          {pub.link && pub.link !== '#' && (
+                            <>
+                              <a
+                                href={pub.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center text-navy-700 hover:text-navy-900 text-sm font-medium"
+                              >
+                                <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                                View
+                              </a>
+                              <a
+                                href={pub.link}
+                                download
+                                className="inline-flex items-center text-navy-600 hover:text-navy-800 text-sm font-medium"
+                              >
+                                <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                Download PDF
+                              </a>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="p-16 text-center text-gray-500">
+                No publications found in this category.
+              </div>
+            )}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

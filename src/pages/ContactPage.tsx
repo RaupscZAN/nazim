@@ -50,10 +50,8 @@ const ContactPage: React.FC = () => {
           <div>
             <h3 className="text-2xl font-serif font-bold mb-6 text-navy-800">Get in Touch</h3>
             <p className="text-slate-700 mb-8 leading-relaxed">
-              For academic inquiries, activity requests, or collaboration opportunities, 
-              please use the contact form or reach out directly using the information below. 
-              Prof. Ali is currently preparing for a temporary relocation to Boston and is available 
-              for consultancy and advisory roles.
+              For academic inquiries, activity requests, or collaboration opportunities,
+              please use the contact form or reach out directly using the information below.
             </p>
             
             <div className="space-y-6">
@@ -63,7 +61,7 @@ const ContactPage: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-navy-800 mb-1">Email</h4>
-                  <p className="text-slate-600">snail@hbku.edu.qa</p>
+                  <p className="text-slate-600">snnali@outlook.com</p>
                   <p className="text-slate-600">ifpnazimali@gmail.com</p>
                 </div>
               </div>
@@ -74,7 +72,7 @@ const ContactPage: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-navy-800 mb-1">Mobile</h4>
-                  <p className="text-slate-600">+974 3384 3016</p>
+                  <p className="text-slate-600">+1 774 434 0812</p>
                 </div>
               </div>
               
@@ -83,26 +81,13 @@ const ContactPage: React.FC = () => {
                   <MapPin className="text-navy-700" size={20} />
                 </div>
                 <div>
-                  <h4 className="font-medium text-navy-800 mb-1">Office Address</h4>
+                  <h4 className="font-medium text-navy-800 mb-1">Address</h4>
                   <p className="text-slate-600">
-                    College of Islamic Studies<br />
-                    Hamad Bin Khalifa University<br />
-                    Education City, Doha, Qatar
+                    119 Chauncy Street<br />
+                    Mansfield, MA 02048, USA
                   </p>
                 </div>
               </div>
-            </div>
-            
-            <div className="mt-10 p-6 bg-navy-50 rounded-lg border border-navy-100">
-              <h4 className="font-serif font-bold text-navy-800 mb-3">Office Hours</h4>
-              <p className="text-slate-700 mb-2">
-                For students and academic colleagues:
-              </p>
-              <ul className="text-slate-600 space-y-1">
-                <li>Monday: 2:00 PM - 4:00 PM</li>
-                <li>Wednesday: 10:00 AM - 12:00 PM</li>
-                <li>By appointment (via email)</li>
-              </ul>
             </div>
           </div>
           
