@@ -1,12 +1,52 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import SectionHeading from '../components/SectionHeading';
 import PublicationItem from '../components/PublicationItem';
 
 type PublicationType = 'All' | 'Books' | 'Harvard' | 'SOAS' | 'LSE' | 'Articles';
 
 const ResearchPage: React.FC = () => {
-  const [activeType, setActiveType] = useState<PublicationType>('All');
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Get initial type from URL query parameter
+  const getInitialType = (): PublicationType => {
+    const params = new URLSearchParams(location.search);
+    const type = params.get('type');
+    if (type && ['All', 'Books', 'Harvard', 'SOAS', 'LSE', 'Articles'].includes(type)) {
+      return type as PublicationType;
+    }
+    return 'All';
+  };
+
+  const [activeType, setActiveType] = useState<PublicationType>(getInitialType());
   const [activeYear, setActiveYear] = useState<string>('All');
+
+  // Update URL when type changes
+  const handleTypeChange = (type: PublicationType) => {
+    setActiveType(type);
+    if (type === 'All') {
+      navigate('/research');
+    } else {
+      navigate(`/research?type=${type}`);
+    }
+  };
+
+  // Scroll to top on initial mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // Update state when URL changes (e.g., from homepage links)
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const type = params.get('type');
+    if (type && ['All', 'Books', 'Harvard', 'SOAS', 'LSE', 'Articles'].includes(type)) {
+      setActiveType(type as PublicationType);
+    }
+    // Scroll to top when filter changes via URL
+    window.scrollTo(0, 0);
+  }, [location.search]);
 
   const researchBooks = [
     // Recent Books from CV
@@ -1090,7 +1130,7 @@ const ResearchPage: React.FC = () => {
             {publicationTypes.map((type) => (
               <button
                 key={type}
-                onClick={() => setActiveType(type)}
+                onClick={() => handleTypeChange(type)}
                 className={`text-sm uppercase tracking-wider transition-all duration-200 ${
                   activeType === type
                     ? 'text-gray-900 font-medium border-b-2 border-gray-900 pb-4 -mb-[18px]'

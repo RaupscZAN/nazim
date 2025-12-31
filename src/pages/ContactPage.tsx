@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SectionHeading from '../components/SectionHeading';
-import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, Mic } from 'lucide-react';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -41,11 +41,38 @@ const ContactPage: React.FC = () => {
     }, 1500);
   };
   
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="py-16">
       <div className="container-narrow">
         <SectionHeading title="Contact" />
-        
+
+        {/* Activities & Invitation Section */}
+        <div className="mb-12">
+          <div className="bg-gradient-to-r from-burgundy-50 to-gold-50 rounded-xl p-6 md:p-8 border border-burgundy-100">
+            <div className="flex items-center mb-4">
+              <Mic className="text-burgundy-800 mr-3" size={28} />
+              <h3 className="text-2xl font-serif font-bold text-burgundy-800">Activities & Speaking</h3>
+            </div>
+            <p className="text-slate-700 mb-4 leading-relaxed">
+              Dr. Ali has founded and continues to direct major international conferences including the
+              Harvard Islamic Finance Conference (29+ years), the HBKU International Conference on Islamic
+              Finance, and collaborative workshops and annual Islamic finance events with LSE and SOAS
+              University of London.
+            </p>
+            <div className="bg-white rounded-lg p-4 border border-cream-200">
+              <h4 className="font-semibold text-burgundy-800 mb-2">Invitation Requests</h4>
+              <p className="text-slate-600 text-sm">
+                Dr. Ali is available for select activities and engagements on topics related to Islamic
+                finance, ethical banking, and information systems in financial institutions. Use the form below to submit your request.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="grid md:grid-cols-2 gap-10">
           <div>
             <h3 className="text-2xl font-serif font-bold mb-6 text-navy-800">Get in Touch</h3>

@@ -1,353 +1,219 @@
-import React from 'react';
-import SectionHeading from '../components/SectionHeading';
+import React, { useEffect } from 'react';
 
 const BiographyPage: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="py-16">
-      <div className="container-narrow">
-        <SectionHeading title="Academic Biography and Professional Contributions of Prof. Syed Nazim Ali" />
-        
-        <div className="grid md:grid-cols-3 gap-10">
-          <div className="md:col-span-2 order-2 md:order-1">
-            <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800">Biography</h3>
-            <p className="mb-4 text-slate-700 leading-relaxed">
-              Dr Syed Nazim Ali is a Research Professor and Director of the Research Division at the College of Islamic Studies (CIS),
-              Hamad Bin Khalifa University (HBKU), Qatar Foundation. Prior to joining HBKU, he spent twenty years at Harvard University
-              in various academic and administrative roles. From 2010 to 2013, he served as Acting Executive Director of the Islamic
-              Legal Studies Program at Harvard Law School, and from 1995 to 2013, he directed the Harvard Islamic Finance Program/Project,
-              affiliated with the Center for Middle Eastern Studies and Harvard Law School. Earlier in his career, he spent over fifteen years
-              developing university libraries and information systems at King Faisal University in Saudi Arabia (1976–1983) and the University
-              of Bahrain (1984–1994).
-            </p>
-
-            <p className="mb-4 text-slate-700 leading-relaxed">
-              For more than three decades, Dr. Ali has led impactful and interdisciplinary initiatives in Islamic finance, research development,
-              and global scholarly engagement—bringing together academia, policymakers, regulators, and industry leaders from around the world.
-            </p>
-            
-            <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800 mt-8">Harvard Legacy</h3>
-            <p className="mb-4 text-slate-700 leading-relaxed">
-              During his two decades at Harvard, Dr. Ali launched several initiatives that continue to shape the global discourse on Islamic finance. These include:
-            </p>
-            <ul className="space-y-2 mb-4 text-slate-700 ml-6">
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>Harvard University Forum on Islamic Finance, now in its twenty-seventh year.</span>
-              </li>
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>Islamic Finance Databank, one of the earliest structured digital repositories in the discipline.</span>
-              </li>
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>Collaborative workshops with LSE and SOAS, which have completed their twentieth year and continue under his leadership.</span>
-              </li>
-            </ul>
-            <p className="mb-4 text-slate-700 leading-relaxed">
-              Dr. Ali also engaged with key institutions such as the United States Department of the Treasury, the Federal Reserve Bank of
-              New York, and several central banks. His contributions—especially in the post-9/11 environment—played a crucial role in enhancing
-              policy-level understanding of Islamic finance within major regulatory bodies.
-            </p>
-            
-            <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800 mt-8">Leadership at HBKU</h3>
-            <p className="mb-4 text-slate-700 leading-relaxed">
-              Upon returning to the Arabian Gulf, Dr. Ali took on strategic leadership roles at HBKU. He has chaired and contributed to major
-              institutional committees, including:
-            </p>
-            <ul className="space-y-2 mb-4 text-slate-700 ml-6">
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>Research and Strategy Committee</span>
-              </li>
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>University Library Committee</span>
-              </li>
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>College Shura Council</span>
-              </li>
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>Provided interim academic leadership as Acting Dean of the College of Islamic Studies during the Dean's official leave periods (2017–2022).</span>
-              </li>
-            </ul>
-            <p className="mb-4 text-slate-700 leading-relaxed">
-              These experiences have strengthened his expertise in academic governance, research strategy, and institutional advisories.
-            </p>
-
-            <p className="mb-4 text-slate-700 leading-relaxed">
-              Dr. Ali also established and leads several of HBKU's flagship initiatives, including:
-            </p>
-            <ul className="space-y-2 mb-4 text-slate-700 ml-6">
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>International Conference on Islamic Finance (ICIF) – now in its eighth year</span>
-              </li>
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>CEOs and Islamic Finance Roundtable – now in its tenth year</span>
-              </li>
-            </ul>
-            <p className="mb-4 text-slate-700 leading-relaxed">
-              These platforms have expanded HBKU's international reputation and positioned the College of Islamic Studies as a prominent hub
-              for Islamic economics and finance.
-            </p>
-            
-            <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800 mt-8">Academic Excellence</h3>
-            <p className="mb-4 text-slate-700 leading-relaxed">
-              Dr. Ali supervises Master's and Ph.D. theses, and serves as an external examiner for doctoral dissertations and faculty
-              promotions at universities across the United States, the United Kingdom, Qatar, Bahrain, Malaysia, and Saudi Arabia.
-              His mentorship has supported the academic and professional growth of many emerging scholars and practitioners.
-            </p>
-
-            <p className="mb-4 text-slate-700 leading-relaxed">
-              As a globally recognized thought leader, he has published extensively in Scopus-indexed journals and with leading international
-              publishers, including:
-            </p>
-            <ul className="space-y-2 mb-4 text-slate-700 ml-6">
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>Edinburgh University Press</span>
-              </li>
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>Edward Elgar</span>
-              </li>
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>Palgrave Macmillan</span>
-              </li>
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>Springer-Nature</span>
-              </li>
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>Taylor & Francis</span>
-              </li>
-            </ul>
-            <p className="mb-4 text-slate-700 leading-relaxed">
-              His research spans Islamic economics and finance, financial technology (FinTech), sustainability, social and impact finance,
-              and Islamic information systems.
-            </p>
-            
-            <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800 mt-8">Global Affiliations</h3>
-            <p className="mb-4 text-slate-700 leading-relaxed">
-              Dr. Ali maintains active roles across global academic and professional networks. He is:
-            </p>
-            <ul className="space-y-2 mb-4 text-slate-700 ml-6">
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>A founding affiliate of the Centre for Islamic Finance, University of Bolton (UK)</span>
-              </li>
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>An Academic Advisor to the Harvard Muslim Alumni Association, contributing to the biennial Harvard Islamic Finance Conference</span>
-              </li>
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>Co-Chair of the SOAS Annual Islamic Finance Events Steering Committee</span>
-              </li>
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>A member of the Saleh Kamel Islamic Economic Award Committee (Jeddah)</span>
-              </li>
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>A member of AAOIFI Education Board (Manama, Bahrain)</span>
-              </li>
-            </ul>
-            
-            <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800 mt-8">Mentorship and Philosophy</h3>
-            <p className="mb-4 text-slate-700 leading-relaxed">
-              Dr. Ali is widely respected for his leadership, humility, and dedication to mentoring younger scholars. His cross-cultural and
-              cross-institutional approach emphasizes complementarity rather than competition, a philosophy that has guided his efforts to build
-              long-lasting academic platforms and collaborative networks.
-            </p>
-            
-            <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800 mt-8">Education and Visiting Positions</h3>
-            <p className="mb-4 text-slate-700 leading-relaxed">
-              Ph.D., Information Sciences – University of Strathclyde, Glasgow (1983)
-              <br />
-              MLS, Library Science – Emporia State University, Kansas (1975)
-              <br />
-              BSc, Biology and Chemistry – Osmania University, Hyderabad (1970)
-            </p>
-
-            <p className="mb-6 text-slate-700 leading-relaxed">
-              Visiting scholar appointments at:
-            </p>
-            <ul className="space-y-2 mb-6 text-slate-700 ml-6">
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>University of Wisconsin–Madison</span>
-              </li>
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>University of Pittsburgh</span>
-              </li>
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>SOAS University of London</span>
-              </li>
-              <li className="flex items-start">
-                <div className="h-2 w-2 bg-navy-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span>Dauphine University, Paris</span>
-              </li>
-            </ul>
-            
-            <h3 className="text-2xl font-serif font-bold mb-4 text-navy-800 mt-8">Professional Trajectory</h3>
-            <div className="space-y-6">
-              <div className="border-l-4 border-navy-700 pl-4">
-                <h4 className="text-xl font-medium text-navy-800">2017 – 2025</h4>
-                <p className="text-lg font-medium text-slate-800">Director, Research Division, CIS, HBKU</p>
-                <p className="text-slate-700 mt-2">
-                  Leads strategic research initiatives; supervises Master's and Ph.D. students; chairs university-wide committees;
-                  and directs ICIF and the CEOs Roundtable.
-                </p>
-              </div>
-
-              <div className="border-l-4 border-navy-700 pl-4">
-                <h4 className="text-xl font-medium text-navy-800">2014 – 2025</h4>
-                <p className="text-lg font-medium text-slate-800">Director, Center for Islamic Economics and Finance (CIEF), CIS, HBKU</p>
-                <p className="text-slate-700 mt-2">
-                  Strengthens academic programs in Islamic finance and fosters international collaborations.
-                </p>
-              </div>
-
-              <div className="border-l-4 border-navy-700 pl-4">
-                <h4 className="text-xl font-medium text-navy-800">1995 – 2014</h4>
-                <p className="text-lg font-medium text-slate-800">Director, Islamic Finance Program, Harvard University</p>
-                <p className="text-slate-700 mt-2">
-                  Established foundational initiatives including the Harvard Forum, Islamic Finance Databank, and cross-institutional
-                  workshops. Engaged with major regulatory institutions in the U.S. and abroad.
-                </p>
-              </div>
-              
-              <div className="border-l-4 border-navy-700 pl-4">
-                <h4 className="text-xl font-medium text-navy-800">1984 – 1994</h4>
-                <p className="text-lg font-medium text-slate-800">Head of Research and Information Services, University of Bahrain</p>
-                <p className="text-slate-700 mt-2">
-                  Modernized academic information systems and research infrastructure.
-                </p>
-              </div>
-
-              <div className="border-l-4 border-navy-700 pl-4">
-                <h4 className="text-xl font-medium text-navy-800">1976 – 1983</h4>
-                <p className="text-lg font-medium text-slate-800">Director of Library, King Faisal University, Saudi Arabia</p>
-                <p className="text-slate-700 mt-2">
-                  Pioneered the development of modern university libraries and information systems.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="md:col-span-1 order-1 md:order-2">
-            <div className="sticky top-28">
-              <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6 mb-6">
-                <h3 className="text-xl font-serif font-bold mb-4 text-navy-800">Education</h3>
-                <ul className="space-y-4">
-                  <li>
-                    <p className="font-medium text-navy-800">PhD in Information Sciences</p>
-                    <p className="text-slate-600">University of Strathclyde, Glasgow</p>
-                    <p className="text-slate-500 text-sm">1983</p>
-                  </li>
-                  <li>
-                    <p className="font-medium text-navy-800">MLS in Library Sciences</p>
-                    <p className="text-slate-600">Emporia State University, Kansas</p>
-                    <p className="text-slate-500 text-sm">1975</p>
-                  </li>
-                  <li>
-                    <p className="font-medium text-navy-800">BSc in Biology and Chemistry</p>
-                    <p className="text-slate-600">Osmania University, Hyderabad, India</p>
-                    <p className="text-slate-500 text-sm">1970</p>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
-                <h3 className="text-xl font-serif font-bold mb-4 text-navy-800">Areas of Expertise</h3>
-                <ul className="space-y-2">
-                  <li className="flex items-center">
-                    <div className="h-2 w-2 bg-navy-700 rounded-full mr-2"></div>
-                    <span className="text-slate-700">Islamic Economics and Finance</span>
-                  </li>
-                  <li className="flex items-center">
-                    <div className="h-2 w-2 bg-navy-700 rounded-full mr-2"></div>
-                    <span className="text-slate-700">Financial Technology (Fintech)</span>
-                  </li>
-                  <li className="flex items-center">
-                    <div className="h-2 w-2 bg-navy-700 rounded-full mr-2"></div>
-                    <span className="text-slate-700">Sustainability and Social Impact Finance</span>
-                  </li>
-                  <li className="flex items-center">
-                    <div className="h-2 w-2 bg-navy-700 rounded-full mr-2"></div>
-                    <span className="text-slate-700">Islamic Information Systems</span>
-                  </li>
-                  <li className="flex items-center">
-                    <div className="h-2 w-2 bg-navy-700 rounded-full mr-2"></div>
-                    <span className="text-slate-700">Shari'ah Governance</span>
-                  </li>
-                  <li className="flex items-center">
-                    <div className="h-2 w-2 bg-navy-700 rounded-full mr-2"></div>
-                    <span className="text-slate-700">Waqf Development and Islamic Microfinance</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-16">
-          <SectionHeading title="International Impact" />
-          <div className="grid md:grid-cols-1 gap-8">
-            <div className="card">
-              <h3 className="text-xl font-serif font-bold mb-4 text-navy-800">Academic Leadership</h3>
-              <p className="text-slate-700 mb-4">
-                His leadership in academic initiatives has fostered global dialogue on Islamic finance:
+    <div className="bg-white min-h-screen">
+      {/* Hero */}
+      <section className="bg-gradient-to-b from-slate-50 to-white pt-28 pb-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+            <img
+              src="https://www.hbku.edu.qa/sites/default/files/staff/dr._syed_nazim_ali.jpg"
+              alt="Dr. Syed Nazim Ali"
+              className="w-48 h-56 object-cover object-top rounded-2xl shadow-xl"
+            />
+            <div className="text-center md:text-left">
+              <h1 className="font-serif text-4xl font-bold text-slate-900 mb-2">
+                Dr. Syed Nazim Ali
+              </h1>
+              <p className="text-burgundy-800 text-lg font-medium mb-4">
+                Professorial Research Associate, SOAS University of London
               </p>
-              <ul className="space-y-2 text-slate-700">
-                <li className="flex items-start">
-                  <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
-                  <span>Founder & Director, Harvard University Forum on Islamic Finance (27+ years)</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
-                  <span>Founder, International Conference on Islamic Finance (ICIF) - now in its 8th year</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
-                  <span>Co-Chair, SOAS University of London Annual Islamic Finance Events</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
-                  <span>Academic Advisor, Harvard Muslim Alumni Association</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
-                  <span>Founding Affiliate, Centre for Islamic Finance, University of Bolton, UK</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
-                  <span>Member, Saleh Kamel Islamic Economic Award Committee, Jeddah</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
-                  <span>Member, AAOIFI Education Board (Accounting and Auditing Organization for Islamic Financial Institutions)</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
-                  <span>Visiting Scholar positions at University of Wisconsin–Madison, University of Pittsburgh, SOAS University of London, and Dauphine University Paris</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-4 w-4 bg-gold-500 rounded-full mt-1 mr-2 flex-shrink-0"></div>
-                  <span>External Examiner for doctoral dissertations and faculty promotions across universities in US, UK, Qatar, Bahrain, Malaysia, Pakistan, and Saudi Arabia</span>
-                </li>
-              </ul>
+              <p className="text-slate-600 leading-relaxed max-w-xl">
+                A distinguished scholar with over four decades of contributions to Islamic
+                economics and finance, bridging academia, policy, and industry worldwide.
+              </p>
+
+              {/* Stats inline */}
+              <div className="flex flex-wrap gap-6 mt-6 justify-center md:justify-start">
+                <div>
+                  <span className="text-2xl font-bold text-burgundy-800">40+</span>
+                  <span className="text-slate-500 text-sm ml-1">years</span>
+                </div>
+                <div>
+                  <span className="text-2xl font-bold text-burgundy-800">50+</span>
+                  <span className="text-slate-500 text-sm ml-1">publications</span>
+                </div>
+                <div>
+                  <span className="text-2xl font-bold text-burgundy-800">20</span>
+                  <span className="text-slate-500 text-sm ml-1">years at Harvard</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </section>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        {/* Career Journey */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-serif font-bold text-slate-900 mb-8 pb-2 border-b border-slate-200">
+            Career Journey
+          </h2>
+
+          <div className="space-y-8">
+            {[
+              {
+                period: "2025 – Present",
+                title: "Professorial Research Associate",
+                org: "SOAS University of London",
+                desc: "Continuing global leadership in Islamic finance research and education.",
+                current: true
+              },
+              {
+                period: "2014 – 2025",
+                title: "Director, Research Division & CIEF",
+                org: "HBKU, Qatar Foundation",
+                desc: "Established ICIF conference (8 years) and CEOs Roundtable (10 years). Served as Acting Dean 2017-2022.",
+                current: false
+              },
+              {
+                period: "1995 – 2014",
+                title: "Director, Islamic Finance Program",
+                org: "Harvard University",
+                desc: "Founded the Harvard Forum on Islamic Finance (27+ years running), Islamic Finance Databank, and LSE-SOAS workshops.",
+                current: false
+              },
+              {
+                period: "1984 – 1994",
+                title: "Head of Research & Information Services",
+                org: "University of Bahrain",
+                desc: "Modernized academic information systems and research infrastructure.",
+                current: false
+              },
+              {
+                period: "1976 – 1983",
+                title: "Director of Library",
+                org: "King Faisal University, Saudi Arabia",
+                desc: "Pioneered development of modern university libraries.",
+                current: false
+              },
+            ].map((item, i) => (
+              <div key={i} className="flex gap-6">
+                <div className="w-28 flex-shrink-0 text-right">
+                  <span className={`text-sm font-medium ${item.current ? 'text-gold-600' : 'text-slate-500'}`}>
+                    {item.period}
+                  </span>
+                </div>
+                <div className="relative">
+                  <div className={`absolute -left-[21px] top-1.5 w-3 h-3 rounded-full border-2 ${
+                    item.current ? 'bg-gold-500 border-gold-500' : 'bg-white border-burgundy-800'
+                  }`}></div>
+                  <div className={`border-l-2 ${i === 4 ? 'border-transparent' : 'border-slate-200'} pl-6 pb-8`}>
+                    <h3 className="font-semibold text-slate-900">{item.title}</h3>
+                    <p className="text-burgundy-800 text-sm mb-2">{item.org}</p>
+                    <p className="text-slate-500 text-sm">{item.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Education */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-serif font-bold text-slate-900 mb-8 pb-2 border-b border-slate-200">
+            Education
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { degree: "Ph.D.", field: "Information Sciences", school: "University of Strathclyde, Glasgow", year: "1983" },
+              { degree: "MLS", field: "Library Science", school: "Emporia State University, Kansas", year: "1975" },
+              { degree: "BSc", field: "Biology & Chemistry", school: "Osmania University, Hyderabad", year: "1970" },
+            ].map((item, i) => (
+              <div key={i} className="bg-slate-50 rounded-xl p-5">
+                <div className="text-gold-600 text-sm font-medium mb-1">{item.year}</div>
+                <div className="font-bold text-slate-900">{item.degree} {item.field}</div>
+                <div className="text-slate-500 text-sm mt-1">{item.school}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Initiatives */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-serif font-bold text-slate-900 mb-8 pb-2 border-b border-slate-200">
+            Initiatives Founded
+          </h2>
+
+          <div className="space-y-3">
+            {[
+              { name: "Harvard University Forum on Islamic Finance", years: "27+ years", role: "Founder & Director" },
+              { name: "LSE-SOAS Workshop Series", years: "20+ years", role: "Co-Chair" },
+              { name: "CEOs & Islamic Finance Roundtable", years: "10 years", role: "Founder" },
+              { name: "International Conference on Islamic Finance (ICIF)", years: "8 years", role: "Founder" },
+              { name: "Islamic Finance Databank", years: "Since 1995", role: "Founder" },
+            ].map((item, i) => (
+              <div key={i} className="flex justify-between items-center py-3 border-b border-slate-100 last:border-0">
+                <div>
+                  <span className="text-slate-900">{item.name}</span>
+                  <span className="text-slate-400 text-sm ml-2">· {item.role}</span>
+                </div>
+                <span className="text-burgundy-800 font-semibold text-sm whitespace-nowrap">{item.years}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Two Column: Affiliations & Expertise */}
+        <section className="mb-16 grid md:grid-cols-2 gap-12">
+          <div>
+            <h2 className="text-2xl font-serif font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">
+              Affiliations
+            </h2>
+            <ul className="space-y-3">
+              {[
+                "SOAS University of London",
+                "University of Bolton, UK",
+                "Harvard Muslim Alumni Association",
+                "AAOIFI Education Board",
+                "Saleh Kamel Award Committee",
+              ].map((item, i) => (
+                <li key={i} className="flex items-start">
+                  <span className="w-1.5 h-1.5 bg-gold-500 rounded-full mt-2 mr-3"></span>
+                  <span className="text-slate-600">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-serif font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">
+              Expertise
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {[
+                "Islamic Finance",
+                "Fintech",
+                "Sustainability",
+                "Shari'ah Governance",
+                "Waqf Development",
+                "Microfinance",
+              ].map((item, i) => (
+                <span key={i} className="bg-burgundy-50 text-burgundy-800 px-3 py-1.5 rounded-lg text-sm">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Visiting Positions */}
+        <section>
+          <h2 className="text-2xl font-serif font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">
+            Visiting Scholar
+          </h2>
+          <p className="text-slate-600">
+            University of Wisconsin–Madison · University of Pittsburgh · SOAS University of London · Dauphine University, Paris
+          </p>
+        </section>
+
       </div>
     </div>
   );
