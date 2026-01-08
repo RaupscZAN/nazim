@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface NewspaperImage {
   id: string;
@@ -14,45 +14,47 @@ interface NewspaperCoverageProps {
   newspapers: NewspaperImage[];
 }
 
-const NewspaperCoverage: React.FC<NewspaperCoverageProps> = ({ newspapers }) => {
+const NewspaperCoverage: React.FC<NewspaperCoverageProps> = ({
+  newspapers,
+}) => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const openLightbox = (index: number) => {
     setSelectedIndex(index);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   };
 
   const closeLightbox = () => {
     setSelectedIndex(null);
-    document.body.style.overflow = 'unset';
+    document.body.style.overflow = "unset";
   };
 
-  const navigateImage = (direction: 'prev' | 'next') => {
+  const navigateImage = (direction: "prev" | "next") => {
     if (selectedIndex === null) return;
-    
+
     let newIndex;
-    if (direction === 'prev') {
+    if (direction === "prev") {
       newIndex = selectedIndex > 0 ? selectedIndex - 1 : newspapers.length - 1;
     } else {
       newIndex = selectedIndex < newspapers.length - 1 ? selectedIndex + 1 : 0;
     }
-    
+
     setSelectedIndex(newIndex);
   };
 
   const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') navigateImage('prev');
-    if (e.key === 'ArrowRight') navigateImage('next');
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") navigateImage("prev");
+    if (e.key === "ArrowRight") navigateImage("next");
   };
 
   React.useEffect(() => {
     if (selectedIndex !== null) {
-      document.addEventListener('keydown', handleKeyDown);
+      document.addEventListener("keydown", handleKeyDown);
     }
-    
+
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, [selectedIndex]);
 
@@ -69,7 +71,7 @@ const NewspaperCoverage: React.FC<NewspaperCoverageProps> = ({ newspapers }) => 
             className="bg-white rounded-lg shadow-lg overflow-hidden group"
           >
             {/* Newspaper Image - Full but Small */}
-            <div 
+            <div
               className="relative cursor-pointer overflow-hidden bg-slate-100"
               onClick={() => openLightbox(index)}
             >
@@ -81,7 +83,8 @@ const NewspaperCoverage: React.FC<NewspaperCoverageProps> = ({ newspapers }) => 
                   loading="lazy"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"%3E%3Crect width="800" height="600" fill="%23e2e8f0"/%3E%3Ctext x="400" y="300" font-family="Arial" font-size="20" fill="%2364748b" text-anchor="middle"%3ENewspaper image not available%3C/text%3E%3C/svg%3E';
+                    target.src =
+                      'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"%3E%3Crect width="800" height="600" fill="%23e2e8f0"/%3E%3Ctext x="400" y="300" font-family="Arial" font-size="20" fill="%2364748b" text-anchor="middle"%3ENewspaper image not available%3C/text%3E%3C/svg%3E';
                   }}
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
@@ -92,17 +95,23 @@ const NewspaperCoverage: React.FC<NewspaperCoverageProps> = ({ newspapers }) => 
                 </div>
               </div>
             </div>
-            
+
             {/* Text Content */}
             <div className="p-4">
-              <h4 className="text-base font-medium text-navy-800 mb-1 line-clamp-2">{newspaper.title}</h4>
+              <h4 className="text-base font-medium text-navy-800 mb-1 line-clamp-2">
+                {newspaper.title}
+              </h4>
               {newspaper.date && (
                 <p className="text-xs text-slate-500 mb-2">{newspaper.date}</p>
               )}
               {newspaper.description && (
-                <p className="text-sm text-slate-600 line-clamp-3">{newspaper.description}</p>
+                <p className="text-sm text-slate-600 line-clamp-3">
+                  {newspaper.description}
+                </p>
               )}
-              <p className="text-xs text-slate-500 mt-3 text-center">Click to read full article</p>
+              <p className="text-xs text-slate-500 mt-3 text-center">
+                Click to read full article
+              </p>
             </div>
           </motion.div>
         ))}
@@ -133,7 +142,7 @@ const NewspaperCoverage: React.FC<NewspaperCoverageProps> = ({ newspapers }) => 
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      navigateImage('prev');
+                      navigateImage("prev");
                     }}
                     className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/70 backdrop-blur-sm hover:bg-black/80 text-white p-3 rounded-full transition-all shadow-lg z-10"
                   >
@@ -142,7 +151,7 @@ const NewspaperCoverage: React.FC<NewspaperCoverageProps> = ({ newspapers }) => 
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      navigateImage('next');
+                      navigateImage("next");
                     }}
                     className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/70 backdrop-blur-sm hover:bg-black/80 text-white p-3 rounded-full transition-all shadow-lg z-10"
                   >
@@ -165,10 +174,11 @@ const NewspaperCoverage: React.FC<NewspaperCoverageProps> = ({ newspapers }) => 
                   src={newspapers[selectedIndex].imagePath}
                   alt={newspapers[selectedIndex].title}
                   className="max-w-none h-auto"
-                  style={{ minWidth: '100%' }}
+                  style={{ minWidth: "100%" }}
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"%3E%3Crect width="800" height="600" fill="%23334155"/%3E%3Ctext x="400" y="300" font-family="Arial" font-size="24" fill="%2394a3b8" text-anchor="middle"%3EImage not available%3C/text%3E%3C/svg%3E';
+                    target.src =
+                      'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"%3E%3Crect width="800" height="600" fill="%23334155"/%3E%3Ctext x="400" y="300" font-family="Arial" font-size="24" fill="%2394a3b8" text-anchor="middle"%3EImage not available%3C/text%3E%3C/svg%3E';
                   }}
                 />
               </motion.div>
@@ -176,7 +186,9 @@ const NewspaperCoverage: React.FC<NewspaperCoverageProps> = ({ newspapers }) => 
               {/* Caption */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center">
                 <div className="bg-black/70 backdrop-blur-sm rounded-lg px-4 py-2">
-                  <p className="text-white font-medium">{newspapers[selectedIndex].title}</p>
+                  <p className="text-white font-medium">
+                    {newspapers[selectedIndex].title}
+                  </p>
                   {newspapers.length > 1 && (
                     <p className="text-white/70 text-sm mt-1">
                       {selectedIndex + 1} of {newspapers.length}

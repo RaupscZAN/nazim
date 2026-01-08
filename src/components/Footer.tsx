@@ -1,24 +1,31 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Linkedin, BookOpen, FileText, Mail, Phone, MapPin } from 'lucide-react';
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+  Linkedin,
+  BookOpen,
+  FileText,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Biography', path: '/biography' },
-    { name: 'Research', path: '/research' },
-    { name: 'Activities', path: '/speaking' },
-    { name: 'Media', path: '/media' },
-    { name: 'Contact', path: '/contact' }
+    { name: "Home", path: "/" },
+    { name: "Biography", path: "/biography" },
+    { name: "Research", path: "/research" },
+    { name: "Activities", path: "/speaking" },
+    { name: "Media", path: "/media" },
+    { name: "Contact", path: "/contact" },
   ];
 
   const affiliations = [
     "SOAS University of London",
     "Harvard Muslim Alumni Association",
     "University of Bolton, UK",
-    "AAOIFI, Bahrain"
+    "AAOIFI, Bahrain",
   ];
 
   return (
@@ -29,17 +36,22 @@ const Footer: React.FC = () => {
           <div>
             <div className="flex items-center mb-4">
               <div className="w-12 h-12 bg-gold-500 rounded-full flex items-center justify-center mr-3">
-                <span className="font-serif text-burgundy-900 font-bold text-lg">SNA</span>
+                <span className="font-serif text-burgundy-900 font-bold text-lg">
+                  SNA
+                </span>
               </div>
               <div>
-                <h3 className="font-serif font-bold text-white">Dr. Syed Nazim Ali</h3>
-                <p className="text-sm text-cream-300">Islamic Finance Scholar</p>
+                <h3 className="font-serif font-bold text-white">
+                  Dr. Syed Nazim Ali
+                </h3>
+                <p className="text-sm text-cream-300">
+                  Islamic Finance Scholar
+                </p>
               </div>
             </div>
             <p className="text-cream-300 text-sm leading-relaxed mb-6">
-              Professorial Research Associate at SOAS
-              University of London, with over four decades
-              of contributions to Islamic economics and
+              Professorial Research Associate at SOAS University of London, with
+              over four decades of contributions to Islamic economics and
               finance.
             </p>
             <div className="flex space-x-3">
@@ -95,7 +107,10 @@ const Footer: React.FC = () => {
             <h4 className="font-semibold text-white mb-4">Affiliations</h4>
             <ul className="space-y-2">
               {affiliations.map((item, index) => (
-                <li key={index} className="flex items-start text-sm text-cream-300">
+                <li
+                  key={index}
+                  className="flex items-start text-sm text-cream-300"
+                >
                   <span className="w-1.5 h-1.5 bg-gold-500 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
                   {item}
                 </li>
@@ -108,27 +123,43 @@ const Footer: React.FC = () => {
             <h4 className="font-semibold text-white mb-4">Contact</h4>
             <ul className="space-y-3">
               <li className="flex items-start text-sm text-cream-300">
-                <Mail size={16} className="mr-2 mt-0.5 text-gold-500 flex-shrink-0" />
+                <Mail
+                  size={16}
+                  className="mr-2 mt-0.5 text-gold-500 flex-shrink-0"
+                />
                 <div>
-                  <a href="mailto:snnali@outlook.com" className="hover:text-gold-400 transition-colors">
+                  <a
+                    href="mailto:snnali@outlook.com"
+                    className="hover:text-gold-400 transition-colors"
+                  >
                     snnali@outlook.com
                   </a>
                   <br />
-                  <a href="mailto:ifpnazimali@gmail.com" className="hover:text-gold-400 transition-colors">
+                  <a
+                    href="mailto:ifpnazimali@gmail.com"
+                    className="hover:text-gold-400 transition-colors"
+                  >
                     ifpnazimali@gmail.com
                   </a>
                 </div>
               </li>
               <li className="flex items-center text-sm text-cream-300">
                 <Phone size={16} className="mr-2 text-gold-500 flex-shrink-0" />
-                <a href="tel:+17744340812" className="hover:text-gold-400 transition-colors">
+                <a
+                  href="tel:+17744340812"
+                  className="hover:text-gold-400 transition-colors"
+                >
                   +1 774 434 0812
                 </a>
               </li>
               <li className="flex items-start text-sm text-cream-300">
-                <MapPin size={16} className="mr-2 mt-0.5 text-gold-500 flex-shrink-0" />
+                <MapPin
+                  size={16}
+                  className="mr-2 mt-0.5 text-gold-500 flex-shrink-0"
+                />
                 <span>
-                  119 Chauncy Street<br />
+                  119 Chauncy Street
+                  <br />
                   Mansfield, MA 02048, USA
                 </span>
               </li>

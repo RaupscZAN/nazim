@@ -1,30 +1,43 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FileText, Download, ExternalLink } from 'lucide-react';
-import { MediaDocument } from '../data/mediaData';
+import React from "react";
+import { motion } from "framer-motion";
+import { FileText, Download, ExternalLink } from "lucide-react";
+import { MediaDocument } from "../data/mediaData";
 
 interface DocumentLibraryProps {
   documents: MediaDocument[];
   title?: string;
 }
 
-const DocumentLibrary: React.FC<DocumentLibraryProps> = ({ documents, title }) => {
+const DocumentLibrary: React.FC<DocumentLibraryProps> = ({
+  documents,
+  title,
+}) => {
   const getDocumentIcon = (type: string) => {
     switch (type) {
-      case 'pdf':
+      case "pdf":
         return (
           <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-            <path d="M14 2H6C4.9 2 4 2.9 4 4v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6z" fill="#DC2626" />
+            <path
+              d="M14 2H6C4.9 2 4 2.9 4 4v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6z"
+              fill="#DC2626"
+            />
             <path d="M14 2l6 6h-6V2z" fill="#B91C1C" />
-            <text x="6" y="18" fill="white" fontSize="6" fontWeight="bold">PDF</text>
+            <text x="6" y="18" fill="white" fontSize="6" fontWeight="bold">
+              PDF
+            </text>
           </svg>
         );
-      case 'docx':
+      case "docx":
         return (
           <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-            <path d="M14 2H6C4.9 2 4 2.9 4 4v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6z" fill="#2563EB" />
+            <path
+              d="M14 2H6C4.9 2 4 2.9 4 4v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6z"
+              fill="#2563EB"
+            />
             <path d="M14 2l6 6h-6V2z" fill="#1D4ED8" />
-            <text x="5" y="18" fill="white" fontSize="5" fontWeight="bold">DOC</text>
+            <text x="5" y="18" fill="white" fontSize="5" fontWeight="bold">
+              DOC
+            </text>
           </svg>
         );
       default:
@@ -36,13 +49,15 @@ const DocumentLibrary: React.FC<DocumentLibraryProps> = ({ documents, title }) =
     // For production, this would open the actual file
     // For now, we'll show an alert
     const fullPath = window.location.origin + document.path;
-    window.open(fullPath, '_blank');
+    window.open(fullPath, "_blank");
   };
 
   return (
     <div className="mb-8">
       {title && (
-        <h4 className="text-xl font-serif font-bold mb-4 text-navy-800">{title}</h4>
+        <h4 className="text-xl font-serif font-bold mb-4 text-navy-800">
+          {title}
+        </h4>
       )}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {documents.map((document, index) => (
@@ -80,7 +95,7 @@ const DocumentLibrary: React.FC<DocumentLibraryProps> = ({ documents, title }) =
                     onClick={(e) => {
                       e.stopPropagation();
                       // Create a download link
-                      const link = document.createElement('a');
+                      const link = document.createElement("a");
                       link.href = document.path;
                       link.download = document.filename;
                       link.click();

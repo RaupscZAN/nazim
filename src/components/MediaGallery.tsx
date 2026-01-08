@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronLeft, ChevronRight, Download, ZoomIn } from 'lucide-react';
-import { MediaPhoto } from '../data/mediaData';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, ChevronLeft, ChevronRight, Download, ZoomIn } from "lucide-react";
+import { MediaPhoto } from "../data/mediaData";
 
 interface MediaGalleryProps {
   photos: MediaPhoto[];
@@ -22,37 +22,37 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({ photos, title }) => {
     setSelectedIndex(-1);
   };
 
-  const navigatePhoto = (direction: 'prev' | 'next') => {
+  const navigatePhoto = (direction: "prev" | "next") => {
     if (selectedIndex === -1) return;
-    
+
     let newIndex;
-    if (direction === 'prev') {
+    if (direction === "prev") {
       newIndex = selectedIndex > 0 ? selectedIndex - 1 : photos.length - 1;
     } else {
       newIndex = selectedIndex < photos.length - 1 ? selectedIndex + 1 : 0;
     }
-    
+
     setSelectedPhoto(photos[newIndex]);
     setSelectedIndex(newIndex);
   };
 
   const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') navigatePhoto('prev');
-    if (e.key === 'ArrowRight') navigatePhoto('next');
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") navigatePhoto("prev");
+    if (e.key === "ArrowRight") navigatePhoto("next");
   };
 
   React.useEffect(() => {
     if (selectedPhoto) {
-      document.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
+      document.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
-    
+
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "unset";
     };
   }, [selectedPhoto, selectedIndex]);
 
@@ -60,7 +60,9 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({ photos, title }) => {
     <>
       <div className="mb-8">
         {title && (
-          <h4 className="text-xl font-serif font-bold mb-4 text-navy-800">{title}</h4>
+          <h4 className="text-xl font-serif font-bold mb-4 text-navy-800">
+            {title}
+          </h4>
         )}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {photos.map((photo, index) => (
@@ -80,7 +82,8 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({ photos, title }) => {
                   loading="lazy"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"%3E%3Crect width="400" height="300" fill="%23e2e8f0"/%3E%3Ctext x="200" y="150" font-family="Arial" font-size="16" fill="%2364748b" text-anchor="middle"%3EImage not available%3C/text%3E%3C/svg%3E';
+                    target.src =
+                      'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"%3E%3Crect width="400" height="300" fill="%23e2e8f0"/%3E%3Ctext x="200" y="150" font-family="Arial" font-size="16" fill="%2364748b" text-anchor="middle"%3EImage not available%3C/text%3E%3C/svg%3E';
                   }}
                 />
               </div>
@@ -123,7 +126,7 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({ photos, title }) => {
               {/* Controls */}
               <div className="absolute top-4 right-4 z-10 flex gap-2">
                 <button
-                  onClick={() => window.open(selectedPhoto.path, '_blank')}
+                  onClick={() => window.open(selectedPhoto.path, "_blank")}
                   className="bg-white/90 hover:bg-white text-navy-800 p-2 rounded-full transition-colors"
                   title="Download"
                 >
@@ -140,14 +143,14 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({ photos, title }) => {
 
               {/* Navigation */}
               <button
-                onClick={() => navigatePhoto('prev')}
+                onClick={() => navigatePhoto("prev")}
                 className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-navy-800 p-2 rounded-full transition-colors z-10"
                 title="Previous"
               >
                 <ChevronLeft size={24} />
               </button>
               <button
-                onClick={() => navigatePhoto('next')}
+                onClick={() => navigatePhoto("next")}
                 className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-navy-800 p-2 rounded-full transition-colors z-10"
                 title="Next"
               >
@@ -161,13 +164,16 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({ photos, title }) => {
                 className="max-w-full max-h-[80vh] object-contain rounded-lg"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"%3E%3Crect width="800" height="600" fill="%23334155"/%3E%3Ctext x="400" y="300" font-family="Arial" font-size="24" fill="%2394a3b8" text-anchor="middle"%3EImage not available%3C/text%3E%3C/svg%3E';
+                  target.src =
+                    'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"%3E%3Crect width="800" height="600" fill="%23334155"/%3E%3Ctext x="400" y="300" font-family="Arial" font-size="24" fill="%2394a3b8" text-anchor="middle"%3EImage not available%3C/text%3E%3C/svg%3E';
                 }}
               />
 
               {/* Caption */}
               <div className="mt-4 text-center">
-                <p className="text-white text-lg">{selectedPhoto.description}</p>
+                <p className="text-white text-lg">
+                  {selectedPhoto.description}
+                </p>
                 <p className="text-white/70 text-sm mt-1">
                   {selectedIndex + 1} of {photos.length}
                 </p>

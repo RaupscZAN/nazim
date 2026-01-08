@@ -1,13 +1,26 @@
-import React, { useState, useMemo } from 'react';
-import SectionHeading from '../components/SectionHeading';
-import { Award, FileText, Globe, Video, Camera, Search, X, Newspaper, BookOpen, Calendar, Mic, MapPin } from 'lucide-react';
-import EventSlideshow from '../components/EventSlideshow';
-import NewspaperCoverage from '../components/NewspaperCoverage';
-import { events, searchMedia, newspaperImages } from '../data/mediaData';
-import { AnimatePresence } from 'framer-motion';
+import React, { useState, useMemo } from "react";
+import SectionHeading from "../components/SectionHeading";
+import {
+  Award,
+  FileText,
+  Globe,
+  Video,
+  Camera,
+  Search,
+  X,
+  Newspaper,
+  BookOpen,
+  Calendar,
+  Mic,
+  MapPin,
+} from "lucide-react";
+import EventSlideshow from "../components/EventSlideshow";
+import NewspaperCoverage from "../components/NewspaperCoverage";
+import { events, searchMedia, newspaperImages } from "../data/mediaData";
+import { AnimatePresence } from "framer-motion";
 
 const MediaPage: React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [expandedEventId, setExpandedEventId] = useState<string | null>(null);
 
   const filteredContent = useMemo(() => {
@@ -16,7 +29,7 @@ const MediaPage: React.FC = () => {
     }
     return {
       events: events,
-      documents: []
+      documents: [],
     };
   }, [searchQuery]);
 
@@ -25,20 +38,27 @@ const MediaPage: React.FC = () => {
   };
 
   // Group events by category for organized display
-  const harvardEvents = filteredContent.events?.filter(e => e.category === 'harvard') || [];
-  const governmentEvents = filteredContent.events?.filter(e => e.category === 'government') || [];
-  const internationalEvents = filteredContent.events?.filter(e => e.category === 'international') || [];
-  const academicEvents = filteredContent.events?.filter(e => e.category === 'academic') || [];
+  const harvardEvents =
+    filteredContent.events?.filter((e) => e.category === "harvard") || [];
+  const governmentEvents =
+    filteredContent.events?.filter((e) => e.category === "government") || [];
+  const internationalEvents =
+    filteredContent.events?.filter((e) => e.category === "international") || [];
+  const academicEvents =
+    filteredContent.events?.filter((e) => e.category === "academic") || [];
 
   return (
     <div className="py-16">
       <div className="container-narrow">
         <SectionHeading title="Media & Recognition" />
-        
+
         {/* Search Bar */}
         <div className="mb-8 bg-white rounded-lg shadow-sm border border-slate-200 p-4">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
+            <Search
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+              size={20}
+            />
             <input
               type="text"
               placeholder="Search events, photos, and media content..."
@@ -48,7 +68,7 @@ const MediaPage: React.FC = () => {
             />
             {searchQuery && (
               <button
-                onClick={() => setSearchQuery('')}
+                onClick={() => setSearchQuery("")}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
               >
                 <X size={20} />
@@ -56,62 +76,83 @@ const MediaPage: React.FC = () => {
             )}
           </div>
         </div>
-        
+
         {searchQuery && (
           <div className="mb-6 text-slate-600">
-            Found {filteredContent.events?.length || 0} events matching "{searchQuery}"
+            Found {filteredContent.events?.length || 0} events matching "
+            {searchQuery}"
           </div>
         )}
-        
+
         {/* Awards Section */}
         <section className="mb-16">
           <h3 className="text-2xl font-serif font-bold mb-6 text-navy-800 flex items-center">
             <Award className="mr-3 text-gold-500" size={28} />
             Awards & Honors
           </h3>
-          
+
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6 hover:shadow-md transition-shadow">
-              <div className="text-gold-500 font-serif text-xl font-bold mb-2">2022</div>
-              <h4 className="text-xl font-medium text-navy-800 mb-2">Harvard University Muslim Alumni Foundation Award</h4>
+              <div className="text-gold-500 font-serif text-xl font-bold mb-2">
+                2022
+              </div>
+              <h4 className="text-xl font-medium text-navy-800 mb-2">
+                Harvard University Muslim Alumni Foundation Award
+              </h4>
               <p className="text-slate-600">
-                Recognized for outstanding contributions to Islamic finance education and research
+                Recognized for outstanding contributions to Islamic finance
+                education and research
               </p>
             </div>
-            
+
             <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6 hover:shadow-md transition-shadow">
-              <div className="text-gold-500 font-serif text-xl font-bold mb-2">2019</div>
-              <h4 className="text-xl font-medium text-navy-800 mb-2">Islamic Finance Leadership Award</h4>
+              <div className="text-gold-500 font-serif text-xl font-bold mb-2">
+                2019
+              </div>
+              <h4 className="text-xl font-medium text-navy-800 mb-2">
+                Islamic Finance Leadership Award
+              </h4>
               <p className="text-slate-600">
-                Awarded by the Global Islamic Finance Awards committee for pioneering research
+                Awarded by the Global Islamic Finance Awards committee for
+                pioneering research
               </p>
             </div>
-            
+
             <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6 hover:shadow-md transition-shadow">
-              <div className="text-gold-500 font-serif text-xl font-bold mb-2">2017</div>
-              <h4 className="text-xl font-medium text-navy-800 mb-2">Royal Award for Islamic Finance</h4>
+              <div className="text-gold-500 font-serif text-xl font-bold mb-2">
+                2017
+              </div>
+              <h4 className="text-xl font-medium text-navy-800 mb-2">
+                Royal Award for Islamic Finance
+              </h4>
               <p className="text-slate-600">
-                Presented by the King of Malaysia for contributions to global Islamic financial systems
+                Presented by the King of Malaysia for contributions to global
+                Islamic financial systems
               </p>
             </div>
-            
+
             <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6 hover:shadow-md transition-shadow">
-              <div className="text-gold-500 font-serif text-xl font-bold mb-2">2014</div>
-              <h4 className="text-xl font-medium text-navy-800 mb-2">Euromoney Outstanding Contribution Award</h4>
+              <div className="text-gold-500 font-serif text-xl font-bold mb-2">
+                2014
+              </div>
+              <h4 className="text-xl font-medium text-navy-800 mb-2">
+                Euromoney Outstanding Contribution Award
+              </h4>
               <p className="text-slate-600">
-                For leadership in developing Islamic finance frameworks in international markets
+                For leadership in developing Islamic finance frameworks in
+                international markets
               </p>
             </div>
           </div>
         </section>
-        
+
         {/* Newspaper Coverage Section */}
         <section className="mb-16">
           <h3 className="text-2xl font-serif font-bold mb-6 text-navy-800 flex items-center">
             <Newspaper className="mr-3 text-navy-600" size={28} />
             Newspaper Coverage
           </h3>
-          
+
           <NewspaperCoverage newspapers={newspaperImages} />
         </section>
 
@@ -121,51 +162,85 @@ const MediaPage: React.FC = () => {
             <BookOpen className="mr-3 text-navy-600" size={28} />
             Academic Publications & Research
           </h3>
-          
+
           <div className="space-y-6">
             <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
-              <h4 className="text-xl font-medium text-navy-800 mb-2">Islamic Finance: Current Legal and Regulatory Issues</h4>
-              <p className="text-sm text-slate-600 mb-3">Editor • Harvard Law School, Islamic Finance Project, 2005</p>
+              <h4 className="text-xl font-medium text-navy-800 mb-2">
+                Islamic Finance: Current Legal and Regulatory Issues
+              </h4>
+              <p className="text-sm text-slate-600 mb-3">
+                Editor • Harvard Law School, Islamic Finance Project, 2005
+              </p>
               <p className="text-slate-700 mb-4">
-                This seminal work brings together leading scholars and practitioners to address the complex regulatory frameworks governing Islamic finance. Dr. Ali's editorial leadership resulted in a comprehensive resource that has become essential reading for regulators and policymakers worldwide.
+                This seminal work brings together leading scholars and
+                practitioners to address the complex regulatory frameworks
+                governing Islamic finance. Dr. Ali's editorial leadership
+                resulted in a comprehensive resource that has become essential
+                reading for regulators and policymakers worldwide.
               </p>
               <div className="bg-slate-50 rounded p-4 text-sm text-slate-700">
                 <p className="font-semibold mb-2">Key Contributions:</p>
                 <ul className="list-disc list-inside space-y-1">
-                  <li>Framework for harmonizing Shariah compliance with international banking regulations</li>
-                  <li>Case studies from Malaysia, GCC countries, and Western markets</li>
-                  <li>Guidelines for central banks supervising Islamic financial institutions</li>
+                  <li>
+                    Framework for harmonizing Shariah compliance with
+                    international banking regulations
+                  </li>
+                  <li>
+                    Case studies from Malaysia, GCC countries, and Western
+                    markets
+                  </li>
+                  <li>
+                    Guidelines for central banks supervising Islamic financial
+                    institutions
+                  </li>
                 </ul>
               </div>
             </div>
 
             <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
-              <h4 className="text-xl font-medium text-navy-800 mb-2">Building Bridges Across Financial Communities: The Global Financial Crisis, Social Responsibility, and Faith-Based Finance</h4>
-              <p className="text-sm text-slate-600 mb-3">Editor • Harvard Law School, Islamic Finance Project, 2012</p>
+              <h4 className="text-xl font-medium text-navy-800 mb-2">
+                Building Bridges Across Financial Communities: The Global
+                Financial Crisis, Social Responsibility, and Faith-Based Finance
+              </h4>
+              <p className="text-sm text-slate-600 mb-3">
+                Editor • Harvard Law School, Islamic Finance Project, 2012
+              </p>
               <p className="text-slate-700">
-                A comprehensive analysis of how Islamic finance principles can complement and enhance the global financial system. This work examines successful integration models and proposes frameworks for increased cooperation between conventional and Islamic financial institutions, particularly in the context of the global financial crisis.
+                A comprehensive analysis of how Islamic finance principles can
+                complement and enhance the global financial system. This work
+                examines successful integration models and proposes frameworks
+                for increased cooperation between conventional and Islamic
+                financial institutions, particularly in the context of the
+                global financial crisis.
               </p>
             </div>
 
             <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
-              <h4 className="text-xl font-medium text-navy-800 mb-2">Harvard Islamic Finance Information Program (HIFIP) DataBank</h4>
-              <p className="text-sm text-slate-600 mb-3">Founder & Director • 1995-2013</p>
+              <h4 className="text-xl font-medium text-navy-800 mb-2">
+                Harvard Islamic Finance Information Program (HIFIP) DataBank
+              </h4>
+              <p className="text-sm text-slate-600 mb-3">
+                Founder & Director • 1995-2013
+              </p>
               <p className="text-slate-700">
-                Created and maintained one of the world's earliest structured digital repositories in Islamic finance, including research papers, legal documents, and industry reports. The HIFIP DataBank served thousands of researchers, students, and practitioners globally and was a pioneering effort in digital knowledge management for Islamic finance.
+                Created and maintained one of the world's earliest structured
+                digital repositories in Islamic finance, including research
+                papers, legal documents, and industry reports. The HIFIP
+                DataBank served thousands of researchers, students, and
+                practitioners globally and was a pioneering effort in digital
+                knowledge management for Islamic finance.
               </p>
             </div>
           </div>
         </section>
 
-
-        
         {/* Video Presentations Section */}
         <section className="mb-16">
           <h3 className="text-2xl font-serif font-bold mb-6 text-navy-800 flex items-center">
             <Video className="mr-3 text-navy-600" size={28} />
             Video Presentations
           </h3>
-          
+
           <div className="grid md:grid-cols-2 gap-8">
             {/* Video 1 - Lariba, Pasadena */}
             <div className="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden">
@@ -248,7 +323,7 @@ const MediaPage: React.FC = () => {
             </div>
           </div>
         </section>
-        
+
         {/* Harvard Events Section */}
         {harvardEvents.length > 0 && (
           <section className="mb-16">
@@ -256,7 +331,7 @@ const MediaPage: React.FC = () => {
               <Camera className="mr-3 text-navy-600" size={28} />
               Harvard University Events
             </h3>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {harvardEvents.map((event) => (
                 <EventSlideshow
@@ -269,14 +344,14 @@ const MediaPage: React.FC = () => {
             </div>
           </section>
         )}
-        
+
         {/* Government Relations Section */}
         {governmentEvents.length > 0 && (
           <section className="mb-16">
             <h3 className="text-2xl font-serif font-bold mb-6 text-navy-800">
               Government Relations & Policy Work
             </h3>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {governmentEvents.map((event) => (
                 <EventSlideshow
@@ -289,14 +364,14 @@ const MediaPage: React.FC = () => {
             </div>
           </section>
         )}
-        
+
         {/* International Engagements Section */}
         {internationalEvents.length > 0 && (
           <section className="mb-16">
             <h3 className="text-2xl font-serif font-bold mb-6 text-navy-800">
               International Engagements
             </h3>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {internationalEvents.map((event) => (
                 <EventSlideshow
@@ -309,14 +384,14 @@ const MediaPage: React.FC = () => {
             </div>
           </section>
         )}
-        
+
         {/* Academic Forums Section */}
         {academicEvents.length > 0 && (
           <section className="mb-16">
             <h3 className="text-2xl font-serif font-bold mb-6 text-navy-800">
               Academic Forums & Conferences
             </h3>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {academicEvents.map((event) => (
                 <EventSlideshow
@@ -329,46 +404,54 @@ const MediaPage: React.FC = () => {
             </div>
           </section>
         )}
-        
+
         {/* Institutional Collaborations Section */}
         <section>
           <h3 className="text-2xl font-serif font-bold mb-6 text-navy-800 flex items-center">
             <Globe className="mr-3 text-navy-600" size={28} />
             Institutional Collaborations
           </h3>
-          
+
           <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
             <p className="text-slate-700 mb-6">
-              Dr. Ali has collaborated with numerous prestigious institutions to advance 
-              research and education in Islamic finance:
+              Dr. Ali has collaborated with numerous prestigious institutions to
+              advance research and education in Islamic finance:
             </p>
-            
+
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               <div className="p-4 border border-slate-200 rounded-lg text-center hover:bg-slate-50 transition-colors">
-                <h4 className="font-medium text-navy-800">Harvard University</h4>
+                <h4 className="font-medium text-navy-800">
+                  Harvard University
+                </h4>
                 <p className="text-slate-600 text-sm">Research Partnership</p>
               </div>
-              
+
               <div className="p-4 border border-slate-200 rounded-lg text-center hover:bg-slate-50 transition-colors">
-                <h4 className="font-medium text-navy-800">U.S. Department of Treasury</h4>
+                <h4 className="font-medium text-navy-800">
+                  U.S. Department of Treasury
+                </h4>
                 <p className="text-slate-600 text-sm">Policy Advisory</p>
               </div>
-              
+
               <div className="p-4 border border-slate-200 rounded-lg text-center hover:bg-slate-50 transition-colors">
-                <h4 className="font-medium text-navy-800">Federal Reserve Bank of NY</h4>
+                <h4 className="font-medium text-navy-800">
+                  Federal Reserve Bank of NY
+                </h4>
                 <p className="text-slate-600 text-sm">Consultant</p>
               </div>
-              
+
               <div className="p-4 border border-slate-200 rounded-lg text-center hover:bg-slate-50 transition-colors">
-                <h4 className="font-medium text-navy-800">Islamic Development Bank</h4>
+                <h4 className="font-medium text-navy-800">
+                  Islamic Development Bank
+                </h4>
                 <p className="text-slate-600 text-sm">Senior Advisor</p>
               </div>
-              
+
               <div className="p-4 border border-slate-200 rounded-lg text-center hover:bg-slate-50 transition-colors">
                 <h4 className="font-medium text-navy-800">World Bank</h4>
                 <p className="text-slate-600 text-sm">Technical Expert</p>
               </div>
-              
+
               <div className="p-4 border border-slate-200 rounded-lg text-center hover:bg-slate-50 transition-colors">
                 <h4 className="font-medium text-navy-800">OECD</h4>
                 <p className="text-slate-600 text-sm">Working Group Member</p>
@@ -382,16 +465,17 @@ const MediaPage: React.FC = () => {
       <AnimatePresence>
         {expandedEventId && (
           <div className="fixed inset-0 z-50">
-            {filteredContent.events?.map((event) => (
-              event.id === expandedEventId && (
-                <EventSlideshow
-                  key={event.id}
-                  event={event}
-                  isExpanded={true}
-                  onToggleExpand={() => setExpandedEventId(null)}
-                />
-              )
-            ))}
+            {filteredContent.events?.map(
+              (event) =>
+                event.id === expandedEventId && (
+                  <EventSlideshow
+                    key={event.id}
+                    event={event}
+                    isExpanded={true}
+                    onToggleExpand={() => setExpandedEventId(null)}
+                  />
+                ),
+            )}
           </div>
         )}
       </AnimatePresence>

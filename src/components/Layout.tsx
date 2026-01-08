@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
-import Header from './Header';
-import Footer from './Footer';
-import { AnimatePresence, motion } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Layout: React.FC = () => {
   const { pathname } = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
 
   // Check if we're on the homepage (hero pages that need full-screen)
-  const isHomePage = pathname === '/';
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
       <Header isScrolled={isScrolled} />
 
-      <main className={`flex-grow ${isHomePage ? '' : 'pt-20'}`}>
+      <main className={`flex-grow ${isHomePage ? "" : "pt-20"}`}>
         <AnimatePresence mode="wait">
           <motion.div
             key={pathname}
