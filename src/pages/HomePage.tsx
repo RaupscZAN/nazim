@@ -1,51 +1,58 @@
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 import {
   ArrowRight,
   ChevronRight,
   MapPin,
-  Award,
   FileText,
   BookOpen,
   Mail,
+  X,
+  User,
+  Building,
+  MessageSquare,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const HomePage: React.FC = () => {
-  const [email, setEmail] = useState("");
-  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [showBookForm, setShowBookForm] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [bookForm, setBookForm] = useState({
+    name: "",
+    email: "",
+    organization: "",
+    role: "",
+    interest: "",
+    message: "",
+  });
 
-  const handlePreRegistration = (e: React.FormEvent) => {
+  const handleBookFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) {
-      setIsSubscribed(true);
-      setEmail("");
-    }
+
+    emailjs.send(
+      "service_y9oj9ar",
+      "nazimali_book_registration",
+      {
+        from_name: bookForm.name,
+        from_email: bookForm.email,
+        organization: bookForm.organization,
+        role: bookForm.role,
+        interest: bookForm.interest,
+        message: bookForm.message,
+      },
+      "YOUR_PUBLIC_KEY"      // Replace with your EmailJS Public Key
+    );
+
+    setFormSubmitted(true);
+    setBookForm({ name: "", email: "", organization: "", role: "", interest: "", message: "" });
   };
 
   const affiliations = [
     { name: "SOAS", subtitle: "University of London" },
     { name: "Harvard", subtitle: "University" },
     { name: "HBKU", subtitle: "Qatar Foundation" },
-    { name: "Bolton", subtitle: "University, UK" },
+    { name: "Al-Barakh", subtitle: "Forum, KSA" },
     { name: "AAOIFI", subtitle: "Bahrain" },
-  ];
-
-  const awards = [
-    {
-      year: "2022",
-      title: "Harvard University Muslim Alumni Foundation Award",
-      description: "Outstanding contributions to Islamic finance education",
-    },
-    {
-      year: "2019",
-      title: "Islamic Finance Leadership Award",
-      description: "Pioneering research in global Islamic finance",
-    },
-    {
-      year: "2017",
-      title: "Royal Award for Islamic Finance",
-      description: "Presented by the King of Malaysia",
-    },
   ];
 
   const videos = [
@@ -59,28 +66,32 @@ const HomePage: React.FC = () => {
 
   const featuredPapers = [
     {
-      title: "Published Books",
-      year: "2011-2025",
-      category: "Books",
+      year: "2014",
+      category: "Book",
       link: "/research?type=Books",
+      title: "Islamic Finance: Current Legal & Regulatory Issues",
+      description: "A comprehensive volume exploring regulatory frameworks governing Islamic financial institutions globally.",
     },
     {
-      title: "Harvard Forums",
-      year: "1997-2022",
+      year: "2011",
       category: "Harvard",
       link: "/research?type=Harvard",
+      title: "Harvard Forum on Islamic Finance: Innovation & Authenticity",
+      description: "Proceedings from the Harvard University Forum on Islamic Finance addressing contemporary challenges.",
     },
     {
-      title: "SOAS Workshops",
-      year: "2018-2024",
-      category: "SOAS",
-      link: "/research?type=SOAS",
+      year: "2019",
+      category: "SOAS & LSE",
+      link: "/research?type=SOAS-LSE",
+      title: "Islamic Finance in the UK: SOAS Workshop Report",
+      description: "Workshop proceedings examining the growth of Islamic finance in European markets.",
     },
     {
-      title: "LSE Workshops",
-      year: "2007-2017",
-      category: "LSE",
-      link: "/research?type=LSE",
+      year: "2022",
+      category: "Article",
+      link: "/research?type=Articles & Chapters",
+      title: "Maqasid al-Shariah and the Ethics of Islamic Finance",
+      description: "Peer-reviewed journal article examining the objectives of Islamic law in modern finance.",
     },
   ];
 
@@ -242,96 +253,62 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Awards & Recognition */}
-      <section className="py-20 bg-cream-100">
-        <div className="container-wide">
-          <div className="text-center mb-12">
-            <p className="text-burgundy-800 font-medium tracking-wider uppercase mb-2">
-              Recognition
-            </p>
-            <h2 className="font-serif text-4xl font-bold text-slate-800">
-              Awards & Honors
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {awards.map((award, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border-l-4 border-gold-500"
-              >
-                <div className="flex items-center mb-3">
-                  <Award className="text-gold-500 mr-2" size={24} />
-                  <span className="text-gold-600 font-bold text-lg">
-                    {award.year}
-                  </span>
-                </div>
-                <h3 className="font-serif text-lg font-bold text-slate-800 mb-2">
-                  {award.title}
-                </h3>
-                <p className="text-slate-500 text-sm">{award.description}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-8">
-            <Link
-              to="/media"
-              className="inline-flex items-center text-burgundy-800 hover:text-burgundy-600 font-medium"
-            >
-              View All Awards <ChevronRight size={18} className="ml-1" />
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* Featured Research Papers */}
       <section className="py-20 bg-white">
         <div className="container-wide">
           <div className="text-center mb-12">
-            <p className="text-burgundy-800 font-medium tracking-wider uppercase mb-2">
-              Research
-            </p>
             <h2 className="font-serif text-4xl font-bold text-slate-800">
-              Featured Papers
+              Featured Publications
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {featuredPapers.map((paper, index) => (
               <Link
                 key={index}
                 to={paper.link}
-                className="bg-cream-50 rounded-2xl p-6 border border-cream-200 hover:shadow-lg transition-all group block"
+                className="bg-white rounded-xl border border-slate-200 hover:shadow-md hover:border-burgundy-200 transition-all group block overflow-hidden"
               >
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-12 h-12 bg-burgundy-800 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-gold-500 transition-colors mb-4">
-                    <FileText className="text-white" size={24} />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-center gap-2 mb-2 flex-wrap">
-                      <span
-                        className={`text-xs font-semibold px-2 py-1 rounded ${
-                          paper.category === "Harvard"
-                            ? "bg-red-100 text-red-700"
-                            : paper.category === "SOAS"
-                              ? "bg-blue-100 text-blue-700"
-                              : paper.category === "LSE"
-                                ? "bg-purple-100 text-purple-700"
-                                : "bg-gold-100 text-gold-700"
-                        }`}
-                      >
-                        {paper.category}
-                      </span>
-                      <span className="text-xs font-medium text-slate-600">
-                        {paper.year}
-                      </span>
+                {/* Top color bar */}
+                <div className={`h-1 w-full ${
+                  paper.category === "Harvard"
+                    ? "bg-red-600"
+                    : paper.category === "SOAS & LSE"
+                      ? "bg-blue-600"
+                      : paper.category === "Article"
+                        ? "bg-green-600"
+                        : "bg-gold-500"
+                }`} />
+                <div className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-cream-50 border border-cream-200 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <FileText className="text-burgundy-800" size={20} />
                     </div>
-                    <h3 className="font-serif text-lg font-bold text-slate-800 group-hover:text-burgundy-800 transition-colors">
-                      {paper.title}
-                    </h3>
-                    <div className="mt-2 inline-flex items-center text-burgundy-800 group-hover:text-burgundy-600 text-sm font-medium">
-                      View Details <ChevronRight size={16} className="ml-1" />
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span
+                          className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
+                            paper.category === "Harvard"
+                              ? "bg-red-100 text-red-700"
+                              : paper.category === "SOAS & LSE"
+                                ? "bg-blue-100 text-blue-700"
+                                : paper.category === "Article"
+                                  ? "bg-green-100 text-green-700"
+                                  : "bg-gold-100 text-gold-700"
+                          }`}
+                        >
+                          {paper.category}
+                        </span>
+                        <span className="text-xs text-slate-400">{paper.year}</span>
+                      </div>
+                      <h3 className="font-serif text-base font-semibold text-slate-800 leading-snug mb-2 group-hover:text-burgundy-800 transition-colors">
+                        {paper.title}
+                      </h3>
+                      <p className="text-xs text-slate-500 leading-relaxed mb-3">{paper.description}</p>
+                      <span className="inline-flex items-center text-burgundy-800 group-hover:text-burgundy-600 text-xs font-medium">
+                        Read More <ChevronRight size={14} className="ml-0.5" />
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -424,49 +401,16 @@ const HomePage: React.FC = () => {
                 finance industry over the past three decades.
               </p>
 
-              {!isSubscribed ? (
-                <div className="bg-white rounded-xl p-6 shadow-sm border border-cream-200">
-                  <h4 className="text-lg font-medium text-burgundy-700 mb-4">
-                    Be the first to know when it's available
-                  </h4>
-                  <form
-                    onSubmit={handlePreRegistration}
-                    className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-                  >
-                    <div className="flex-1">
-                      <input
-                        type="email"
-                        placeholder="Enter your email address"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-burgundy-500 focus:border-transparent"
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      className="btn-primary px-6 py-3 whitespace-nowrap flex items-center justify-center"
-                    >
-                      <Mail className="mr-2" size={18} />
-                      Pre-Register
-                    </button>
-                  </form>
-                  <p className="text-sm text-slate-500 mt-3">
-                    You'll receive updates on the book's progress and be
-                    notified as soon as it's available.
-                  </p>
-                </div>
-              ) : (
-                <div className="bg-green-50 border border-green-200 rounded-xl p-6">
-                  <div className="text-green-800 text-lg font-medium mb-2">
-                    Thank you for your interest!
-                  </div>
-                  <p className="text-green-700">
-                    We'll keep you updated on the book's progress and notify you
-                    when it's available.
-                  </p>
-                </div>
-              )}
+              <button
+                onClick={() => { setShowBookForm(true); setFormSubmitted(false); }}
+                className="btn-primary px-8 py-4 text-lg inline-flex items-center justify-center shadow-lg hover:shadow-xl transition-all"
+              >
+                <Mail className="mr-2" size={20} />
+                Pre-Register for This Book
+              </button>
+              <p className="text-sm text-slate-500 mt-3">
+                Be the first to know when it's available
+              </p>
             </div>
           </div>
         </div>
@@ -491,6 +435,153 @@ const HomePage: React.FC = () => {
           </Link>
         </div>
       </section>
+      {/* Book Pre-Registration Modal */}
+      {showBookForm && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={() => setShowBookForm(false)}>
+          <div className="bg-white rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <div className="bg-gradient-to-r from-burgundy-800 to-burgundy-700 rounded-t-2xl p-6 relative">
+              <button
+                onClick={() => setShowBookForm(false)}
+                className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors"
+              >
+                <X size={24} />
+              </button>
+              <BookOpen className="text-gold-400 mb-2" size={28} />
+              <h3 className="text-xl font-serif font-bold text-white">Pre-Register for the Book</h3>
+              <p className="text-cream-300 text-sm mt-1">"Curiosity to Calling: My Life in Islamic Finance"</p>
+            </div>
+
+            {!formSubmitted ? (
+              <form onSubmit={handleBookFormSubmit} className="p-6 space-y-4">
+                <div>
+                  <label className="flex items-center text-sm font-medium text-slate-700 mb-1">
+                    <User size={14} className="mr-1.5 text-slate-400" />
+                    Full Name <span className="text-red-500 ml-0.5">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    value={bookForm.name}
+                    onChange={(e) => setBookForm({ ...bookForm, name: e.target.value })}
+                    required
+                    placeholder="Your full name"
+                    className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-burgundy-500 focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <label className="flex items-center text-sm font-medium text-slate-700 mb-1">
+                    <Mail size={14} className="mr-1.5 text-slate-400" />
+                    Email Address <span className="text-red-500 ml-0.5">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    value={bookForm.email}
+                    onChange={(e) => setBookForm({ ...bookForm, email: e.target.value })}
+                    required
+                    placeholder="your@email.com"
+                    className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-burgundy-500 focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <label className="flex items-center text-sm font-medium text-slate-700 mb-1">
+                    <Building size={14} className="mr-1.5 text-slate-400" />
+                    Organization / University
+                  </label>
+                  <input
+                    type="text"
+                    value={bookForm.organization}
+                    onChange={(e) => setBookForm({ ...bookForm, organization: e.target.value })}
+                    placeholder="Your institution or organization"
+                    className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-burgundy-500 focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-sm font-medium text-slate-700 mb-1 block">
+                    Your Role
+                  </label>
+                  <select
+                    value={bookForm.role}
+                    onChange={(e) => setBookForm({ ...bookForm, role: e.target.value })}
+                    className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-burgundy-500 focus:border-transparent bg-white"
+                  >
+                    <option value="">Select your role</option>
+                    <option value="Academic/Researcher">Academic / Researcher</option>
+                    <option value="Student">Student</option>
+                    <option value="Industry Professional">Industry Professional</option>
+                    <option value="Journalist/Media">Journalist / Media</option>
+                    <option value="General Reader">General Reader</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="text-sm font-medium text-slate-700 mb-1 block">
+                    What interests you most about this book?
+                  </label>
+                  <select
+                    value={bookForm.interest}
+                    onChange={(e) => setBookForm({ ...bookForm, interest: e.target.value })}
+                    className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-burgundy-500 focus:border-transparent bg-white"
+                  >
+                    <option value="">Select an option</option>
+                    <option value="Personal memoir">Personal memoir & journey</option>
+                    <option value="Islamic finance history">History of Islamic finance</option>
+                    <option value="Harvard experience">Harvard experience</option>
+                    <option value="Industry insights">Industry insights & mentorship</option>
+                    <option value="All of the above">All of the above</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="flex items-center text-sm font-medium text-slate-700 mb-1">
+                    <MessageSquare size={14} className="mr-1.5 text-slate-400" />
+                    Message (Optional)
+                  </label>
+                  <textarea
+                    value={bookForm.message}
+                    onChange={(e) => setBookForm({ ...bookForm, message: e.target.value })}
+                    placeholder="Any questions or comments about the book..."
+                    rows={3}
+                    className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-burgundy-500 focus:border-transparent resize-none"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full btn-primary py-3 text-lg flex items-center justify-center"
+                >
+                  <Mail className="mr-2" size={18} />
+                  Submit Pre-Registration
+                </button>
+                <p className="text-xs text-slate-400 text-center">
+                  You'll receive updates on the book's progress and be notified when it's available.
+                </p>
+              </form>
+            ) : (
+              <div className="p-8 text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Mail className="text-green-600" size={28} />
+                </div>
+                <h4 className="text-xl font-serif font-bold text-slate-800 mb-2">
+                  Thank You for Your Interest!
+                </h4>
+                <p className="text-slate-600 mb-6">
+                  We've received your pre-registration. You'll be among the first to know when
+                  "Curiosity to Calling" is available.
+                </p>
+                <button
+                  onClick={() => setShowBookForm(false)}
+                  className="btn-primary px-6 py-2"
+                >
+                  Close
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -6,10 +6,8 @@ type PublicationType =
   | "All"
   | "Books"
   | "Harvard"
-  | "SOAS"
-  | "LSE"
-  | "Articles"
-  | "Book Chapters"
+  | "SOAS-LSE"
+  | "Articles & Chapters"
   | "Media";
 
 const ResearchPage: React.FC = () => {
@@ -26,10 +24,8 @@ const ResearchPage: React.FC = () => {
         "All",
         "Books",
         "Harvard",
-        "SOAS",
-        "LSE",
-        "Articles",
-        "Book Chapters",
+        "SOAS-LSE",
+        "Articles & Chapters",
         "Media",
       ].includes(type)
     ) {
@@ -44,6 +40,12 @@ const ResearchPage: React.FC = () => {
 
   // Update URL when type changes
   const handleTypeChange = (type: PublicationType) => {
+    // Redirect to Harvard Archives page if Harvard is clicked
+    if (type === "Harvard") {
+      navigate("/harvard-archives");
+      return;
+    }
+    
     setActiveType(type);
     if (type === "All") {
       navigate("/research");
@@ -63,7 +65,7 @@ const ResearchPage: React.FC = () => {
     const type = params.get("type");
     if (
       type &&
-      ["All", "Books", "Harvard", "SOAS", "LSE", "Articles"].includes(type)
+      ["All", "Books", "Harvard", "SOAS-LSE", "Articles & Chapters"].includes(type)
     ) {
       setActiveType(type as PublicationType);
     }
@@ -209,7 +211,7 @@ const ResearchPage: React.FC = () => {
       category: "Publication",
       description:
         "Proceedings from the Ninth Harvard Forum on Islamic Finance, addressing the global financial crisis and the role of faith-based finance in social responsibility.",
-      link: "#",
+      link: "/research-books/9thForumBook/Building Bridges Across Financial Communities.pdf",
     },
     {
       id: 102,
@@ -231,7 +233,7 @@ const ResearchPage: React.FC = () => {
       category: "Publication",
       description:
         "Critical analysis of innovation while maintaining authenticity in Islamic financial products and services.",
-      link: "#",
+      link: "/research-papers/Innovation and authenticity.pdf",
     },
     {
       id: 104,
@@ -242,7 +244,7 @@ const ResearchPage: React.FC = () => {
       category: "Publication",
       description:
         "Proceedings from the Seventh Harvard Forum, focusing on the integration of Islamic finance into global financial systems.",
-      link: "#",
+      link: "/research-books/7thForumBook/Integrating Islamic Finance into the Mainstream.pdf",
     },
     {
       id: 105,
@@ -1028,7 +1030,7 @@ const ResearchPage: React.FC = () => {
       id: 300,
       title:
         "A Short History - Harvard-LSE-SOAS Annual Events in Islamic Finance 2006-2025",
-      type: "SOAS",
+      type: "SOAS-LSE",
       year: "2025",
       publisher: "SOAS University of London",
       description:
@@ -1038,7 +1040,7 @@ const ResearchPage: React.FC = () => {
     {
       id: 301,
       title: "LSE Reports Series Compilation",
-      type: "SOAS",
+      type: "SOAS-LSE",
       year: "2023",
       publisher: "London School of Economics",
       description:
@@ -1049,7 +1051,7 @@ const ResearchPage: React.FC = () => {
     {
       id: 302,
       title: "SOAS 2024 Workshop: Principles of Engagement",
-      type: "SOAS",
+      type: "SOAS-LSE",
       year: "2024",
       publisher: "SOAS University of London",
       description:
@@ -1060,7 +1062,7 @@ const ResearchPage: React.FC = () => {
     {
       id: 303,
       title: "SOAS 2023 Workshop Report",
-      type: "SOAS",
+      type: "SOAS-LSE",
       year: "2023",
       publisher: "SOAS University of London",
       description:
@@ -1070,7 +1072,7 @@ const ResearchPage: React.FC = () => {
     {
       id: 304,
       title: "SOAS 2023 Public Lecture on Islamic Finance",
-      type: "SOAS",
+      type: "SOAS-LSE",
       year: "2023",
       publisher: "SOAS University of London",
       description:
@@ -1081,7 +1083,7 @@ const ResearchPage: React.FC = () => {
     {
       id: 305,
       title: "Cryptos: Distinguishing Hype and Realities in Islamic Finance",
-      type: "SOAS",
+      type: "SOAS-LSE",
       year: "2022",
       publisher: "SOAS University of London",
       description:
@@ -1091,7 +1093,7 @@ const ResearchPage: React.FC = () => {
     {
       id: 306,
       title: "SOAS 2022 Workshop Final Report",
-      type: "SOAS",
+      type: "SOAS-LSE",
       year: "2022",
       publisher: "SOAS University of London",
       description:
@@ -1102,7 +1104,7 @@ const ResearchPage: React.FC = () => {
     {
       id: 307,
       title: "SOAS 2020 Islamic Finance Report",
-      type: "SOAS",
+      type: "SOAS-LSE",
       year: "2020",
       publisher: "SOAS University of London",
       description:
@@ -1113,7 +1115,7 @@ const ResearchPage: React.FC = () => {
     {
       id: 308,
       title: "SOAS 2019 Islamic Finance Report",
-      type: "SOAS",
+      type: "SOAS-LSE",
       year: "2019",
       publisher: "SOAS University of London",
       description:
@@ -1124,7 +1126,7 @@ const ResearchPage: React.FC = () => {
     {
       id: 309,
       title: "SOAS 2018 Workshop Report",
-      type: "SOAS",
+      type: "SOAS-LSE",
       year: "2018",
       publisher: "SOAS University of London",
       description:
@@ -1135,7 +1137,7 @@ const ResearchPage: React.FC = () => {
     {
       id: 310,
       title: "LSE Workshop on Tawarruq",
-      type: "SOAS",
+      type: "SOAS-LSE",
       year: "2007",
       publisher: "London School of Economics",
       description:
@@ -1145,7 +1147,7 @@ const ResearchPage: React.FC = () => {
     {
       id: 311,
       title: "LSE Workshop on Sukuk",
-      type: "SOAS",
+      type: "SOAS-LSE",
       year: "2008",
       publisher: "London School of Economics",
       description:
@@ -1155,7 +1157,7 @@ const ResearchPage: React.FC = () => {
     {
       id: 312,
       title: "LSE Workshop on Risk Management",
-      type: "SOAS",
+      type: "SOAS-LSE",
       year: "2009",
       publisher: "London School of Economics",
       description:
@@ -1165,7 +1167,7 @@ const ResearchPage: React.FC = () => {
     {
       id: 313,
       title: "LSE Workshop on Ethics and Governance",
-      type: "SOAS",
+      type: "SOAS-LSE",
       year: "2010",
       publisher: "London School of Economics",
       description:
@@ -1175,7 +1177,7 @@ const ResearchPage: React.FC = () => {
     {
       id: 314,
       title: "LSE Workshop on Reappraising the Islamic Financial Sector",
-      type: "SOAS",
+      type: "SOAS-LSE",
       year: "2011",
       publisher: "London School of Economics",
       description:
@@ -1186,7 +1188,7 @@ const ResearchPage: React.FC = () => {
       id: 315,
       title:
         "LSE Workshop on Insolvency and Debt Restructuring in Islamic Finance",
-      type: "SOAS",
+      type: "SOAS-LSE",
       year: "2013",
       publisher: "London School of Economics",
       description:
@@ -1639,30 +1641,19 @@ const ResearchPage: React.FC = () => {
       );
     }
 
-    // SOAS - SOAS specific content
-    if (activeType === "SOAS") {
+    // SOAS-LSE - SOAS and LSE specific content
+    if (activeType === "SOAS-LSE") {
       return (
-        (pub.publisher && pub.publisher.includes("SOAS")) || pub.type === "SOAS"
+        (pub.publisher && (pub.publisher.includes("SOAS") || pub.publisher.includes("London School of Economics") || pub.publisher === "LSE")) || pub.type === "SOAS-LSE"
       );
     }
 
-    // LSE - LSE specific content
-    if (activeType === "LSE") {
+    // Articles & Chapters - research papers, journal articles, and book chapters
+    if (activeType === "Articles & Chapters") {
       return (
-        pub.publisher &&
-        (pub.publisher.includes("London School of Economics") ||
-          pub.publisher === "LSE")
+        (pub.type === "Publication" && pub.id >= 200 && pub.id <= 242) ||
+        pub.type === "Book Chapter"
       );
-    }
-
-    // Articles - research papers and journal articles only (IDs 200-242)
-    if (activeType === "Articles") {
-      return pub.type === "Publication" && pub.id >= 200 && pub.id <= 242;
-    }
-
-    // Book Chapters
-    if (activeType === "Book Chapters") {
-      return pub.type === "Book Chapter";
     }
 
     // Media
@@ -1687,10 +1678,8 @@ const ResearchPage: React.FC = () => {
     "All",
     "Books",
     "Harvard",
-    "SOAS",
-    "LSE",
-    "Articles",
-    "Book Chapters",
+    "SOAS-LSE",
+    "Articles & Chapters",
     "Media",
   ];
 
@@ -1837,11 +1826,11 @@ const ResearchPage: React.FC = () => {
                   ? "Authored and Co-Authored Books"
                   : activeType === "Harvard"
                     ? "Harvard University Forum on Islamic Finance Series"
-                    : activeType === "SOAS"
-                      ? "SOAS Islamic Finance Workshop Series"
-                      : activeType === "LSE"
-                        ? "LSE Workshop Series"
-                        : "Research Papers and Journal Articles"}
+                    : activeType === "SOAS-LSE"
+                      ? "SOAS-LSE Islamic Finance Workshop Series"
+                      : activeType === "Articles & Chapters"
+                        ? "Research Papers, Journal Articles & Book Chapters"
+                        : "Media"}
             </h2>
             <p className="text-gray-600 leading-relaxed">
               {activeType === "All"
@@ -1850,11 +1839,11 @@ const ResearchPage: React.FC = () => {
                   ? "Dr. Ali has authored and co-authored numerous influential books on Islamic finance, fintech, sustainability, and Shariah governance with leading academic publishers including Edward Elgar, Palgrave Macmillan, Springer-Nature, Edinburgh University Press, and Routledge."
                   : activeType === "Harvard"
                     ? "Dr. Ali has been instrumental in organizing and contributing to the prestigious Harvard University Forums on Islamic Finance. These publications represent over two decades of groundbreaking research and discussions that have shaped the field of Islamic finance globally."
-                    : activeType === "SOAS"
-                      ? "Key contributions to the SOAS Islamic Finance Workshop Series, advancing Islamic finance research and education through collaborative efforts with SOAS University of London."
-                      : activeType === "LSE"
-                        ? "Comprehensive workshop reports from the LSE-Harvard collaborative series covering critical topics including Tawarruq, Sukuk, Risk Management, Ethics and Governance, and Insolvency in Islamic Finance."
-                        : "Academic publications, research papers, and scholarly articles in peer-reviewed journals covering Islamic finance, fintech, sustainability, and information systems."}
+                    : activeType === "SOAS-LSE"
+                      ? "Key contributions to the SOAS and LSE Islamic Finance Workshop Series, advancing Islamic finance research and education through collaborative efforts with SOAS University of London and London School of Economics."
+                      : activeType === "Articles & Chapters"
+                        ? "Academic publications, research papers, scholarly articles in peer-reviewed journals, and chapters in edited volumes covering Islamic finance, fintech, sustainability, and information systems."
+                        : "Media coverage and video content featuring Dr. Ali's research and contributions to the field."}
             </p>
           </div>
 

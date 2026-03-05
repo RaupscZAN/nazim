@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
     { name: "Home", path: "/" },
     { name: "Life Journey", path: "/life-journey" },
     { name: "Research", path: "/research" },
-    { name: "Harvard Archives", path: "/harvard-archives" },
+    { name: "IFC-Harvard", path: "/harvard-archives" },
   ];
 
   return (

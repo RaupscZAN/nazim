@@ -1,13 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Linkedin,
-  BookOpen,
-  FileText,
-  Mail,
-  Phone,
-  MapPin,
-} from "lucide-react";
+import { Linkedin, BookOpen, FileText } from "lucide-react";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -118,53 +111,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="font-semibold text-white mb-4">Contact</h4>
-            <ul className="space-y-3">
-              <li className="flex items-start text-sm text-cream-300">
-                <Mail
-                  size={16}
-                  className="mr-2 mt-0.5 text-gold-500 flex-shrink-0"
-                />
-                <div>
-                  <a
-                    href="mailto:snnali@outlook.com"
-                    className="hover:text-gold-400 transition-colors"
-                  >
-                    snnali@outlook.com
-                  </a>
-                  <br />
-                  <a
-                    href="mailto:ifpnazimali@gmail.com"
-                    className="hover:text-gold-400 transition-colors"
-                  >
-                    ifpnazimali@gmail.com
-                  </a>
-                </div>
-              </li>
-              <li className="flex items-center text-sm text-cream-300">
-                <Phone size={16} className="mr-2 text-gold-500 flex-shrink-0" />
-                <a
-                  href="tel:+17744340812"
-                  className="hover:text-gold-400 transition-colors"
-                >
-                  +1 774 434 0812
-                </a>
-              </li>
-              <li className="flex items-start text-sm text-cream-300">
-                <MapPin
-                  size={16}
-                  className="mr-2 mt-0.5 text-gold-500 flex-shrink-0"
-                />
-                <span>
-                  119 Chauncy Street
-                  <br />
-                  Mansfield, MA 02048, USA
-                </span>
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
 

@@ -98,14 +98,21 @@ const LifeJourneyPage: React.FC = () => {
       year: "1976",
       period: "1976 – 1983",
       type: "career" as const,
-      title: "Director of Library",
+      title: "Director of Libraries",
       organization: "King Faisal University",
       location: "Saudi Arabia",
       description:
         "Pioneered development of modern university libraries in the Gulf region.",
       significance:
         "Established foundational systems for academic information management in Saudi Arabia.",
-      photos: getPhotosForItem("career-kfu", "career"),
+      photos: [
+        {
+          path: "/Media/Photos/Saudi ChairsProgram Directos visit to Saudi Arabia in 2012 meeting with HRH King Salman (LtoR Syed Nazim Ali, Sherman Jackson.jpg",
+          title: "Meeting with Future King Salman",
+          description:
+            "Saudi Chairs Program Directors' visit to Saudi Arabia, meeting with HRH King Salman. Dr. Ali's deep roots in the Kingdom date back to his years at King Faisal University.",
+        },
+      ],
     },
     {
       id: "career-bahrain",
@@ -119,7 +126,20 @@ const LifeJourneyPage: React.FC = () => {
         "Modernized academic information systems and research infrastructure at a leading Gulf university.",
       significance:
         "Transformed research capabilities and information management systems.",
-      photos: getPhotosForItem("career-bahrain", "career"),
+      photos: [
+        {
+          path: "/Media/Photos/Prof Samuel Hayes with Central Bank of Lebanon Governor Jachi.jpg",
+          title: "International Banking Partnerships",
+          description:
+            "Prof. Samuel Hayes with Central Bank of Lebanon Governor — reflecting the international banking relationships built during Dr. Ali's Gulf years.",
+        },
+        {
+          path: "/Media/Photos/Eminent Shariah Scholar, Shaykh Nizam Yaquby attending Harvard Forum.jpg",
+          title: "Shaykh Nizam Yaqoby",
+          description:
+            "Eminent Shariah Scholar Shaykh Nizam Yaqoby from Bahrain — a key figure in the Bahraini Islamic finance ecosystem during Dr. Ali's tenure.",
+        },
+      ],
     },
     {
       id: "career-harvard",
@@ -136,12 +156,35 @@ const LifeJourneyPage: React.FC = () => {
         "This 20-year tenure transformed Islamic finance from a niche topic to a mainstream academic discipline. Policy leadership fundamentally advanced regulatory understanding of Islamic finance globally, especially post-9/11.",
       photos: [
         {
+          path: "/Media/Photos/HRH Prince Amr Bin Faisal Al Saud is speaking at the First Harvard University Forum on Islamic Finance in May 1997.jpg",
+          title: "First Harvard Forum on Islamic Finance, 1997",
+          description:
+            "HRH Prince Amr Bin Faisal Al Saud delivering the keynote at the inaugural Harvard University Forum on Islamic Finance in May 1997.",
+        },
+        {
           path: "/Media/Photos/Harvard University  Islamic Finance Forum 2004 (My daughters Nargis, Nilufer and Nawal).jpg",
           title: "Harvard Islamic Finance Forum 2004 - Family Moment",
           description:
-            "Dr. Ali with his daughters Nargis, Nilufer, and Nawal at the 2004 Harvard University Islamic Finance Forum, showcasing the personal side of academic leadership.",
+            "Dr. Ali with his daughters Nargis, Nilufer, and Nawal at the 2004 Harvard University Islamic Finance Forum.",
         },
-        ...getPhotosForItem("career-harvard", "career", "harvard"),
+        {
+          path: "/Media/Photos/With U.S. Undersecretary for Treasury at Harvard Forum.jpg",
+          title: "U.S. Treasury Partnership at Harvard",
+          description:
+            "Dr. Ali with the U.S. Undersecretary for Treasury at a Harvard Forum, highlighting collaboration between academia and government on Islamic finance policy.",
+        },
+        {
+          path: "/Media/Photos/Harvard Farewell/Harvard Law School Dean, Martha Minow 2014.jpg",
+          title: "With Dean Martha Minow, 2014",
+          description:
+            "Dr. Ali with Harvard Law School Dean Martha Minow at his farewell reception, celebrating his distinguished 20-year tenure.",
+        },
+        {
+          path: "/Media/Photos/Harvard Farewell/061814_Nazim_Ali_074.jpg",
+          title: "Harvard Farewell Reception",
+          description:
+            "Dr. Ali at his farewell reception hosted by Harvard Law School, June 2014.",
+        },
       ],
     },
     {
@@ -156,7 +199,26 @@ const LifeJourneyPage: React.FC = () => {
         "Established ICIF conference (8 years) and CEOs Roundtable (10 years). Served as Acting Dean 2017-2022.",
       significance:
         "Led major research initiatives and academic programs in the Gulf region, continuing to shape Islamic finance education.",
-      photos: getPhotosForItem("career-hbku", "career", "international"),
+      photos: [
+        {
+          path: "/Media/Photos/CEOs Roundtable H.E. the Governor Abdullah Saif Al Thani and Dr Volker Nienhaus.jpg",
+          title: "Qatar CEO Roundtable",
+          description:
+            "CEO Roundtable featuring H.E. Governor Abdullah Saif Al Thani and Dr. Volker Nienhaus, discussing the future of Islamic banking in Qatar.",
+        },
+        {
+          path: "/conference-archives/2024 Confeence group photo.jpg",
+          title: "2024 ICIF Conference Group Photo",
+          description:
+            "Group photo from the 2024 International Conference on Islamic Finance at HBKU, Qatar Foundation.",
+        },
+        {
+          path: "/conference-archives/2024 Confeence Audience.jpg",
+          title: "2024 Conference Audience",
+          description:
+            "Audience at the 2024 ICIF conference — one of the premier Islamic finance gatherings established by Dr. Ali.",
+        },
+      ],
     },
     {
       id: "career-soas",
@@ -171,7 +233,20 @@ const LifeJourneyPage: React.FC = () => {
       significance:
         "Bringing decades of experience to shape the next generation of Islamic finance scholarship.",
       current: true,
-      photos: getPhotosForItem("career-soas", "career", "academic"),
+      photos: [
+        {
+          path: "/soas-lse-events/SOAS 2024_Website/SOAS 2024 Public Lecture/2024 SOAS-QFC Public Lecture on Islamic Finance.JPG",
+          title: "SOAS-QFC Public Lecture on Islamic Finance, 2024",
+          description:
+            "The 2024 SOAS-QFC Public Lecture on Islamic Finance, reflecting Dr. Ali's ongoing engagement with SOAS.",
+        },
+        {
+          path: "/soas-lse-events/SOAS 2024_Website/SOAS 2024 Public Lecture/SOAS Public Lecture_June 5.jpeg",
+          title: "SOAS Public Lecture, June 2024",
+          description:
+            "SOAS Public Lecture event, June 5, 2024 — part of the academic activities at Dr. Ali's current institution.",
+        },
+      ],
     },
   ];
 
@@ -363,7 +438,7 @@ const LifeJourneyPage: React.FC = () => {
             <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-burgundy-200 via-gold-300 to-burgundy-200 hidden md:block" />
 
             {/* Timeline Items */}
-            {timelineItems.map((item, index) => (
+            {[...timelineItems].reverse().map((item, index) => (
               <TimelineItemWithPhotos
                 key={item.id}
                 {...item}
@@ -533,9 +608,7 @@ const LifeJourneyPage: React.FC = () => {
                 {[
                   "Islamic Finance",
                   "Islamic Economics",
-                  "Fintech & Financial Technology",
                   "Sustainability",
-                  "Shari'ah Governance",
                   "Waqf Development",
                   "Microfinance",
                   "Social and Impact Finance",
@@ -621,47 +694,6 @@ const LifeJourneyPage: React.FC = () => {
                   </div>
                 </div>
               ))}
-            </motion.div>
-          </div>
-
-          {/* Institutional Roles & Governance */}
-          <div className="mb-16">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-2xl font-serif font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200"
-            >
-              Institutional Leadership & Governance
-            </motion.h2>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="space-y-3"
-            >
-              <p className="text-slate-700 leading-relaxed mb-4">
-                At Hamad Bin Khalifa University, Dr. Ali has assumed strategic
-                leadership roles and chaired key institutional bodies including:
-              </p>
-              <ul className="space-y-2 ml-4">
-                {[
-                  "Research and Strategy Committee",
-                  "University Library Committee",
-                  "College Shura Council",
-                ].map((role, i) => (
-                  <li key={i} className="flex items-start">
-                    <span className="w-2 h-2 bg-burgundy-800 rounded-full mt-2.5 mr-3 flex-shrink-0"></span>
-                    <span className="text-slate-600">{role}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="text-slate-600 text-sm mt-4 italic">
-                These roles have deepened his insights into academic policy
-                formulation, research strategy, and institutional governance,
-                positioning him exceptionally well for university-level advisory
-                and consultancy roles.
-              </p>
             </motion.div>
           </div>
 

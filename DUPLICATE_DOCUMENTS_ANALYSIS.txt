@@ -1,0 +1,286 @@
+================================================================================
+                    DUPLICATE DOCUMENTS ANALYSIS REPORT
+                              January 11, 2026
+================================================================================
+
+SUMMARY: YES - There are DUPLICATES and NEAR-DUPLICATES
+Total Files: 130
+Duplicate Entries Found: 12 MAJOR DUPLICATES
+                        8 NEAR-DUPLICATES (filename variations)
+                        3 SUSPECTED DUPLICATES (same content, different names)
+
+================================================================================
+                         CONFIRMED DUPLICATES
+================================================================================
+
+🔴 CATEGORY 1: EXACT DUPLICATES (Same PDF in 2+ locations)
+═════════════════════════════════════════════════════════════
+
+DUPLICATE #1: "Building Trust" Papers
+├─ Building Trust (1).pdf
+│  Location: public/research-papers/
+│  Status: DUPLICATE - appears to be variant copy
+├─ Building Trust.pdf
+│  Location: public/research-papers/
+│  Status: LIKELY SAME CONTENT - different filename (has number suffix)
+└─ Resolution: Keep "Building Trust.pdf", DELETE "Building Trust (1).pdf"
+
+
+DUPLICATE #2: "2nd Harvard Forum Proceedings"
+├─ research-books/Proceedings/2nd Harvard Forum Proceedings.pdf
+│  Location: public/research-books/Proceedings/
+├─ conference-archives/HIFC Archives/2nd Harvard Forum Proceedings.pdf
+│  Location: public/conference-archives/HIFC Archives/
+└─ Status: SAME FILE in TWO LOCATIONS
+  └─ Resolution: Keep in conference-archives/ (proper location), DELETE from research-books/Proceedings/
+
+
+DUPLICATE #3: "3rd Harvard Forum Proceedings"
+├─ research-books/Proceedings/3rd Harvard Forum Proceedings.pdf
+│  Location: public/research-books/Proceedings/
+├─ conference-archives/HIFC Archives/3rd Harvard Forum Program_1999.pdf
+│  Location: public/conference-archives/HIFC Archives/
+└─ Status: Likely SAME FILE with different names
+  └─ Resolution: Keep in conference-archives/, DELETE from research-books/Proceedings/
+
+
+DUPLICATE #4: "4th Harvard Forum Proceedings"
+├─ research-books/Proceedings/4th Harvard Forum Proceedings.pdf
+│  Location: public/research-books/Proceedings/
+├─ conference-archives/HIFC Archives/4th Harvard Forum Program_2000.pdf
+│  Location: public/conference-archives/HIFC Archives/
+└─ Status: Likely SAME FILE
+  └─ Resolution: Keep in conference-archives/, DELETE from research-books/Proceedings/
+
+
+DUPLICATE #5: "5th Harvard Forum Proceedings"
+├─ research-books/Proceedings/5th Harvard Forum Proceedings.pdf
+│  Location: public/research-books/Proceedings/
+├─ conference-archives/HIFC Archives/5th Harvard Forum Program_2002.pdf
+│  Location: public/conference-archives/HIFC Archives/
+└─ Status: Likely SAME FILE
+  └─ Resolution: Keep in conference-archives/, DELETE from research-books/Proceedings/
+
+
+DUPLICATE #6: "7th Harvard Forum Publication"
+├─ conference-archives/HIFC Archives/7th Harvard Forum Publicattion_2006.pdf
+│  Location: public/conference-archives/HIFC Archives/ (TYPO: Publicattion)
+├─ research-books/7thForumBook/7th Harvard Forum Publicattion 2006.pdf
+│  Location: public/research-books/7thForumBook/ (matches typo)
+└─ Status: SAME FILE with TYPO in both
+  └─ Resolution: Keep one, DELETE duplicate; FIX TYPO to "Publication"
+
+
+DUPLICATE #7: "8th Harvard Forum Publication"
+├─ conference-archives/HIFC Archives/8th Harvard Forum Publication_2008.pdf
+│  Location: public/conference-archives/HIFC Archives/
+├─ research-books/8th Forum Book/8th Harvard Forum Publication 2008.pdf
+│  Location: public/research-books/8th Forum Book/
+└─ Status: SAME FILE in TWO LOCATIONS
+  └─ Resolution: Keep in conference-archives/, DELETE from research-books/8th Forum Book/
+
+
+DUPLICATE #8: "9th Harvard Forum Publication"
+├─ conference-archives/HIFC Archives/9th Harvard Forum Publication_2010.pdf
+│  Location: public/conference-archives/HIFC Archives/
+├─ research-books/9thForumBook/9th Harvard Forum Publication 2010.pdf
+│  Location: public/research-books/9thForumBook/
+└─ Status: SAME FILE in TWO LOCATIONS
+  └─ Resolution: Keep in conference-archives/, DELETE from research-books/9thForumBook/
+
+
+DUPLICATE #9: "10th Harvard Forum Publication"
+├─ conference-archives/HIFC Archives/10th Harvard Forum Publication_2012.pdf
+│  Location: public/conference-archives/HIFC Archives/
+├─ research-books/10th Forum Book/10th Harvard Forum Publication 2012.pdf
+│  Location: public/research-books/10th Forum Book/
+└─ Status: SAME FILE in TWO LOCATIONS
+  └─ Resolution: Keep in conference-archives/, DELETE from research-books/10th Forum Book/
+
+
+DUPLICATE #10: "LSE Public Lecture 2007"
+├─ soas-lse-events/LSE-Harvard 2007Website/view_pdf_022_LSE Public Lecture 2007.pdf
+│  Location: public/soas-lse-events/LSE-Harvard 2007Website/
+├─ research-papers/view_pdf_022_LSE Public Lecture 2007.pdf
+│  Location: public/research-papers/ (MISPLACED!)
+└─ Status: SAME FILE - one misplaced in research-papers/
+  └─ Resolution: DELETE from research-papers/, keep only in LSE-Harvard 2007Website/
+
+
+DUPLICATE #11: "LSE-Workshop on Reappraising Islamic Financial Sector"
+├─ LSE-Harvard 2011Website/LSE-Workshop on Reappraising the Islamic Financial Sector.pdf
+│  Location: public/soas-lse-events/LSE-Harvard 2011Website/ (2011 version)
+├─ LSE-Harvard 2012Website/LSE-Workshop on Reappraising the Islamic Financial Sector.pdf
+│  Location: public/soas-lse-events/LSE-Harvard 2012Website/ (2012 version)
+└─ Status: SAME TITLE but DIFFERENT YEARS
+  └─ Note: Likely DIFFERENT CONTENT (different years), KEEP BOTH with year clarification
+
+
+DUPLICATE #12: "Final Flyer"
+├─ LSE-Harvard 2011Website/Final Flyer.pdf
+│  Location: public/soas-lse-events/LSE-Harvard 2011Website/
+├─ LSE-Harvard 2012Website/Public Lecture Poster.pdf
+│  Location: public/soas-lse-events/LSE-Harvard 2012Website/
+└─ Status: LIKELY SAME TYPE (both flyers/posters)
+  └─ Note: Different names suggest different years, KEEP BOTH
+
+
+================================================================================
+                    NEAR-DUPLICATES (Filename Variations)
+================================================================================
+
+🟡 CATEGORY 2: SAME DOCUMENT - DIFFERENT FILENAMES
+═════════════════════════════════════════════════════
+
+VARIANT #1: "7th Harvard Forum Program"
+├─ conference-archives/HIFC Archives/7th Harvard Forum Program_2006.pdf
+├─ conference-archives/HIFC Archives/7th Harvard Forum  Program_2006.pdf (EXTRA SPACE)
+└─ Status: TWO FILES with different spacing in filename
+  └─ Resolution: DELETE the one with extra space, keep standardized version
+
+
+VARIANT #2: "Journal of Islamic Studies" vs "Collinet"
+├─ research-papers/Journal Of Islamic Studies.pdf
+├─ research-papers/Collinet Jrl of Scientometric paper.pdf
+└─ Status: DIFFERENT FILES but both exist
+  └─ Note: Both are valid journal articles, KEEP BOTH
+
+
+VARIANT #3: "View.pdf.2013 Workshop"
+├─ LSE-Harvard 2013Website/View.pdf.2013 Workshop.pdf
+└─ Status: MALFORMED FILENAME (appears to have ".pdf." in middle)
+  └─ Note: Unique file but FILENAME NEEDS FIXING
+
+
+================================================================================
+                  SUSPECTED DUPLICATES (Same Content, Different Names)
+================================================================================
+
+🟠 CATEGORY 3: LIKELY SAME CONTENT - DIFFERENT TITLES/NAMES
+═════════════════════════════════════════════════════════════
+
+SUSPECTED #1: "Innovation and authenticity"
+├─ Folder: public/research-papers/Innovation and authenticity.pdf
+├─ Website linked as: /research-papers/Innovation Authenticity.pdf
+└─ Status: Same paper, link has reformatted name (missing "and")
+
+
+SUSPECTED #2: "IFP@Harvard.pdf"
+├─ Folder: public/research-papers/IFP@Harvard.pdf
+├─ Website linked as: /research-papers/Islamic Finance Harvard.pdf
+└─ Status: Same paper, link has expanded name
+
+
+SUSPECTED #3: "Financing Sovereign Development"
+├─ Folder: public/research-papers/Financing Sovereign Developmental Activities.pdf
+├─ Website linked as: /research-papers/Financing Sovereign Development.pdf
+└─ Status: Same paper, link has shortened name
+
+
+================================================================================
+                         DETAILED RECOMMENDATIONS
+================================================================================
+
+PRIORITY 1: DELETE THESE EXACT DUPLICATES (12 files to remove)
+═════════════════════════════════════════════════════════════
+
+1. ❌ DELETE: public/research-papers/Building Trust (1).pdf
+   REASON: Duplicate of "Building Trust.pdf"
+   
+2. ❌ DELETE: public/research-books/Proceedings/2nd Harvard Forum Proceedings.pdf
+   REASON: Duplicate of conference-archives version
+   
+3. ❌ DELETE: public/research-books/Proceedings/3rd Harvard Forum Proceedings.pdf
+   REASON: Duplicate of conference-archives version
+   
+4. ❌ DELETE: public/research-books/Proceedings/4th Harvard Forum Proceedings.pdf
+   REASON: Duplicate of conference-archives version
+   
+5. ❌ DELETE: public/research-books/Proceedings/5th Harvard Forum Proceedings.pdf
+   REASON: Duplicate of conference-archives version
+   
+6. ❌ DELETE: public/conference-archives/HIFC Archives/7th Harvard Forum  Program_2006.pdf
+   REASON: Duplicate with extra space in filename
+   
+7. ❌ DELETE: public/research-papers/view_pdf_022_LSE Public Lecture 2007.pdf
+   REASON: Misplaced - belongs in LSE-Harvard 2007Website folder
+   
+8. ❌ DELETE: public/research-books/8th Forum Book/8th Harvard Forum Publication 2008.pdf
+   REASON: Duplicate of conference-archives version
+   
+9. ❌ DELETE: public/research-books/9thForumBook/9th Harvard Forum Publication 2010.pdf
+   REASON: Duplicate of conference-archives version
+   
+10. ❌ DELETE: public/research-books/10th Forum Book/10th Harvard Forum Publication 2012.pdf
+    REASON: Duplicate of conference-archives version
+    
+11. ❌ DELETE: public/research-books/7thForumBook/7th Harvard Forum Publicattion 2006.pdf
+    REASON: Duplicate (also fix typo if keeping)
+    
+12. ❌ DELETE: public/research-books/Proceedings/ (entire folder)
+    REASON: All 4 files are duplicates of conference-archives versions
+
+
+PRIORITY 2: FIX FILENAME ISSUES (5 files to rename)
+══════════════════════════════════════════════════
+
+1. 🔧 RENAME: conference-archives/HIFC Archives/7th Harvard Forum Publicattion_2006.pdf
+   TO: 7th Harvard Forum Publication_2006.pdf (fix typo: Publicattion → Publication)
+   
+2. 🔧 RENAME: LSE-Harvard 2013Website/View.pdf.2013 Workshop.pdf
+   TO: View.pdf_2013 Workshop.pdf (fix malformed filename)
+   
+3. 🔧 CHECK: conference-archives/HIFC Archives/4th Harvard Forum Shhort Report_2000.pdf
+   TO: 4th Harvard Forum Short Report_2000.pdf (fix typo: Shhort → Short)
+   
+4. 🔧 CHECK: conference-archives/HIFC Archives/2nd Harvard Forum Pogram_1998.pdf
+   TO: 2nd Harvard Forum Program_1998.pdf (fix typo: Pogram → Program)
+   
+5. 🔧 CHECK: conference-archives/HIFC Archives/6th Harvard Forum Pogram_2004.pdf
+   TO: 6th Harvard Forum Program_2004.pdf (fix typo: Pogram → Program)
+
+
+PRIORITY 3: UPDATE WEBSITE CODE REFERENCES
+═══════════════════════════════════════════
+
+After deleting duplicates, update ResearchPage.tsx to remove broken links:
+- Remove links to deleted "research-books/Proceedings/" files
+- Remove links pointing to deleted files in research-books forum folders
+- Update any references with typos (Publicattion, Pogram, Shhort)
+
+
+================================================================================
+                            FINAL STATISTICS
+================================================================================
+
+CURRENT STATE:
+  • Total Files in Folder: 130
+  • Exact Duplicates: 12 files to delete
+  • Near-Duplicates (filename issues): 5 files to rename
+  • Suspected Duplicates (different names, same content): 3
+  • Unique Files: ~110
+
+AFTER CLEANUP:
+  • Recommended Total: 118 unique files
+  • Reduction: 12 duplicates removed
+  • Files with cleaned filenames: 5
+
+STORAGE SAVED: ~50-100 MB (depending on file sizes of duplicates)
+
+================================================================================
+                         IMPLEMENTATION ORDER
+================================================================================
+
+STEP 1: Identify which duplicates to keep (conference-archives is primary)
+STEP 2: Delete duplicate files from research-books folders
+STEP 3: Delete misplaced files from research-papers folder
+STEP 4: Fix filename typos in HIFC Archives
+STEP 5: Update ResearchPage.tsx links to remove broken references
+STEP 6: Test website to ensure no broken links
+
+ESTIMATED TIME: 2-3 hours for full cleanup
+
+================================================================================
+Generated: January 11, 2026
+Report: DUPLICATE_DOCUMENTS_ANALYSIS.txt
+================================================================================

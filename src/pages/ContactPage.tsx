@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SectionHeading from "../components/SectionHeading";
-import { Mail, MapPin, Phone, Send, Mic } from "lucide-react";
+import { Send, Mic } from "lucide-react";
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -93,46 +93,8 @@ const ContactPage: React.FC = () => {
             </h3>
             <p className="text-slate-700 mb-8 leading-relaxed">
               For academic inquiries, activity requests, or collaboration
-              opportunities, please use the contact form or reach out directly
-              using the information below.
+              opportunities, please use the contact form.
             </p>
-
-            <div className="space-y-6">
-              <div className="flex items-start">
-                <div className="bg-navy-100 rounded-full p-3 mr-4">
-                  <Mail className="text-navy-700" size={20} />
-                </div>
-                <div>
-                  <h4 className="font-medium text-navy-800 mb-1">Email</h4>
-                  <p className="text-slate-600">snnali@outlook.com</p>
-                  <p className="text-slate-600">ifpnazimali@gmail.com</p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="bg-navy-100 rounded-full p-3 mr-4">
-                  <Phone className="text-navy-700" size={20} />
-                </div>
-                <div>
-                  <h4 className="font-medium text-navy-800 mb-1">Mobile</h4>
-                  <p className="text-slate-600">+1 774 434 0812</p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="bg-navy-100 rounded-full p-3 mr-4">
-                  <MapPin className="text-navy-700" size={20} />
-                </div>
-                <div>
-                  <h4 className="font-medium text-navy-800 mb-1">Address</h4>
-                  <p className="text-slate-600">
-                    119 Chauncy Street
-                    <br />
-                    Mansfield, MA 02048, USA
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div>
